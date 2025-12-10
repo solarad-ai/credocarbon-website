@@ -29,7 +29,7 @@ export default function AboutUs() {
 
   const founder = {
     name: "Dr. Haider Abbas",
-    picture: "/src/images/haider.jpeg",
+    picture: "/images/haider.jpeg",
     desg: "Founder & CEO, CredoCarbon",
     linkedIn: "https://www.linkedin.com/in/-haiderabbas/",
     mail: "mailto:haider@solarad.ai",
@@ -42,7 +42,7 @@ export default function AboutUs() {
   const advisors = [
     {
       name: "Dr. Vikram Singh",
-      picture: "src/images/vikram.jpeg",
+      picture: "images/vikram.jpeg",
       desg: "Prof IIT Delhi || Cornell",
       linkedIn:
         "https://www.linkedin.com/in/vikram-singh-53548521/?originalSubdomain=in",
