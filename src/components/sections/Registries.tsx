@@ -63,7 +63,7 @@ export default function Registries() {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-4">
-            Built to operate across 
+            Built to operate across
             <span className="bg-gradient-to-r from-sky-400 to-blue-400 bg-clip-text text-transparent"> global standards</span>
           </h2>
 
@@ -74,13 +74,28 @@ export default function Registries() {
           </p>
         </div>
 
-        {/* Registry logos/badges */}
-        <div className="flex justify-center items-center gap-8 mb-16">
-          {['Verra', 'Gold Standard', 'GCC', 'Plan Vivo', 'Regional'].map((registry) => (
-            <div key={registry} className="px-4 py-2 rounded-xl border border-slate-700 bg-slate-900/50 text-xs font-medium text-slate-400 hover:border-sky-400/30 hover:text-sky-300 transition-colors">
-              {registry}
-            </div>
-          ))}
+        {/* Registry logos */}
+        <div className="flex flex-wrap justify-center items-center gap-16 mb-16">
+          <img
+            src="/images/verra.webp"
+            alt="Verra"
+            className="h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+          />
+          <img
+            src="/images/gold_standards.png"
+            alt="Gold Standard"
+            className="h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+          />
+          <img
+            src="/images/Gcc.png"
+            alt="GCC"
+            className="h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+          />
+          <img
+            src="/images/Plan_vivo.png"
+            alt="Plan Vivo"
+            className="h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+          />
         </div>
 
         {/* UNIFIED REGISTRY FEATURES GRID */}
@@ -94,7 +109,7 @@ export default function Registries() {
               'from-cyan-500/20 to-sky-600/20 border-cyan-400/30',
               'from-teal-500/20 to-blue-600/20 border-teal-400/30'
             ];
-            
+
             return (
               <div
                 key={feature.title}

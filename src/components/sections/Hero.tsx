@@ -1,20 +1,46 @@
 import { Leaf, Shield, BarChart3 } from "lucide-react";
 import { TextGenerateEffect } from "../ui/TextGenerateEffect";
 import { Button } from "../ui/Button";
+import { useEffect, useRef } from "react";
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.45; // slow, cinematic
+    }
+  }, []);
+
   return (
     <section
       id="overview"
       className="
         relative overflow-hidden
-        bg-[linear-gradient(35deg,#022c22_0%,#059669_40%,#6ee7b7_100%)]
-        pt-20 pb-32 md:pt-28 md:pb-40
+        bg-slate-950
+        min-h-[90vh]
+        pt-20 pb-36 md:pt-32 md:pb-44
       "
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(34,197,94,0.25),_transparent_60%)]" />
+      {/* Video background */}
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/videoes/Hero.mp4" type="video/mp4" />
+      </video>
 
-      <div className="relative mx-auto flex max-w-6xl flex-col gap-14 px-6 md:flex-row md:items-center md:gap-16">
+      {/* Dark overlay (reduced opacity) */}
+      <div className="absolute inset-0 bg-slate-950/35" />
+
+      {/* Gradient overlay (softened) */}
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(35deg,rgba(2,44,34,0.55)_0%,rgba(5,150,105,0.28)_40%,rgba(110,231,183,0.12)_100%)]" />
+
+      <div className="relative mx-auto flex max-w-6xl flex-col gap-14 px-6 md:flex-row md:items-center md:gap-16 md:translate-y-8">
         <div className="flex-1">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-300/40 bg-emerald-700/20 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-50 backdrop-blur">
             <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-300" />
@@ -24,7 +50,7 @@ export default function Hero() {
           <TextGenerateEffect words={"CredoCarbon: One Stack for Developers, VVBs & Buyers"} />
 
           <p className="max-w-xl text-sm md:text-base lg:text-lg leading-relaxed text-emerald-50/90 mb-6 mt-4">
-            A dedicated infrastructure layer that digitises project MRV, registry workflows and OTC trading — 
+            A dedicated infrastructure layer that digitises project MRV, registry workflows and OTC trading —
             creating unified carbon credit operations from development to retirement.
           </p>
 

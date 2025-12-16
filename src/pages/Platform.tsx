@@ -9,9 +9,10 @@ export default function Platform() {
     <>
       <Lifecycle />
       <MRV />
-      <AISection />
-      <MarketOps />
       <Registries />
+      <AISection />
+      {/* <MarketOps /> */}
+      
     </>
   );
 }
