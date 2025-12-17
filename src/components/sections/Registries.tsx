@@ -44,7 +44,7 @@ export default function Registries() {
   return (
     <section
       id="registries"
-      className="relative bg-gradient-to-b from-slate-950 to-slate-900 py-20 md:py-24 border-t border-emerald-500/10 overflow-hidden"
+      className="relative bg-gradient-to-b from-slate-950/20 to-slate-900 py-20 md:py-24 border-t border-emerald-500/10 overflow-hidden"
     >
       {/* Registry-themed background */}
       <div className="absolute inset-0 opacity-20">
@@ -74,29 +74,66 @@ export default function Registries() {
           </p>
         </div>
 
-        {/* Registry logos */}
-        <div className="flex flex-wrap justify-center items-center gap-16 mb-16">
-          <img
-            src="/images/verra.webp"
-            alt="Verra"
-            className="h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
-          />
-          <img
-            src="/images/gold_standards.png"
-            alt="Gold Standard"
-            className="h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
-          />
-          <img
-            src="/images/Gcc.png"
-            alt="GCC"
-            className="h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
-          />
-          <img
-            src="/images/Plan_vivo.png"
-            alt="Plan Vivo"
-            className="h-14 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
-          />
-        </div>
+        {/* Registry logos strip */}
+<div className="mb-16">
+  <div
+    className="
+   mx-auto max-w-4xl
+  rounded-3xl
+  border border-slate-200/60
+  bg-gradient-to-r
+  from-white/95
+  via-slate-20/20
+  to-white/95
+  backdrop-blur-md
+  px-10 py-8
+"
+  >
+    <div className="flex flex-wrap justify-center items-center gap-16">
+      <img
+        src="/images/verra.webp"
+        alt="Verra"
+        className="
+          h-16 w-auto object-contain
+          opacity-95
+          transition-transform duration-300 ease-out
+          hover:scale-125
+        "
+      />
+      <img
+        src="/images/gold_standards.png"
+        alt="Gold Standard"
+        className="
+          h-16 w-auto object-contain
+          opacity-95
+          transition-transform duration-300 ease-out
+          hover:scale-125
+        "
+      />
+      <img
+        src="/images/Gcc.png"
+        alt="GCC"
+        className="
+          h-14 w-auto object-contain
+          opacity-95
+          transition-transform duration-300 ease-out
+          hover:scale-125
+        "
+      />
+      <img
+        src="/images/Plan_vivo.png"
+        alt="Plan Vivo"
+        className="
+          h-14 w-auto object-contain
+          opacity-95
+          transition-transform duration-300 ease-out
+          hover:scale-125
+        "
+      />
+    </div>
+  </div>
+</div>
+
 
         {/* UNIFIED REGISTRY FEATURES GRID */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">

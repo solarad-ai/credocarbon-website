@@ -251,44 +251,66 @@ export default function VVBJourney() {
             </p>
           </div>
 
-          {/* Simple logo display - inspired by Registries section */}
-          <div className="flex flex-wrap justify-center items-center gap-12">
-                  {/* DNV – wide, needs more width */}
-                  <div className="flex items-center justify-center">
-                    <img
-                      src="/images/Dnv.png"
-                      alt="DNV"
-                      className="h-16 w-auto scale-125 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
-                    />
-                  </div>
+          {/* VVB Partners Logos */}
+<div className="flex flex-wrap justify-center items-center gap-10">
 
-                  {/* TÜV SÜD – very wide & thin */}
-                  <div className="flex items-center justify-center">
-                    <img
-                      src="/images/TUV_sud.png"
-                      alt="TÜV SÜD"
-                      className="h-16 w-auto scale-125 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
-                    />
-                  </div>
 
-                  {/* Ecolance – balanced */}
-                  <div className="flex items-center justify-center">
-                    <img
-                      src="/images/Ecolance.png"
-                      alt="Ecolance"
-                      className="h-12 w-auto scale-100 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
-                    />
-                  </div>
+  {/* TÜV SÜD */}
+  <div className="flex items-center justify-center">
+    <img
+      src="/images/TUV_sud.png"
+      alt="TÜV SÜD"
+      className="
+        h-24 w-auto object-contain
+        opacity-50 grayscale
+        transition-all duration-300
+        hover:opacity-90 hover:grayscale-0
+      "
+    />
+  </div>
+    {/* DNV */}
+  <div className="flex items-center justify-center">
+    <img
+      src="/images/Dnv.png"
+      alt="DNV"
+      className="
+        h-24 w-auto object-contain
+        opacity-50 grayscale
+        transition-all duration-300
+        hover:opacity-90 hover:grayscale-0
+      "
+    />
+  </div>
 
-                  {/* Earthood – slightly tall */}
-                  <div className="flex items-center justify-center">
-                    <img
-                      src="/images/Earthood.png"
-                      alt="Earthood"
-                      className="h-12 w-auto scale-105 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
-                    />
-                  </div>
-                </div>
+  {/* Ecolance */}
+  <div className="flex items-center justify-center">
+    <img
+      src="/images/Ecolance.png"
+      alt="Ecolance"
+      className="
+        h-14 w-auto object-contain
+        opacity-50 grayscale
+        transition-all duration-300
+        hover:opacity-90 hover:grayscale-0
+      "
+    />
+  </div>
+
+  {/* Earthood */}
+  <div className="flex items-center justify-center">
+    <img
+      src="/images/Earthood.png"
+      alt="Earthood"
+      className="
+        h-14 w-auto object-contain
+        opacity-50 grayscale
+        transition-all duration-300
+        hover:opacity-90 hover:grayscale-0
+      "
+    />
+  </div>
+</div>
+
 
 
         </div>
