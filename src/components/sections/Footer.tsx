@@ -1,33 +1,34 @@
 import { Mail, Phone, Linkedin, MapPin } from "lucide-react";
 import { Leaf } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   const navigationLinks = {
     product: [
-      { label: "Features", href: "#features" },
-      { label: "Pricing", href: "#pricing" },
-      { label: "Registries", href: "#registries" },
-      { label: "API", href: "#api" }
+      { label: "Features", href: "/features" },
+      { label: "Pricing", href: "/pricing" },
+      { label: "Registries", href: "/registries" },
+      { label: "API", href: "/api" }
     ],
     company: [
-      { label: "About Us", href: "#about" },
-      { label: "Careers", href: "#careers" },
-      { label: "Blog", href: "#blog" },
-      { label: "Press", href: "#press" }
+      { label: "About Us", href: "/about-us" },
+      { label: "Careers", href: "/careers" },
+      { label: "Blog", href: "/blog" },
+      { label: "Press", href: "/press" }
     ],
     resources: [
-      { label: "Documentation", href: "#docs" },
-      { label: "Help Center", href: "#help" },
-      { label: "Community", href: "#community" },
-      { label: "Webinars", href: "#webinars" }
+      { label: "Documentation", href: "/docs" },
+      { label: "Help Center", href: "/help" },
+      { label: "Community", href: "/community" },
+      { label: "Webinars", href: "/webinars" }
     ],
     legal: [
-      { label: "Terms of Service", href: "#terms" },
-      { label: "Privacy Policy", href: "#privacy" },
-      { label: "Cookie Policy", href: "#cookies" },
-      { label: "Compliance", href: "#compliance" }
+      { label: "Terms of Service", href: "/terms" },
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Cookie Policy", href: "/cookies" },
+      { label: "Compliance", href: "/compliance" }
     ]
   };
 
@@ -95,12 +96,12 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm">
               {navigationLinks.product.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="hover:text-emerald-400 transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -114,12 +115,12 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm">
               {navigationLinks.company.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="hover:text-emerald-400 transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -133,12 +134,12 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm">
               {navigationLinks.resources.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="hover:text-emerald-400 transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -152,12 +153,12 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm">
               {navigationLinks.legal.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="hover:text-emerald-400 transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -190,9 +191,9 @@ export default function Footer() {
 
         {/* BOTTOM BAR */}
         <div className="relative my-6">
-              <div className="h-px w-full bg-slate-800" />
-              <div className="absolute left-1/2 -translate-x-1/2 -top-[1px] w-24 h-px bg-emerald-400/60 blur-sm" />
-            </div>
+          <div className="h-px w-full bg-slate-800" />
+          <div className="absolute left-1/2 -translate-x-1/2 -top-[1px] w-24 h-px bg-emerald-400/60 blur-sm" />
+        </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
           <p className="text-slate-500">

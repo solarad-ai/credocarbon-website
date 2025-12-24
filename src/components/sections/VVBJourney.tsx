@@ -251,65 +251,47 @@ export default function VVBJourney() {
             </p>
           </div>
 
-          {/* VVB Partners Logos */}
-<div className="flex flex-wrap justify-center items-center gap-10">
+                      {/* VVB Partners Logos */}
+            <div className="flex flex-wrap justify-center items-center gap-10">
 
+              {/* TÜV SÜD */}
+              <div className="flex items-center justify-center transition-transform duration-300 ease-in-out hover:scale-110">
+                <img
+                  src="/images/TUV_sud.png"
+                  alt="TÜV SÜD"
+                  className="h-24 w-auto"
+                />
+              </div>
 
-  {/* TÜV SÜD */}
-  <div className="flex items-center justify-center">
-    <img
-      src="/images/TUV_sud.png"
-      alt="TÜV SÜD"
-      className="
-        h-24 w-auto object-contain
-        opacity-50 grayscale
-        transition-all duration-300
-        hover:opacity-90 hover:grayscale-0
-      "
-    />
-  </div>
-    {/* DNV */}
-  <div className="flex items-center justify-center">
-    <img
-      src="/images/Dnv.png"
-      alt="DNV"
-      className="
-        h-24 w-auto object-contain
-        opacity-50 grayscale
-        transition-all duration-300
-        hover:opacity-90 hover:grayscale-0
-      "
-    />
-  </div>
+              {/* DNV */}
+              <div className="flex items-center justify-center transition-transform duration-300 ease-in-out hover:scale-110">
+                <img
+                  src="/images/Dnv.png"
+                  alt="DNV"
+                  className="h-24 w-auto"
+                />
+              </div>
 
-  {/* Ecolance */}
-  <div className="flex items-center justify-center">
-    <img
-      src="/images/Ecolance.png"
-      alt="Ecolance"
-      className="
-        h-14 w-auto object-contain
-        opacity-50 grayscale
-        transition-all duration-300
-        hover:opacity-90 hover:grayscale-0
-      "
-    />
-  </div>
+              {/* Ecolance */}
+              <div className="flex items-center justify-center transition-transform duration-300 ease-in-out hover:scale-110">
+                <img
+                  src="/images/Ecolance.png"
+                  alt="Ecolance"
+                  className="h-14 w-auto"
+                />
+              </div>
 
-  {/* Earthood */}
-  <div className="flex items-center justify-center">
-    <img
-      src="/images/Earthood.png"
-      alt="Earthood"
-      className="
-        h-14 w-auto object-contain
-        opacity-50 grayscale
-        transition-all duration-300
-        hover:opacity-90 hover:grayscale-0
-      "
-    />
-  </div>
-</div>
+              {/* Earthood */}
+              <div className="flex items-center justify-center transition-transform duration-300 ease-in-out hover:scale-110">
+                <img
+                  src="/images/Earthood.png"
+                  alt="Earthood"
+                  className="h-14 w-auto"
+                />
+              </div>
+
+            </div>
+
 
 
 
