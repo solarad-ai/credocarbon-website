@@ -313,8 +313,8 @@ export default function MRV() {
           })}
         </div>
 
-        {/* Flow indicator */}
-        <div className="flex justify-center items-center mt-12 gap-4">
+        {/* Flow indicator - Hidden on mobile */}
+        <div className="hidden md:flex justify-center items-center mt-12 gap-4">
           {pillars.map((pillar, index) => (
             <div key={pillar.id} className="flex items-center">
               <div className="flex items-center gap-2">
@@ -331,7 +331,7 @@ export default function MRV() {
         </div>
 
         {/* Bottom tagline */}
-        <p className="mt-8 text-center text-sm text-slate-500">
+        <p className="mt-8 text-center text-sm text-slate-500 px-4">
           One shared, versioned, auditable project record
         </p>
       </div>

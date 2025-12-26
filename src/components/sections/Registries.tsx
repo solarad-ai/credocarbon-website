@@ -67,7 +67,7 @@ export default function Registries() {
             <span className="bg-gradient-to-r from-sky-400 to-blue-400 bg-clip-text text-transparent"> global standards</span>
           </h2>
 
-          <p className="text-lg text-slate-300 leading-relaxed mb-8">
+          <p className="text-base md:text-lg text-slate-300 leading-relaxed mb-8 px-4">
             CredoCarbon aligns projects, methodologies and monitoring outputs
             with major registries — ensuring structured, compliant and
             machine-checkable submissions for seamless issuance & verification cycles.
@@ -75,9 +75,9 @@ export default function Registries() {
         </div>
 
         {/* Registry logos strip */}
-<div className="mb-16">
-  <div
-    className="
+        <div className="mb-16">
+          <div
+            className="
    mx-auto max-w-4xl
   rounded-3xl
   border border-slate-200/60
@@ -88,51 +88,51 @@ export default function Registries() {
   backdrop-blur-md
   px-10 py-8
 "
-  >
-    <div className="flex flex-wrap justify-center items-center gap-16">
-      <img
-        src="/images/verra.webp"
-        alt="Verra"
-        className="
+          >
+            <div className="flex flex-wrap justify-center items-center gap-16">
+              <img
+                src="/images/verra.webp"
+                alt="Verra"
+                className="
           h-16 w-auto object-contain
           opacity-95
           transition-transform duration-300 ease-out
           hover:scale-125
         "
-      />
-      <img
-        src="/images/gold_standards.png"
-        alt="Gold Standard"
-        className="
+              />
+              <img
+                src="/images/gold_standards.png"
+                alt="Gold Standard"
+                className="
           h-16 w-auto object-contain
           opacity-95
           transition-transform duration-300 ease-out
           hover:scale-125
         "
-      />
-      <img
-        src="/images/Gcc.png"
-        alt="GCC"
-        className="
+              />
+              <img
+                src="/images/Gcc.png"
+                alt="GCC"
+                className="
           h-14 w-auto object-contain
           opacity-95
           transition-transform duration-300 ease-out
           hover:scale-125
         "
-      />
-      <img
-        src="/images/Plan_vivo.png"
-        alt="Plan Vivo"
-        className="
+              />
+              <img
+                src="/images/Plan_vivo.png"
+                alt="Plan Vivo"
+                className="
           h-14 w-auto object-contain
           opacity-95
           transition-transform duration-300 ease-out
           hover:scale-125
         "
-      />
-    </div>
-  </div>
-</div>
+              />
+            </div>
+          </div>
+        </div>
 
 
         {/* UNIFIED REGISTRY FEATURES GRID */}

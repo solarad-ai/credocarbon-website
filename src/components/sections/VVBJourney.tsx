@@ -152,7 +152,7 @@ export default function VVBJourney() {
   return (
     <section
       id="vvb"
-      className="relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-20 md:py-24 border-t border-cyan-500/10 overflow-hidden"
+      className="relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pt-16 pb-20 md:py-24 border-t border-cyan-500/10 overflow-hidden"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-30">
@@ -251,46 +251,46 @@ export default function VVBJourney() {
             </p>
           </div>
 
-                      {/* VVB Partners Logos */}
-            <div className="flex flex-wrap justify-center items-center gap-10">
+          {/* VVB Partners Logos */}
+          <div className="flex flex-wrap justify-center items-center gap-10">
 
-              {/* TÜV SÜD */}
-              <div className="flex items-center justify-center transition-transform duration-300 ease-in-out hover:scale-110">
-                <img
-                  src="/images/TUV_sud.png"
-                  alt="TÜV SÜD"
-                  className="h-24 w-auto"
-                />
-              </div>
-
-              {/* DNV */}
-              <div className="flex items-center justify-center transition-transform duration-300 ease-in-out hover:scale-110">
-                <img
-                  src="/images/Dnv.png"
-                  alt="DNV"
-                  className="h-24 w-auto"
-                />
-              </div>
-
-              {/* Ecolance */}
-              <div className="flex items-center justify-center transition-transform duration-300 ease-in-out hover:scale-110">
-                <img
-                  src="/images/Ecolance.png"
-                  alt="Ecolance"
-                  className="h-14 w-auto"
-                />
-              </div>
-
-              {/* Earthood */}
-              <div className="flex items-center justify-center transition-transform duration-300 ease-in-out hover:scale-110">
-                <img
-                  src="/images/Earthood.png"
-                  alt="Earthood"
-                  className="h-14 w-auto"
-                />
-              </div>
-
+            {/* TÜV SÜD */}
+            <div className="flex items-center justify-center transition-transform duration-300 ease-in-out hover:scale-110">
+              <img
+                src="/images/TUV_sud.png"
+                alt="TÜV SÜD"
+                className="h-24 w-auto"
+              />
             </div>
+
+            {/* DNV */}
+            <div className="flex items-center justify-center transition-transform duration-300 ease-in-out hover:scale-110">
+              <img
+                src="/images/Dnv.png"
+                alt="DNV"
+                className="h-24 w-auto"
+              />
+            </div>
+
+            {/* Ecolance */}
+            <div className="flex items-center justify-center transition-transform duration-300 ease-in-out hover:scale-110">
+              <img
+                src="/images/Ecolance.png"
+                alt="Ecolance"
+                className="h-14 w-auto"
+              />
+            </div>
+
+            {/* Earthood */}
+            <div className="flex items-center justify-center transition-transform duration-300 ease-in-out hover:scale-110">
+              <img
+                src="/images/Earthood.png"
+                alt="Earthood"
+                className="h-14 w-auto"
+              />
+            </div>
+
+          </div>
 
 
 

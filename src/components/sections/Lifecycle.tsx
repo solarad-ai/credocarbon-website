@@ -144,7 +144,7 @@ export default function Lifecycle() {
   return (
     <section
       id="lifecycle"
-      className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-24 md:py-32 overflow-hidden"
+      className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 pt-16 pb-24 md:py-32 overflow-hidden"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -204,8 +204,8 @@ export default function Lifecycle() {
                     {/* Main card */}
                     <div
                       className={`relative w-56 md:w-64 rounded-3xl border-2 transition-all duration-500 ${isActive
-                          ? `${colors.border} ${colors.bg} shadow-2xl ${colors.glow} scale-105`
-                          : "border-slate-700/50 bg-slate-900/50 hover:border-slate-600"
+                        ? `${colors.border} ${colors.bg} shadow-2xl ${colors.glow} scale-105`
+                        : "border-slate-700/50 bg-slate-900/50 hover:border-slate-600"
                         }`}
                     >
                       {/* Top section with icon */}
@@ -289,8 +289,8 @@ export default function Lifecycle() {
                 <div
                   key={index}
                   className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 transition-all duration-300 ${activeStage !== null && activeStage >= index
-                      ? "bg-slate-50 border-slate-50 scale-125"
-                      : "bg-slate-700 border-slate-600"
+                    ? "bg-slate-50 border-slate-50 scale-125"
+                    : "bg-slate-700 border-slate-600"
                     }`}
                   style={{ left: `calc(${((index + 1) / 4) * 100}% - 8px)` }}
                 />

@@ -10,7 +10,7 @@ const aiCapabilities = [
   },
   {
     icon: Zap,
-    title: "Document & Data Intelligence", 
+    title: "Document & Data Intelligence",
     desc: "Contextual document analysis, parameter extraction, and conflict detection across PDDs, monitoring reports, and annexes.",
     keyFeatures: ["Document hierarchy understanding", "Version change summaries", "Citation linking"]
   },
@@ -64,14 +64,16 @@ export default function AISection() {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-slate-50 mb-4">
-            System-level 
-            <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"> intelligence</span>
-            <br />for MRV & procurement
+            System-level{" "}
+            <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              intelligence
+            </span>
+            {" "}for MRV & procurement
           </h2>
 
-          <p className="text-lg text-slate-300 leading-relaxed mb-8">
-            CredoCarbon uses contextual AI to enhance decision-making across project design, 
-            monitoring, verification and market operations — without overwhelming teams or 
+          <p className="text-base md:text-lg text-slate-300 leading-relaxed mb-8 px-4">
+            CredoCarbon uses contextual AI to enhance decision-making across project design,
+            monitoring, verification and market operations — without overwhelming teams or
             replacing expert judgement.
           </p>
         </div>
@@ -87,7 +89,7 @@ export default function AISection() {
               'from-indigo-500/20 to-purple-600/20 border-indigo-400/30',
               'from-cyan-500/20 to-violet-600/20 border-cyan-400/30'
             ];
-            
+
             return (
               <div
                 key={capability.title}

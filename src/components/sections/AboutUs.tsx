@@ -50,7 +50,7 @@ export default function AboutUs() {
   ];
 
   return (
-    <section className="relative bg-[#05080f] py-28 overflow-hidden">
+    <section className="relative bg-[#05080f] pt-16 pb-28 md:py-28 overflow-hidden">
       {/* MULTI-LAYER FUTURISTIC GLOW */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute top-[-10%] left-[10%] w-[34rem] h-[34rem] bg-emerald-500/10 blur-[160px]" />

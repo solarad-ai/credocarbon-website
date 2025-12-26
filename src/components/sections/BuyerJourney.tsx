@@ -36,7 +36,7 @@ export default function BuyerJourney() {
   return (
     <section
       id="buyer"
-      className="relative bg-slate-950 py-20 md:py-24 border-t border-emerald-500/10 overflow-hidden"
+      className="relative bg-slate-950 pt-16 pb-20 md:py-24 border-t border-emerald-500/10 overflow-hidden"
     >
       {/* Floating orbs */}
       <div className="absolute inset-0 opacity-20">

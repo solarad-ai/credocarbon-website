@@ -172,7 +172,7 @@ export default function DeveloperJourney() {
   return (
     <section
       id="developer"
-      className="relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-20 md:py-24 border-t border-emerald-500/10 overflow-hidden"
+      className="relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pt-16 pb-20 md:py-24 border-t border-emerald-500/10 overflow-hidden"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-30">
