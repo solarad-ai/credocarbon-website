@@ -41,15 +41,15 @@ export default function Footer() {
 
   return (
     <footer className="relative border-t border-emerald-500/10 bg-slate-950/90">
-      <div className="mx-auto max-w-7xl px-4 py-12 text-slate-400">
+      <div className="mx-auto max-w-7xl px-4 py-8 md:py-12 text-slate-400">
         {/* TOP GRID - Brand + Navigation */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-6 md:gap-8 mb-8 md:mb-12">
 
-          {/* BRAND - Takes 2 columns on large screens */}
-          <div className="lg:col-span-2 space-y-4">
+          {/* BRAND - Takes 2 columns on large screens, full width on mobile */}
+          <div className="col-span-2 lg:col-span-2 space-y-3 md:space-y-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-700 shadow-lg shadow-emerald-500/40">
-                <Leaf className="h-5 w-5 text-slate-950" />
+              <div className="flex h-8 w-8 md:h-9 md:w-9 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-700 shadow-lg shadow-emerald-500/40">
+                <Leaf className="h-4 w-4 md:h-5 md:w-5 text-slate-950" />
               </div>
 
               <div className="flex flex-col leading-tight">
@@ -59,12 +59,12 @@ export default function Footer() {
               </div>
             </div>
 
-            <p className="text-sm leading-relaxed text-slate-400 max-w-xs">
+            <p className="text-xs md:text-sm leading-relaxed text-slate-400 max-w-xs">
               A unified platform for carbon credit registration, validation, issuance, and trading across all global registries.
             </p>
 
             {/* Contact Info */}
-            <div className="space-y-2 text-xs pt-2">
+            <div className="space-y-1.5 md:space-y-2 text-xs pt-1 md:pt-2">
               <a
                 href="mailto:info@credocarbon.com"
                 className="flex items-center gap-2 hover:text-emerald-400 transition"
@@ -90,10 +90,10 @@ export default function Footer() {
 
           {/* PRODUCT */}
           <div>
-            <h4 className="text-sm font-semibold text-slate-200 mb-4">
+            <h4 className="text-xs md:text-sm font-semibold text-slate-200 mb-2 md:mb-4">
               Product
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-1.5 md:space-y-2.5 text-xs md:text-sm">
               {navigationLinks.product.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -109,10 +109,10 @@ export default function Footer() {
 
           {/* COMPANY */}
           <div>
-            <h4 className="text-sm font-semibold text-slate-200 mb-4">
+            <h4 className="text-xs md:text-sm font-semibold text-slate-200 mb-2 md:mb-4">
               Company
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-1.5 md:space-y-2.5 text-xs md:text-sm">
               {navigationLinks.company.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -128,10 +128,10 @@ export default function Footer() {
 
           {/* RESOURCES */}
           <div>
-            <h4 className="text-sm font-semibold text-slate-200 mb-4">
+            <h4 className="text-xs md:text-sm font-semibold text-slate-200 mb-2 md:mb-4">
               Resources
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-1.5 md:space-y-2.5 text-xs md:text-sm">
               {navigationLinks.resources.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -147,10 +147,10 @@ export default function Footer() {
 
           {/* LEGAL */}
           <div>
-            <h4 className="text-sm font-semibold text-slate-200 mb-4">
+            <h4 className="text-xs md:text-sm font-semibold text-slate-200 mb-2 md:mb-4">
               Legal
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-1.5 md:space-y-2.5 text-xs md:text-sm">
               {navigationLinks.legal.map((link) => (
                 <li key={link.label}>
                   <Link
