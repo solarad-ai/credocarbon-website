@@ -94,7 +94,7 @@ export default function CarbonTradingBanner() {
     }, []);
 
     return (
-        <div className="relative w-full overflow-hidden bg-white/5 backdrop-blur-md border-b border-white/10">
+        <div className="relative w-full bg-white/5 backdrop-blur-md border-b border-white/10">
             {/* Animated gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-500/3 to-transparent animate-shimmer" />
 
@@ -153,6 +153,25 @@ export default function CarbonTradingBanner() {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </div>
+
+                {/* Info button with hover tooltip */}
+                <div className="relative group flex-shrink-0 ml-2 md:ml-4">
+                    <button
+                        className="flex items-center justify-center w-5 h-5 md:w-6 md:h-6 rounded-full bg-slate-800/80 border border-slate-600/50 text-slate-400 hover:text-slate-200 hover:border-slate-500 transition-all duration-200"
+                        aria-label="Price disclaimer"
+                    >
+                        <span className="text-[10px] md:text-xs font-semibold">i</span>
+                    </button>
+
+                    {/* Tooltip - positioned below */}
+                    <div className="absolute top-full right-0 mt-2 w-64 md:w-72 p-3 rounded-xl bg-slate-900 backdrop-blur-xl border border-slate-700/80 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[100]">
+                        {/* Arrow pointing up */}
+                        <div className="absolute -top-1.5 right-3 w-3 h-3 bg-slate-900 border-l border-t border-slate-700/80 transform rotate-45" />
+                        <p className="text-[11px] md:text-xs text-slate-300 leading-relaxed">
+                            <span className="font-semibold text-emerald-400">Disclaimer:</span> Prices shown are illustrative and subject to change. Actual market prices may vary based on registry, vintage, project type, and market conditions.
+                        </p>
                     </div>
                 </div>
             </div>

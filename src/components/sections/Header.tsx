@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { Leaf, Menu, X } from "lucide-react";
+import { Leaf, Menu, X, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function Header() {
@@ -92,10 +92,24 @@ export default function Header() {
               href="https://credocarbon-web-641001192587.asia-south2.run.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 px-3 py-1.5 md:px-5 md:py-2 text-[10px] md:text-xs font-semibold text-white hover:from-emerald-400 hover:to-emerald-500 transition-all duration-300 shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 hover:scale-105 whitespace-nowrap"
+              className="relative group rounded-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-500 px-4 py-2 md:px-6 md:py-2.5 text-[11px] md:text-sm font-bold text-slate-900 transition-all duration-300 shadow-lg shadow-emerald-500/40 hover:shadow-emerald-400/60 hover:shadow-xl hover:scale-105 whitespace-nowrap overflow-hidden animate-pulse-subtle"
             >
-              <span className="relative z-10">Explore</span>
-              <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+              {/* Animated glow ring */}
+              <span className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-400 via-cyan-300 to-emerald-400 opacity-0 group-hover:opacity-100 blur-md transition-all duration-500 animate-pulse" />
+
+              {/* Shimmer effect */}
+              <span className="absolute inset-0 rounded-full overflow-hidden">
+                <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+              </span>
+
+              {/* Pulsing border glow */}
+              <span className="absolute -inset-[2px] rounded-full bg-gradient-to-r from-emerald-300 via-cyan-300 to-emerald-300 opacity-60 blur-sm animate-pulse" />
+
+              {/* Inner content */}
+              <span className="relative z-10 flex items-center gap-1.5">
+                <Sparkles className="h-3.5 w-3.5 md:h-4 md:w-4 animate-spin-slow" />
+                <span>Explore</span>
+              </span>
             </a>
 
             {/* MOBILE MENU BUTTON */}
@@ -222,9 +236,20 @@ export default function Header() {
                   href="https://credocarbon-web-641001192587.asia-south2.run.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-full rounded-lg bg-gradient-to-r from-emerald-500 to-emerald-600 px-4 py-2.5 text-sm font-semibold text-white hover:from-emerald-400 hover:to-emerald-500 transition-all duration-200 shadow-lg shadow-emerald-500/20"
+                  className="relative flex items-center justify-center gap-2 w-full rounded-lg bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-500 px-4 py-3 text-sm font-bold text-slate-900 transition-all duration-300 shadow-lg shadow-emerald-500/40 overflow-hidden animate-pulse-subtle"
                 >
-                  Explore Platform
+                  {/* Pulsing border glow */}
+                  <span className="absolute -inset-[2px] rounded-lg bg-gradient-to-r from-emerald-300 via-cyan-300 to-emerald-300 opacity-60 blur-sm animate-pulse" />
+
+                  {/* Shimmer effect */}
+                  <span className="absolute inset-0 rounded-lg overflow-hidden">
+                    <span className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+                  </span>
+
+                  <span className="relative z-10 flex items-center gap-2">
+                    <Sparkles className="h-4 w-4 animate-spin-slow" />
+                    <span>Explore Platform</span>
+                  </span>
                 </a>
               </div>
             </div>

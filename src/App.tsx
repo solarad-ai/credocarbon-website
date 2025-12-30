@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/sections/Header";
 import Footer from "./components/sections/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import ExplorePopup from "./components/ui/ExplorePopup";
 
 // Main Pages
 import Home from "./pages/Home";
@@ -42,6 +43,9 @@ export default function App() {
       </Routes>
 
       <Footer />
+
+      {/* Explore Platform Popup */}
+      <ExplorePopup />
     </>
   );
 }
