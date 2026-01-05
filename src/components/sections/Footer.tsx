@@ -1,4 +1,4 @@
-import { Mail, Phone, Linkedin, MapPin } from "lucide-react";
+import { Mail, Phone, Linkedin } from "lucide-react";
 import { Leaf } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -20,9 +20,7 @@ export default function Footer() {
     ],
     resources: [
       { label: "Documentation", href: "/docs" },
-      { label: "Help Center", href: "/help" },
-      { label: "Community", href: "/community" },
-      { label: "Webinars", href: "/webinars" }
+      { label: "Help Center", href: "/help" }
     ],
     legal: [
       { label: "Terms of Service", href: "/terms" },
@@ -74,17 +72,12 @@ export default function Footer() {
               </a>
 
               <a
-                href="tel:+11833174484"
+                href="tel:+919795119246"
                 className="flex items-center gap-2 hover:text-emerald-400 transition"
               >
                 <Phone className="w-3.5 h-3.5 text-emerald-400" />
                 +91 97951 19246
               </a>
-
-              <div className="flex items-center gap-2 text-slate-500">
-                <MapPin className="w-3.5 h-3.5 text-emerald-400" />
-                Global Operations
-              </div>
             </div>
           </div>
 
