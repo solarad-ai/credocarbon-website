@@ -1,0 +1,347 @@
+
+================================================================================
+VERIFIED CARBON CREDIT & REC REGISTRY REPORT - COMPREHENSIVE
+Year: 2025
+Generated: 2026-01-07 23:55:00
+================================================================================
+
+EXECUTIVE SUMMARY
+-----------------
+This report contains VERIFIED data extracted from source files.
+- Values marked "N/A" indicate data not available in source files
+- No rounding has been applied - all figures are exact from source
+- Contains data from 133 unique countries
+
+DATA SOURCES USED:
+- VROD-registry-files--2025-10.xlsx (Verra, Gold Standard, ACR, CAR, ART TREES)
+- qcmr-data-workbook-september-quarter-2025.xlsx (ACCU, LGC)
+- I-REC-Registry-Data-December-2025.xlsx (I-REC)
+- Puro_Earth_Registry CSV exports (Puro Earth)
+- REC India Registry Screenshots
+
+================================================================================
+CARBON CREDIT REGISTRIES - 2025 SUMMARY
+================================================================================
+Total Credits Issued:    219,626,369 tCO2e
+Total Credits Retired:   49,480,354 tCO2e
+
+REGISTRY                          ISSUED           RETIRED          RECORDS
+--------------------------------------------------------------------------------
+Gold Standard                   66,995,611        29,317,886          1,699
+Verra                          64,157,842        19,746,982          2,755
+ACR                            41,587,681               N/A            344
+CAR                            22,534,527               N/A            471
+ART TREES                       8,732,929               N/A              2
+ACCU                           14,959,799               N/A            N/A
+Puro Earth                        658,000           415,486            117
+--------------------------------------------------------------------------------
+TOTAL                         219,626,389        49,480,354
+
+================================================================================
+REC REGISTRIES - 2025 SUMMARY (MWh)
+================================================================================
+Total RECs Issued:       429,452,580.25 MWh
+Total RECs Redeemed:     238,631,795.45 MWh
+
+REGISTRY                          ISSUED           RETIRED          RECORDS
+--------------------------------------------------------------------------------
+I-REC                     346,033,936.25   238,631,795.45         36,957
+LGC                        42,813,904.00              N/A            N/A
+REC India                  40,604,740.00              N/A            N/A
+--------------------------------------------------------------------------------
+TOTAL                     429,452,580.25   238,631,795.45
+
+================================================================================
+DETAILED REGISTRY BREAKDOWN - CARBON CREDITS
+================================================================================
+
+Gold Standard (Gold Standard VER)
+------------------------------------------------------------
+Registry Type:        Carbon Credit
+Credits Issued:       66,995,611
+Credits Retired:      29,317,886
+Credits Cancelled:    N/A
+Credits Remaining:    37,677,725
+Number of Records:    1,699 issuances, 14,125 retirements
+Data Source:          VROD-registry-files--2025-10.xlsx (Gold Issuances + Gold Retirements sheets)
+
+Country Breakdown (Top 20 by Issuance):
+  Turkey: Issued: 13,622,836 | Retired: 4,192,006
+  India: Issued: 13,621,189 | Retired: 6,627,479
+  Kenya: Issued: 10,832,956 | Retired: 1,989,026
+  Uganda: Issued: 4,385,858 | Retired: 2,390,625
+  Bangladesh: Issued: 2,843,682 | Retired: 417,936
+  Brazil: Issued: 2,566,708 | Retired: 1,894,492
+  Viet Nam: Issued: 2,270,685 | Retired: 749,559
+  Nigeria: Issued: 2,249,988 | Retired: 776,028
+  Egypt: Issued: 1,364,316 | Retired: 2,904
+  Zambia: Issued: 1,293,564 | Retired: 369,030
+  Mozambique: Issued: 1,165,201 | Retired: 1,486,803
+  Nepal: Issued: 1,032,561 | Retired: 526,243
+  China: Issued: 744,248 | Retired: 1,684,984
+  Panama: Issued: 697,818 | Retired: 184,715
+  Burundi: Issued: 684,671 | Retired: 86,509
+  Rwanda: Issued: 682,370 | Retired: 409,540
+  Chile: Issued: 563,454 | Retired: 1,066,495
+  Colombia: Issued: 517,942 | Retired: 220,264
+  Malawi: Issued: 486,364 | Retired: 419,601
+  Thailand: Issued: 482,459 | Retired: 78,793
+
+------------------------------------------------------------
+
+Verra (VCS - Verified Carbon Standard)
+------------------------------------------------------------
+Registry Type:        Carbon Credit
+Credits Issued:       64,157,842
+Credits Retired:      19,746,982
+Credits Cancelled:    N/A
+Credits Remaining:    44,410,860
+Number of Records:    2,755 issuances, 9,525 retirements
+Data Source:          VROD-registry-files--2025-10.xlsx (Verra VCUs sheet)
+
+Country Breakdown (Top 20 by Issuance):
+  India: Issued: 10,495,582 | Retired: 5,640,743
+  Brazil: Issued: 5,638,058 | Retired: 1,791,622
+  South Africa: Issued: 4,504,663 | Retired: 42,400
+  Rwanda: Issued: 4,048,499 | Retired: 2,155
+  Bangladesh: Issued: 3,951,314 | Retired: 907,459
+  Viet Nam: Issued: 3,856,072 | Retired: 406,925
+  China: Issued: 3,350,389 | Retired: 2,505,305
+  Uzbekistan: Issued: 2,600,000 | Retired: 328,562
+  Madagascar: Issued: 2,451,715 | Retired: 10,478
+  Zambia: Issued: 2,373,847 | Retired: 5,352
+  Denmark: Issued: 2,324,712 | Retired: 7,617
+  United States: Issued: 1,905,356 | Retired: 364,142
+  Turkey: Issued: 1,843,497 | Retired: 909,313
+  Malaysia: Issued: 1,574,813 | Retired: 522,661
+  Peru: Issued: 1,213,747 | Retired: 494,274
+  Uruguay: Issued: 1,195,545 | Retired: 650,022
+  Paraguay: Issued: 1,127,085 | Retired: 308,340
+  Central African Republic: Issued: 1,044,618 | Retired: 0
+  Cameroon: Issued: 673,227 | Retired: 0
+  Colombia: Issued: 632,612 | Retired: 132,469
+
+------------------------------------------------------------
+
+ACR (American Carbon Registry)
+------------------------------------------------------------
+Registry Type:        Carbon Credit
+Credits Issued:       41,587,681
+Credits Retired:      N/A
+Credits Cancelled:    N/A
+Credits Remaining:    N/A
+Number of Records:    344 issuances
+Data Source:          VROD-registry-files--2025-10.xlsx (ACR Issuances sheet)
+Note:                 Retirement data format incompatible - requires manual check
+
+Country Breakdown:
+  United States: Issued: 41,587,681 | Retired: N/A
+
+------------------------------------------------------------
+
+CAR (Climate Action Reserve)
+------------------------------------------------------------
+Registry Type:        Carbon Credit
+Credits Issued:       22,534,527
+Credits Retired:      N/A
+Credits Cancelled:    N/A
+Credits Remaining:    N/A
+Number of Records:    471 issuances
+Data Source:          VROD-registry-files--2025-10.xlsx (CAR Issuances sheet)
+Note:                 Retirement data format incompatible - requires manual check
+
+Country Breakdown:
+  United States (US): Issued: 17,793,008 | Retired: N/A
+  Mexico (MX): Issued: 4,741,519 | Retired: N/A
+
+------------------------------------------------------------
+
+ART TREES
+------------------------------------------------------------
+Registry Type:        Carbon Credit
+Credits Issued:       8,732,929
+Credits Retired:      N/A
+Credits Cancelled:    N/A
+Credits Remaining:    N/A
+Number of Records:    2 issuances
+Primary Types:        REDD+
+Data Source:          VROD-registry-files--2025-10.xlsx (ART Issuances sheet)
+
+Country Breakdown:
+  Guyana: Issued: 8,732,929 | Retired: N/A
+
+------------------------------------------------------------
+
+ACCU (Australian Carbon Credit Units)
+------------------------------------------------------------
+Registry Type:        Carbon Credit
+Credits Issued:       14,959,799
+Credits Retired:      N/A
+Credits Cancelled:    N/A
+Credits Remaining:    N/A
+Primary Types:        Vegetation, Waste, Savanna, Energy Efficiency
+Data Source:          qcmr-data-workbook-september-quarter-2025.xlsx (Figure 1.2)
+Note:                 Q1-Q3 2025 only (Q4 data not yet available)
+
+Quarterly Breakdown:
+  Q1 2025: 3,043,769
+  Q2 2025: 6,453,213
+  Q3 2025: 5,462,817
+
+Country Breakdown:
+  Australia: Issued: 14,959,799 | Retired: N/A
+
+------------------------------------------------------------
+
+Puro Earth
+------------------------------------------------------------
+Registry Type:        Carbon Credit
+Credits Issued:       658,000
+Credits Retired:      415,486
+Credits Cancelled:    N/A
+Credits Remaining:    242,514
+Number of Records:    117 issuances, 482 retirements
+Primary Types:        CORC 100+, CORC 1000+
+Data Source:          Puro_Earth_Registry-Issuance_exports-Tue Jan 06 2026.csv
+
+Country Breakdown (Retirements by beneficiary country):
+  United States: Retired: 308,566
+  Germany: Retired: 31,986
+  United Kingdom: Retired: 24,305
+  Switzerland: Retired: 21,831
+  Sweden: Retired: 15,505
+  Japan: Retired: 4,761
+  Netherlands: Retired: 2,191
+  Finland: Retired: 1,663
+  Bolivia: Retired: 1,162
+  Australia: Retired: 698
+  Saudi Arabia: Retired: 650
+  Norway: Retired: 567
+  Canada: Retired: 392
+  Estonia: Retired: 390
+  France: Retired: 358
+  Belgium: Retired: 267
+  Spain: Retired: 116
+  Turkey: Retired: 55
+  Qatar: Retired: 10
+  China: Retired: 7
+  India: Retired: 4
+  Namibia: Retired: 1
+  Kenya: Retired: 1
+
+================================================================================
+DETAILED REGISTRY BREAKDOWN - RECs
+================================================================================
+
+I-REC Standard
+------------------------------------------------------------
+Registry Type:        REC (Renewable Energy Certificate)
+Credits Issued:       346,033,936.25
+Credits Retired:      238,631,795.45
+Credits Cancelled:    N/A
+Credits Remaining:    107,402,140.80
+Number of Records:    36,957 issuances, 88,080 redemptions
+Primary Types:        Hydroelectric, Solar, Wind
+Data Source:          I-REC-Registry-Data-December-2025.xlsx
+
+Country Breakdown (Top 30):
+  Brazil: Issued: 64,744,840.43 | Retired: 14,998,836.38
+  UAE: Issued: 59,103,599.14 | Retired: 2,539,912.15
+  Chile: Issued: 25,436,216.84 | Retired: 3,058,188.88
+  Turkey: Issued: 24,448,343.72 | Retired: 7,251,052.85
+  Vietnam: Issued: 22,767,275.24 | Retired: 6,142,470.23
+  China: Issued: 21,179,144.15 | Retired: 5,356,951.45
+  India: Issued: 17,440,452.14 | Retired: 7,603,438.27
+  Saudi Arabia: Issued: 17,407,576.64 | Retired: 230,305.75
+  Peru: Issued: 11,661,748.14 | Retired: 1,522,931.90
+  Malaysia: Issued: 11,507,829.37 | Retired: 4,451,826.05
+  Thailand: Issued: 11,441,778.87 | Retired: 4,074,747.36
+  Mexico: Issued: 10,840,600.03 | Retired: 3,170,353.05
+  Colombia: Issued: 6,891,245.77 | Retired: 3,607,771.18
+  South Africa: Issued: 5,280,490.57 | Retired: 2,152,141.18
+  Philippines: Issued: 5,094,974.49 | Retired: 1,441,572.83
+  Indonesia: Issued: 3,558,182.32 | Retired: 1,242,089.01
+  Kazakhstan: Issued: 3,306,774.38 | Retired: 328,562.20
+  Australia: Issued: 3,240,211.39 | Retired: 545,737.89
+  Argentina: Issued: 3,028,642.95 | Retired: 770,578.28
+  Israel: Issued: 2,895,355.76 | Retired: 1,632,118.44
+  Guatemala: Issued: 2,534,142.95 | Retired: 458,474.68
+  Oman: Issued: 1,593,465.37 | Retired: 16,707.29
+  Egypt: Issued: 1,340,957.32 | Retired: 187,731.00
+  Panama: Issued: 1,276,351.29 | Retired: 32,254.16
+  Bangladesh: Issued: 870,487.46 | Retired: 166,609.47
+  Pakistan: Issued: 811,379.23 | Retired: 442,291.55
+  Morocco: Issued: 791,487.43 | Retired: 197,789.68
+  El Salvador: Issued: 690,542.58 | Retired: 17,712.85
+  New Zealand: Issued: 447,951.08 | Retired: 229,609.17
+  Uzbekistan: Issued: 446,520.00 | Retired: 266,069.00
+
+Additional I-REC Countries (31-65):
+  Singapore, Dominican Rep, Honduras, Costa Rica, Sri Lanka, Nigeria,
+  Kenya, Lao PDR, Burkina Faso, Ecuador, Uganda, Jamaica, Nicaragua,
+  Mauritius, Nepal, Japan, Mauritania, Cambodia, Jordan, Zambia,
+  Zimbabwe, Mongolia, Ghana, Namibia, Myanmar, Congo DRC, Suriname,
+  Taiwan, Brunei, Chad, South Sudan, Ethiopia, Somalia, Lebanon, Uruguay
+
+------------------------------------------------------------
+
+LGC (Australian Large-scale Generation Certificates)
+------------------------------------------------------------
+Registry Type:        REC (Renewable Energy Certificate)
+Credits Issued:       42,813,904
+Credits Retired:      N/A
+Credits Cancelled:    N/A
+Credits Remaining:    N/A
+Primary Types:        Wind, Solar, Biomass, Hydroelectric
+Data Source:          qcmr-data-workbook-september-quarter-2025.xlsx (Figure 2.1)
+Note:                 Q1-Q3 2025 only (Q4 data not yet available)
+
+Quarterly Breakdown:
+  Q1 2025: 14,195,989
+  Q2 2025: 12,961,027
+  Q3 2025: 15,656,888
+
+Country Breakdown:
+  Australia: Issued: 42,813,904 | Retired: N/A
+
+------------------------------------------------------------
+
+REC India (Grid-India)
+------------------------------------------------------------
+Registry Type:        REC (Renewable Energy Certificate)
+Credits Issued:       40,604,740
+Credits Retired:      N/A
+Credits Cancelled:    N/A
+Credits Remaining:    N/A
+Number of Projects:   4,777 RE Generators
+Primary Types:        Solar, Wind, Hydro
+Data Source:          Screenshot 2026-01-07 at 17.02.14.png
+
+Country Breakdown:
+  India: Issued: 40,604,740 | Retired: N/A
+
+================================================================================
+NOTES & METHODOLOGY
+================================================================================
+1. All values are EXACT from source files - no rounding applied
+2. "N/A" = Data not available in source file (NOT zero)
+3. VROD data uses most recent file (2025-10) for latest figures
+4. ACCU/LGC data is Q1-Q3 2025 only (Q4 not published yet)
+5. I-REC values include decimals as they appear in source
+6. EU GO data from PDF - requires manual entry (not included)
+7. Country names are as they appear in source files
+
+================================================================================
+DATA FILES GENERATED
+================================================================================
+1. Verified_Registry_Report_2025.txt - This comprehensive text report
+2. Registry_Summary_2025.csv - Summary by registry
+3. Complete_Country_Breakdown_2025.csv - All 133 countries with data
+
+================================================================================
+Report generated from specified files:
+- VROD-registry-files--2025-10.xlsx
+- qcmr-data-workbook-september-quarter-2025.xlsx
+- I-REC-Registry-Data-December-2025.xlsx
+- Puro_Earth_Registry CSV exports
+================================================================================

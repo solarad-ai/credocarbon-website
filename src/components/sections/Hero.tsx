@@ -8,10 +8,35 @@ export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.6; // slow, cinematic
-    }
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Set slow, cinematic playback rate
+    video.playbackRate = 0.6;
+
+    // Seamless loop: reset video just before it ends to avoid the gap
+    const handleTimeUpdate = () => {
+      if (video.duration && video.currentTime > video.duration - 0.3) {
+        video.currentTime = 0;
+        video.play().catch(() => { }); // Ignore autoplay errors
+      }
+    };
+
+    // Fallback: if video does end (edge case), restart immediately
+    const handleEnded = () => {
+      video.currentTime = 0;
+      video.play().catch(() => { });
+    };
+
+    video.addEventListener('timeupdate', handleTimeUpdate);
+    video.addEventListener('ended', handleEnded);
+
+    return () => {
+      video.removeEventListener('timeupdate', handleTimeUpdate);
+      video.removeEventListener('ended', handleEnded);
+    };
   }, []);
+
 
   return (
     <section
@@ -27,9 +52,9 @@ export default function Hero() {
       <video
         ref={videoRef}
         autoPlay
-        loop
         muted
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src="/videoes/Hero.webm" type="video/webm" />

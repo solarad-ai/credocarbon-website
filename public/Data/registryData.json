@@ -1,0 +1,117 @@
+{
+    "lastUpdated": "2025-01-07",
+    "carbonRegistries": [
+        {
+            "id": "gold-standard",
+            "name": "Gold Standard",
+            "symbol": "GS",
+            "issued": 66995611,
+            "retired": 29317886,
+            "unit": "tCO2e",
+            "records": 1699,
+            "active": true
+        },
+        {
+            "id": "verra",
+            "name": "Verra VCS",
+            "symbol": "VCS",
+            "issued": 64157842,
+            "retired": 19746982,
+            "unit": "tCO2e",
+            "records": 2755,
+            "active": true
+        },
+        {
+            "id": "acr",
+            "name": "American Carbon Registry",
+            "symbol": "ACR",
+            "issued": 41587681,
+            "retired": null,
+            "unit": "tCO2e",
+            "records": 344,
+            "active": true
+        },
+        {
+            "id": "car",
+            "name": "Climate Action Reserve",
+            "symbol": "CAR",
+            "issued": 22534527,
+            "retired": null,
+            "unit": "tCO2e",
+            "records": 471,
+            "active": true
+        },
+        {
+            "id": "accu",
+            "name": "Australian Carbon Credits",
+            "symbol": "ACCU",
+            "issued": 14959799,
+            "retired": null,
+            "unit": "tCO2e",
+            "records": null,
+            "active": true
+        },
+        {
+            "id": "art-trees",
+            "name": "ART TREES",
+            "symbol": "ART",
+            "issued": 8732929,
+            "retired": null,
+            "unit": "tCO2e",
+            "records": 2,
+            "active": true
+        },
+        {
+            "id": "puro-earth",
+            "name": "Puro Earth",
+            "symbol": "PURO",
+            "issued": 658000,
+            "retired": 415486,
+            "unit": "tCO2e",
+            "records": 117,
+            "active": true
+        }
+    ],
+    "recRegistries": [
+        {
+            "id": "i-rec",
+            "name": "I-REC Standard",
+            "symbol": "I-REC",
+            "issued": 346033936.25,
+            "retired": 238631795.45,
+            "unit": "MWh",
+            "records": 36957,
+            "active": true
+        },
+        {
+            "id": "lgc",
+            "name": "LGC Australia",
+            "symbol": "LGC",
+            "issued": 42813904,
+            "retired": null,
+            "unit": "MWh",
+            "records": null,
+            "active": true
+        },
+        {
+            "id": "rec-india",
+            "name": "REC India",
+            "symbol": "REC-IN",
+            "issued": 40604740,
+            "retired": null,
+            "unit": "MWh",
+            "records": null,
+            "active": true
+        }
+    ],
+    "totals": {
+        "carbon": {
+            "issued": 219626369,
+            "retired": 49480354
+        },
+        "rec": {
+            "issued": 429452580.25,
+            "retired": 238631795.45
+        }
+    }
+}

@@ -18,6 +18,7 @@ import { productRoutes } from "./routes/productRoutes";
 import { companyRoutes } from "./routes/companyRoutes";
 import { resourceRoutes } from "./routes/resourceRoutes";
 import { legalRoutes } from "./routes/legalRoutes";
+import { adminRoutes } from "./routes/adminRoutes";
 
 
 export default function App() {
@@ -40,6 +41,7 @@ export default function App() {
         {companyRoutes}
         {resourceRoutes}
         {legalRoutes}
+        {adminRoutes}
       </Routes>
 
       <Footer />
