@@ -1,5 +1,5 @@
 {
-    "lastUpdated": "2025-01-09",
+    "lastUpdated": "2026-01-09",
     "carbonRegistries": [
         {
             "id": "verra",
@@ -8,8 +8,8 @@
             "symbol": "VCS",
             "country": "USA",
             "type": "voluntary",
-            "issued": 64157842,
-            "retired": 19746982,
+            "issued": 64157842.0,
+            "retired": 19746982.0,
             "unit": "tCO2e",
             "records": 2755,
             "logo": "/images/verra.webp",
@@ -22,8 +22,8 @@
             "symbol": "GS",
             "country": "Switzerland",
             "type": "voluntary",
-            "issued": 66995611,
-            "retired": 29317886,
+            "issued": 66995611.0,
+            "retired": 29317886.0,
             "unit": "tCO2e",
             "records": 1699,
             "logo": "/images/gold_standards.png",
@@ -184,10 +184,11 @@
             "symbol": "ACCU",
             "country": "Australia",
             "type": "voluntary",
-            "issued": 14959799,
+            "issued": 14959799.0,
             "retired": null,
             "unit": "tCO2e",
             "records": null,
+            "logo": null,
             "active": true
         },
         {
@@ -584,8 +585,8 @@
     "totals": {
         "carbon": {
             "registries": 21,
-            "issued": 219626369,
-            "retired": 49480354
+            "issued": 219626389.0,
+            "retired": 49480354.0
         },
         "rec": {
             "registries": 13,
@@ -596,6 +597,6 @@
             "registries": 14
         },
         "totalRegistries": 48,
-        "totalCountries": 30
+        "totalCountries": 24
     }
 }

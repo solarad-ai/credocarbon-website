@@ -109,7 +109,7 @@ export default function ImplementationPilot() {
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 rounded-2xl border border-slate-700 bg-slate-900/50 px-6 md:px-8 py-5 md:py-6">
             <span className="text-sm font-medium text-slate-300">Ready to start your pilot?</span>
             <button
-              onClick={() => window.open('https://calendly.com/haider-solarad/solarad-demo', '_blank')}
+              onClick={() => window.open('https://calendly.com/credocarbon-info/credocarbon-connect?month=2026-01', '_blank')}
               className="group relative rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 px-6 py-2.5 text-sm font-semibold text-white hover:from-emerald-400 hover:to-emerald-500 transition-all duration-300 shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 hover:scale-105"
             >
               <span className="relative z-10 flex items-center gap-2">

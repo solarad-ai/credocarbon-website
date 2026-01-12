@@ -87,24 +87,30 @@ const getSectorIcon = (name: string) => {
     return <Activity className="w-6 h-6" />;
 };
 
-// Sector Card Component
+// Sector Card Component - Now with controlled state
 function SectorCard({
     sector,
-    isCarbon
+    isCarbon,
+    isExpanded,
+    onToggle
 }: {
     sector: AggregatedSector;
     isCarbon: boolean;
+    isExpanded: boolean;
+    onToggle: () => void;
 }) {
-    const [isExpanded, setIsExpanded] = useState(false);
-
-    const colorClass = isCarbon ? 'emerald' : 'cyan';
+    const handleClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        e.preventDefault();
+        onToggle();
+    };
 
     return (
-        <div className={`bg-slate-900/60 backdrop-blur-sm border border-${colorClass}-500/20 hover:border-${colorClass}-500/40 rounded-2xl overflow-hidden transition-all duration-300`}>
+        <div className={`bg-slate-900/60 backdrop-blur-sm border ${isCarbon ? 'border-emerald-500/20 hover:border-emerald-500/40' : 'border-cyan-500/20 hover:border-cyan-500/40'} rounded-2xl overflow-hidden transition-all duration-300`}>
             {/* Card Header - Clickable */}
             <div
                 className="p-5 cursor-pointer hover:bg-slate-800/30 transition-colors"
-                onClick={() => setIsExpanded(!isExpanded)}
+                onClick={handleClick}
             >
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
@@ -160,7 +166,7 @@ function SectorCard({
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {sector.registryBreakdown.map((reg, idx) => (
                             <div
-                                key={idx}
+                                key={`${sector.name}-${reg.registrySymbol}-${idx}`}
                                 className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 hover:bg-slate-800/70 hover:border-slate-600/50 transition-all duration-200 group"
                             >
                                 <div className="flex items-center gap-3 mb-4">
@@ -343,6 +349,7 @@ export default function Insights() {
     const [loading, setLoading] = useState(true);
     const [activeTab, setActiveTab] = useState<'carbon' | 'rec'>('carbon');
     const [error, setError] = useState<string | null>(null);
+    const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set());
 
     useEffect(() => {
         fetch('/Data/insightsData.json')
@@ -386,6 +393,25 @@ export default function Insights() {
     const carbonSectors = aggregateSectors(data.carbonCredits.registries).slice(0, 8);
     const recSectors = aggregateSectors(data.renewableEnergyCertificates.registries).slice(0, 8);
     const activeSectors = activeTab === 'carbon' ? carbonSectors : recSectors;
+
+    // Toggle a specific card's expansion
+    const toggleCard = (cardKey: string) => {
+        setExpandedCards(prev => {
+            const next = new Set(prev);
+            if (next.has(cardKey)) {
+                next.delete(cardKey);
+            } else {
+                next.add(cardKey);
+            }
+            return next;
+        });
+    };
+
+    // Clear expanded cards when tab changes
+    const handleTabChange = (tab: 'carbon' | 'rec') => {
+        setExpandedCards(new Set());
+        setActiveTab(tab);
+    };
 
     return (
         <div className="min-h-screen bg-slate-950">

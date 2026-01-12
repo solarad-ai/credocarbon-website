@@ -2,10 +2,42 @@ import { Leaf, Shield, BarChart3 } from "lucide-react";
 import { TextGenerateEffect } from "../ui/TextGenerateEffect";
 import { Button } from "../ui/Button";
 import CarbonTradingBanner from "../ui/CarbonTradingBanner";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+interface RegistryTotals {
+  carbon: { issued: number; retired: number };
+  rec: { issued: number; retired: number };
+  totalRegistries: number;
+  totalCountries: number;
+}
+
+interface RegistryData {
+  totals: RegistryTotals;
+}
+
+// Format large numbers with K, M, B suffixes
+const formatNumber = (num: number, decimals: number = 1): string => {
+  if (num >= 1e9) return (num / 1e9).toFixed(decimals) + 'B';
+  if (num >= 1e6) return (num / 1e6).toFixed(decimals) + 'M';
+  if (num >= 1e3) return (num / 1e3).toFixed(decimals) + 'K';
+  return num.toFixed(decimals);
+};
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [totals, setTotals] = useState<RegistryTotals | null>(null);
+
+  // Fetch registry data for totals
+  useEffect(() => {
+    fetch('/Data/registryData.json')
+      .then(res => res.json())
+      .then((data: RegistryData) => {
+        setTotals(data.totals);
+      })
+      .catch(err => {
+        console.error('Failed to load registry data:', err);
+      });
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -87,7 +119,7 @@ export default function Hero() {
 
           <div className="flex flex-wrap items-center gap-3 md:gap-4">
             <Button
-              onClick={() => window.open('https://calendly.com/haider-solarad/solarad-demo', '_blank')}
+              onClick={() => window.open('https://calendly.com/credocarbon-info/credocarbon-connect?month=2026-01', '_blank')}
               className="bg-gradient-to-r from-emerald-500 to-emerald-600 text-[11px] md:text-[13px] font-extrabold px-4 md:px-6 py-2.5 md:py-3 text-white hover:from-emerald-400 hover:to-emerald-500 shadow-lg shadow-emerald-500/40 hover:shadow-emerald-500/60 hover:scale-105 transition-all duration-300"
             >
               Talk to us
@@ -110,7 +142,7 @@ export default function Hero() {
                   </div>
                   <div className="flex flex-col text-xs">
                     <span className="font-semibold text-emerald-100">
-                      Multi-registry portfolio · 300+ MW
+                      {totals ? `${totals.totalRegistries} Registries · ${totals.totalCountries} Countries` : 'Multi-registry portfolio · 300+ MW'}
                     </span>
                     <span className="text-[11px] text-emerald-200/80">
                       Developer · VVB · Buyer connected
@@ -119,29 +151,35 @@ export default function Hero() {
                 </div>
 
                 <span className="rounded-full bg-emerald-500/20 px-3 py-1 text-[10px] font-semibold text-emerald-100">
-                  Pilot ready
+                  Live data
                 </span>
               </div>
 
               <div className="space-y-3 text-xs text-emerald-50/90">
                 <div className="flex items-center justify-between rounded-xl bg-slate-900/70 px-3 py-2">
-                  <span>Verified credits (annualised)</span>
-                  <span className="font-semibold text-emerald-300">250,000 tCO₂e</span>
+                  <span>Verified credits (annual)</span>
+                  <span className="font-semibold text-emerald-300">
+                    {totals ? `${formatNumber(totals.carbon.issued)} tCO₂e` : 'Loading...'}
+                  </span>
                 </div>
 
                 <div className="flex items-center justify-between rounded-xl bg-slate-900/70 px-3 py-2">
-                  <span>Issuance cycle time</span>
-                  <span className="font-semibold text-emerald-300">↓ 60% vs legacy</span>
+                  <span>Carbon credits retired</span>
+                  <span className="font-semibold text-emerald-300">
+                    {totals ? `${formatNumber(totals.carbon.retired)} tCO₂e` : 'Loading...'}
+                  </span>
                 </div>
 
                 <div className="flex items-center justify-between rounded-xl bg-slate-900/70 px-3 py-2">
-                  <span>Platform coverage</span>
-                  <span className="font-semibold text-emerald-300">MRV → Registry → Trading</span>
+                  <span>RECs issued (annual)</span>
+                  <span className="font-semibold text-emerald-300">
+                    {totals ? `${formatNumber(totals.rec.issued)} MWh` : 'Loading...'}
+                  </span>
                 </div>
               </div>
 
               <p className="mt-4 text-[10px] md:text-[11px] text-emerald-100/70">
-                Visual is illustrative. CredoCarbon adapts to your methodology, registry and project mix.
+                Live data from integrated registries. Last 12 months.
               </p>
             </div>
           </div>

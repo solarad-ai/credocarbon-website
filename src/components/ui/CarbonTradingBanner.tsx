@@ -64,7 +64,7 @@ export default function CarbonTradingBanner() {
     const activeRec = data.recRegistries.filter(r => r.active && r.issued !== null);
 
     return (
-        <div className="relative w-full bg-slate-950/80 backdrop-blur-md border-b border-white/10">
+        <div className="relative w-full bg-slate-950/40 backdrop-blur-sm border-b border-white/10">
             {/* Animated gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-500/5 to-transparent animate-shimmer" />
 
@@ -99,7 +99,7 @@ export default function CarbonTradingBanner() {
                                             <span className="text-xs md:text-sm font-bold text-emerald-50">
                                                 {registry.symbol}
                                             </span>
-                                            <span className="text-[8px] md:text-[9px] text-emerald-200/60 hidden sm:block">
+                                            <span className="text-[8px] md:text-[9px] text-emerald-200/90 hidden sm:block">
                                                 {registry.name.length > 15 ? registry.name.slice(0, 15) + '...' : registry.name}
                                             </span>
                                         </div>
@@ -149,7 +149,7 @@ export default function CarbonTradingBanner() {
                                             <span className="text-xs md:text-sm font-bold text-cyan-50">
                                                 {registry.symbol}
                                             </span>
-                                            <span className="text-[8px] md:text-[9px] text-cyan-200/60 hidden sm:block">
+                                            <span className="text-[8px] md:text-[9px] text-cyan-200/90 hidden sm:block">
                                                 {registry.name.length > 15 ? registry.name.slice(0, 15) + '...' : registry.name}
                                             </span>
                                         </div>

@@ -17,7 +17,7 @@ export default function CallToAction() {
             className="bg-emerald-400 text-[13px] font-extrabold text-slate-950 hover:bg-emerald-300"
             onClick={() =>
               window.open(
-                "https://calendly.com/haider-solarad/solarad-demo",
+                "https://calendly.com/credocarbon-info/credocarbon-connect?month=2026-01",
                 "_blank"
               )
             }
@@ -25,14 +25,14 @@ export default function CallToAction() {
             Book a 30-min discovery call
           </Button>
           <a
-  href="https://credocarbon-web-641001192587.asia-south2.run.app"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <Button variant="outline" className="text-[13px] font-semibold">
-    Explore product walkthrough
-  </Button>
-</a>
+            href="https://credocarbon-web-641001192587.asia-south2.run.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="outline" className="text-[13px] font-semibold">
+              Explore product walkthrough
+            </Button>
+          </a>
 
         </div>
       </div>
