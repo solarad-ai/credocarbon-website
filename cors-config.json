@@ -1,0 +1,25 @@
+[
+    {
+        "origin": [
+            "https://credocarbon.com",
+            "https://www.credocarbon.com",
+            "http://localhost:5173",
+            "http://localhost:3000"
+        ],
+        "method": [
+            "GET",
+            "HEAD",
+            "OPTIONS"
+        ],
+        "responseHeader": [
+            "Content-Type",
+            "Content-Length",
+            "Access-Control-Allow-Origin",
+            "Access-Control-Allow-Methods",
+            "Access-Control-Allow-Headers",
+            "Cache-Control",
+            "ETag"
+        ],
+        "maxAgeSeconds": 3600
+    }
+]

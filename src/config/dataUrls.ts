@@ -15,6 +15,9 @@
 
 const GCS_BUCKET_URL = 'https://storage.googleapis.com/credocarbon-metadata';
 
+// Cache buster to force refresh after CORS configuration update (can remove after 2026-01-13)
+const CACHE_BUSTER = 'v=20260112';
+
 // Backend API URL (requires authentication for write operations)
 export const BACKEND_API_URL = 'https://credocarbon-website-backend-641001192587.asia-south2.run.app';
 
@@ -24,10 +27,10 @@ const isProduction = import.meta.env.PROD;
 export const DATA_URLS = {
     // Public read endpoints (no auth required)
     registryData: isProduction
-        ? `${GCS_BUCKET_URL}/registryData.json`
+        ? `${GCS_BUCKET_URL}/registryData.json?${CACHE_BUSTER}`
         : '/Data/registryData.json',
     insightsData: isProduction
-        ? `${GCS_BUCKET_URL}/insightsData.json`
+        ? `${GCS_BUCKET_URL}/insightsData.json?${CACHE_BUSTER}`
         : '/Data/insightsData.json',
 
     // Backend API endpoints (require authentication)
