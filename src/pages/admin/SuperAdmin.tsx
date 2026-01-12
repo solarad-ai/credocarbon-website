@@ -5,9 +5,10 @@ import {
     Eye, EyeOff, Shield, BarChart3
 } from 'lucide-react';
 import InsightsManager from './InsightsManager';
+import { BACKEND_API_URL } from '../../config/dataUrls';
 
-// API Base URL - change in production
-const API_BASE = 'http://localhost:8000';
+// API Base URL - uses deployed backend in production
+const API_BASE = BACKEND_API_URL;
 
 // Types
 interface CarbonRegistry {

@@ -4,8 +4,10 @@ import {
     Edit2, Save, X, RefreshCw, ChevronDown, ChevronUp, Plus, Trash2,
     BarChart3
 } from 'lucide-react';
+import { BACKEND_API_URL } from '../../config/dataUrls';
 
-const API_BASE = 'http://localhost:8000';
+// API Base URL - uses deployed backend in production
+const API_BASE = BACKEND_API_URL;
 
 interface Subsector {
     name: string;
@@ -260,7 +262,7 @@ export default function InsightsManager({ token }: { token: string }) {
             {/* Message */}
             {message.text && (
                 <div className={`p-4 rounded-xl flex items-center gap-3 ${message.type === 'success' ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-400' :
-                        'bg-red-500/10 border border-red-500/30 text-red-400'
+                    'bg-red-500/10 border border-red-500/30 text-red-400'
                     }`}>
                     {message.text}
                 </div>
@@ -283,8 +285,8 @@ export default function InsightsManager({ token }: { token: string }) {
                 <button
                     onClick={() => setActiveTab('carbon')}
                     className={`px-5 py-3 rounded-xl font-medium ${activeTab === 'carbon'
-                            ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
-                            : 'bg-slate-800/50 text-slate-400 border border-slate-700/50'
+                        ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
+                        : 'bg-slate-800/50 text-slate-400 border border-slate-700/50'
                         }`}
                 >
                     Carbon Credits ({data?.carbonCredits.registries.length || 0})
@@ -292,8 +294,8 @@ export default function InsightsManager({ token }: { token: string }) {
                 <button
                     onClick={() => setActiveTab('rec')}
                     className={`px-5 py-3 rounded-xl font-medium ${activeTab === 'rec'
-                            ? 'bg-pink-500/20 text-pink-400 border border-pink-500/30'
-                            : 'bg-slate-800/50 text-slate-400 border border-slate-700/50'
+                        ? 'bg-pink-500/20 text-pink-400 border border-pink-500/30'
+                        : 'bg-slate-800/50 text-slate-400 border border-slate-700/50'
                         }`}
                 >
                     RECs ({data?.renewableEnergyCertificates.registries.length || 0})
