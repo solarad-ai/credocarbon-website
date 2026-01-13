@@ -1,192 +1,624 @@
-import { FileText, Calendar, Tag, ArrowRight } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { FileText, Calendar, Clock, ArrowRight, ExternalLink, Loader2, RefreshCw, User } from "lucide-react";
 
-const blogPosts = [
-    {
-        title: "The Future of Carbon Markets: Trends for 2025",
-        excerpt: "Exploring emerging trends in voluntary carbon markets, from tokenization to AI-powered MRV systems.",
-        category: "Industry Insights",
-        date: "Dec 15, 2024",
-        readTime: "5 min read",
-        image: "from-emerald-500/20 to-teal-500/20"
-    },
-    {
-        title: "How Blockchain is Transforming Carbon Credit Verification",
-        excerpt: "Deep dive into how distributed ledger technology ensures transparency and prevents double-counting.",
-        category: "Technology",
-        date: "Dec 10, 2024",
-        readTime: "7 min read",
-        image: "from-cyan-500/20 to-blue-500/20"
-    },
-    {
-        title: "Registry Integration Best Practices",
-        excerpt: "A comprehensive guide to navigating multi-registry workflows and ensuring compliance across platforms.",
-        category: "Best Practices",
-        date: "Dec 5, 2024",
-        readTime: "6 min read",
-        image: "from-purple-500/20 to-pink-500/20"
-    },
-    {
-        title: "Case Study: Scaling Renewable Energy Projects",
-        excerpt: "How one developer used CredoCarbon to manage 50+ solar projects across 3 registries.",
-        category: "Case Studies",
-        date: "Nov 28, 2024",
-        readTime: "8 min read",
-        image: "from-orange-500/20 to-red-500/20"
-    },
-    {
-        title: "Understanding MRV: A Beginner's Guide",
-        excerpt: "Everything you need to know about Monitoring, Reporting, and Verification in carbon markets.",
-        category: "Education",
-        date: "Nov 20, 2024",
-        readTime: "10 min read",
-        image: "from-green-500/20 to-emerald-500/20"
-    },
-    {
-        title: "API Updates: New Webhook Events",
-        excerpt: "Announcing new webhook events for real-time project updates and verification status changes.",
-        category: "Product Updates",
-        date: "Nov 15, 2024",
-        readTime: "4 min read",
-        image: "from-indigo-500/20 to-purple-500/20"
+// Hashnode GraphQL API endpoint and blog host
+const HASHNODE_API = "https://gql.hashnode.com";
+const BLOG_HOST = "credocarbon.hashnode.dev";
+const POSTS_PER_PAGE = 12;
+
+// GraphQL query to fetch posts from Hashnode with pagination
+const GET_POSTS_QUERY = `
+  query GetPosts($host: String!, $first: Int!, $after: String) {
+    publication(host: $host) {
+      title
+      posts(first: $first, after: $after) {
+        edges {
+          node {
+            id
+            title
+            brief
+            slug
+            publishedAt
+            readTimeInMinutes
+            coverImage {
+              url
+            }
+            tags {
+              name
+              slug
+            }
+            author {
+              name
+              profilePicture
+            }
+          }
+          cursor
+        }
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
+      }
     }
-];
+  }
+`;
 
-const categories = [
-    "All Posts",
-    "Industry Insights",
-    "Technology",
-    "Best Practices",
-    "Case Studies",
-    "Product Updates"
+interface BlogPost {
+    id: string;
+    title: string;
+    brief: string;
+    slug: string;
+    publishedAt: string;
+    readTimeInMinutes: number;
+    coverImage?: {
+        url: string;
+    };
+    tags?: Array<{
+        name: string;
+        slug: string;
+    }>;
+    author?: {
+        name: string;
+        profilePicture: string;
+    };
+}
+
+interface PageInfo {
+    hasNextPage: boolean;
+    endCursor: string | null;
+}
+
+interface HashnodeResponse {
+    data: {
+        publication: {
+            title: string;
+            posts: {
+                edges: Array<{
+                    node: BlogPost;
+                    cursor: string;
+                }>;
+                pageInfo: PageInfo;
+            };
+        };
+    };
+}
+
+// Decorative gradient patterns for cards
+const decorativePatterns = [
+    {
+        bg: "from-emerald-500/20 via-teal-500/20 to-cyan-500/20",
+        accent: "bg-emerald-400",
+    },
+    {
+        bg: "from-violet-500/20 via-purple-500/20 to-pink-500/20",
+        accent: "bg-violet-400",
+    },
+    {
+        bg: "from-orange-500/20 via-amber-500/20 to-yellow-500/20",
+        accent: "bg-orange-400",
+    },
+    {
+        bg: "from-cyan-500/20 via-blue-500/20 to-indigo-500/20",
+        accent: "bg-cyan-400",
+    },
+    {
+        bg: "from-rose-500/20 via-pink-500/20 to-fuchsia-500/20",
+        accent: "bg-rose-400",
+    },
+    {
+        bg: "from-lime-500/20 via-green-500/20 to-emerald-500/20",
+        accent: "bg-lime-400",
+    },
 ];
 
 export default function Blog() {
+    const [posts, setPosts] = useState<BlogPost[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [loadingMore, setLoadingMore] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+    const [pageInfo, setPageInfo] = useState<PageInfo>({ hasNextPage: false, endCursor: null });
+
+    const fetchPosts = useCallback(async (cursor?: string | null, append = false) => {
+        try {
+            if (append) {
+                setLoadingMore(true);
+            } else {
+                setLoading(true);
+                setError(null);
+            }
+
+            const response = await fetch(HASHNODE_API, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    query: GET_POSTS_QUERY,
+                    variables: {
+                        host: BLOG_HOST,
+                        first: POSTS_PER_PAGE,
+                        after: cursor || null,
+                    },
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to fetch posts");
+            }
+
+            const data: HashnodeResponse = await response.json();
+
+            if (data.data?.publication?.posts?.edges) {
+                const fetchedPosts = data.data.publication.posts.edges.map(
+                    (edge) => edge.node
+                );
+
+                if (append) {
+                    setPosts((prev) => [...prev, ...fetchedPosts]);
+                } else {
+                    setPosts(fetchedPosts);
+                }
+
+                setPageInfo(data.data.publication.posts.pageInfo);
+            }
+        } catch (err) {
+            console.error("Error fetching posts:", err);
+            setError("Failed to load blog posts. Please try again later.");
+        } finally {
+            setLoading(false);
+            setLoadingMore(false);
+        }
+    }, []);
+
+    useEffect(() => {
+        fetchPosts();
+    }, [fetchPosts]);
+
+    const handleLoadMore = () => {
+        if (pageInfo.hasNextPage && pageInfo.endCursor) {
+            fetchPosts(pageInfo.endCursor, true);
+        }
+    };
+
+    const handleRefresh = () => {
+        setPosts([]);
+        fetchPosts();
+    };
+
+    const formatDate = (dateString: string) => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+        });
+    };
+
+    const getPostUrl = (slug: string) => {
+        return `https://${BLOG_HOST}/${slug}`;
+    };
+
+    // Split posts for layout
+    const featuredPost = posts[0];
+    const sidebarPosts = posts.slice(1, 3);
+    const gridPosts = posts.slice(3);
+
     return (
-        <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900">
+        <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+            {/* Background Decorations */}
+            <div className="fixed inset-0 pointer-events-none overflow-hidden">
+                <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-violet-500/5 rounded-full blur-3xl translate-x-1/2" />
+                <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-3xl" />
+            </div>
+
             {/* Hero Section */}
-            <section className="relative py-20 md:py-32 overflow-hidden">
-                <div className="absolute inset-0 opacity-20">
-                    <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-emerald-500/30 to-teal-500/30 rounded-full blur-3xl animate-pulse" />
-                </div>
+            <section className="relative pt-24 pb-12 md:pt-32 md:pb-16">
+                <div className="relative mx-auto max-w-7xl px-4">
+                    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+                        <div>
+                            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-4 py-2 mb-4">
+                                <FileText className="w-4 h-4 text-emerald-400" />
+                                <span className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-400">
+                                    Blog & Insights
+                                </span>
+                            </div>
 
-                <div className="relative mx-auto max-w-6xl px-4 text-center">
-                    <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-4 py-2 mb-6">
-                        <FileText className="w-4 h-4 text-emerald-400" />
-                        <span className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-400">
-                            Blog
-                        </span>
-                    </div>
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-50">
+                                Latest from{" "}
+                                <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+                                    CredoCarbon
+                                </span>
+                            </h1>
+                        </div>
 
-                    <h1 className="text-5xl md:text-6xl font-bold text-slate-50 mb-6">
-                        Insights & Updates
-                        <span className="block bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
-                            from CredoCarbon
-                        </span>
-                    </h1>
-
-                    <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-                        Stay informed about carbon markets, platform updates, and industry best practices.
-                    </p>
-                </div>
-            </section>
-
-            {/* Category Filter */}
-            <section className="relative py-8 border-y border-slate-800">
-                <div className="mx-auto max-w-6xl px-4">
-                    <div className="flex flex-wrap gap-3 justify-center">
-                        {categories.map((category) => (
+                        {!loading && posts.length > 0 && (
                             <button
-                                key={category}
-                                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${category === "All Posts"
-                                        ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950"
-                                        : "border border-slate-700 text-slate-400 hover:border-emerald-400/30 hover:text-emerald-400"
-                                    }`}
+                                onClick={handleRefresh}
+                                className="flex items-center gap-2 text-sm text-slate-400 hover:text-emerald-400 transition-colors self-start md:self-auto"
                             >
-                                {category}
+                                <RefreshCw className="w-4 h-4" />
+                                Refresh
                             </button>
-                        ))}
+                        )}
                     </div>
                 </div>
             </section>
 
-            {/* Blog Posts Grid */}
-            <section className="relative py-16 md:py-24">
+            {/* Main Content */}
+            <section className="relative pb-20">
                 <div className="mx-auto max-w-7xl px-4">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {blogPosts.map((post) => (
-                            <article
-                                key={post.title}
-                                className="group relative overflow-hidden rounded-3xl border border-slate-700 bg-slate-900/60 backdrop-blur-sm transition-all duration-300 hover:border-emerald-400/40 hover:bg-slate-800/80"
+                    {/* Loading State */}
+                    {loading && (
+                        <div className="flex flex-col items-center justify-center py-32">
+                            <div className="relative">
+                                <div className="absolute inset-0 rounded-full blur-xl bg-emerald-400/20 animate-pulse" />
+                                <Loader2 className="relative w-16 h-16 text-emerald-400 animate-spin" />
+                            </div>
+                            <p className="mt-6 text-slate-400 text-lg">Loading posts...</p>
+                        </div>
+                    )}
+
+                    {/* Error State */}
+                    {error && !loading && (
+                        <div className="text-center py-20">
+                            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl border border-red-400/30 bg-red-500/10 text-red-400 mb-6">
+                                {error}
+                            </div>
+                            <p className="text-slate-400 mb-6">
+                                Visit our blog directly at{" "}
+                                <a
+                                    href={`https://${BLOG_HOST}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-emerald-400 hover:underline"
+                                >
+                                    {BLOG_HOST}
+                                </a>
+                            </p>
+                            <button
+                                onClick={handleRefresh}
+                                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400 transition-all"
                             >
-                                {/* Featured Image Placeholder */}
-                                <div className={`h-48 bg-gradient-to-br ${post.image} relative overflow-hidden`}>
-                                    <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/20 transition-colors" />
-                                </div>
+                                <RefreshCw className="w-4 h-4" />
+                                Try Again
+                            </button>
+                        </div>
+                    )}
 
-                                <div className="p-6">
-                                    {/* Meta */}
-                                    <div className="flex items-center gap-3 mb-3 text-xs text-slate-400">
-                                        <div className="flex items-center gap-1">
-                                            <Tag className="w-3.5 h-3.5" />
-                                            {post.category}
-                                        </div>
-                                        <div className="flex items-center gap-1">
-                                            <Calendar className="w-3.5 h-3.5" />
-                                            {post.date}
-                                        </div>
+                    {/* Posts Layout */}
+                    {!loading && !error && posts.length > 0 && (
+                        <>
+                            {/* Featured Section: Hero + Sidebar */}
+                            <div className="grid lg:grid-cols-3 gap-6 mb-12">
+                                {/* Featured Post (Large) */}
+                                {featuredPost && (
+                                    <a
+                                        href={getPostUrl(featuredPost.slug)}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="lg:col-span-2 group"
+                                    >
+                                        <article className="relative h-full rounded-3xl overflow-hidden border border-slate-700/50 bg-slate-900/80 backdrop-blur-sm hover:border-emerald-400/40 transition-all duration-500">
+                                            {/* Decorative Background */}
+                                            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                                            <div className="grid md:grid-cols-2 h-full">
+                                                {/* Image */}
+                                                <div className="relative h-64 md:h-full overflow-hidden">
+                                                    {featuredPost.coverImage?.url ? (
+                                                        <img
+                                                            src={featuredPost.coverImage.url}
+                                                            alt={featuredPost.title}
+                                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                                        />
+                                                    ) : (
+                                                        <div className="w-full h-full bg-gradient-to-br from-emerald-500/30 to-cyan-500/30" />
+                                                    )}
+                                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+
+                                                    {/* Tag Badge */}
+                                                    {featuredPost.tags?.[0] && (
+                                                        <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-emerald-500 text-slate-950 text-xs font-bold uppercase tracking-wider">
+                                                            {featuredPost.tags[0].name}
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                {/* Content */}
+                                                <div className="relative p-8 flex flex-col justify-center">
+                                                    <h2 className="text-2xl md:text-3xl font-bold text-slate-50 mb-4 group-hover:text-emerald-100 transition-colors leading-tight">
+                                                        {featuredPost.title}
+                                                    </h2>
+
+                                                    <p className="text-slate-300 mb-6 leading-relaxed line-clamp-3">
+                                                        {featuredPost.brief}
+                                                    </p>
+
+                                                    {/* Author & Meta */}
+                                                    <div className="flex items-center gap-4">
+                                                        {featuredPost.author?.profilePicture ? (
+                                                            <img
+                                                                src={featuredPost.author.profilePicture}
+                                                                alt={featuredPost.author.name}
+                                                                className="w-10 h-10 rounded-full object-cover border-2 border-emerald-400/30"
+                                                            />
+                                                        ) : (
+                                                            <div className="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center">
+                                                                <User className="w-5 h-5 text-emerald-400" />
+                                                            </div>
+                                                        )}
+                                                        <div>
+                                                            <p className="text-sm font-medium text-slate-200">
+                                                                {featuredPost.author?.name || "CredoCarbon"}
+                                                            </p>
+                                                            <div className="flex items-center gap-3 text-xs text-slate-400">
+                                                                <span className="flex items-center gap-1">
+                                                                    <Clock className="w-3 h-3" />
+                                                                    {featuredPost.readTimeInMinutes} min read
+                                                                </span>
+                                                                <span>{formatDate(featuredPost.publishedAt)}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    {/* Read Arrow */}
+                                                    <div className="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                                        <ArrowRight className="w-5 h-5 text-slate-950" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </a>
+                                )}
+
+                                {/* Sidebar Posts */}
+                                <div className="flex flex-col gap-6">
+                                    {sidebarPosts.map((post) => (
+                                        <a
+                                            key={post.id}
+                                            href={getPostUrl(post.slug)}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="group flex-1"
+                                        >
+                                            <article className="relative h-full rounded-2xl overflow-hidden border border-slate-700/50 bg-slate-900/80 backdrop-blur-sm hover:border-emerald-400/40 transition-all duration-300">
+                                                {/* Image */}
+                                                <div className="relative h-32 overflow-hidden">
+                                                    {post.coverImage?.url ? (
+                                                        <img
+                                                            src={post.coverImage.url}
+                                                            alt={post.title}
+                                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                        />
+                                                    ) : (
+                                                        <div className="w-full h-full bg-gradient-to-br from-violet-500/30 to-pink-500/30" />
+                                                    )}
+                                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
+
+                                                    {post.tags?.[0] && (
+                                                        <div className="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-emerald-500/90 text-slate-950 text-[10px] font-bold uppercase">
+                                                            {post.tags[0].name}
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                {/* Content */}
+                                                <div className="p-5">
+                                                    <h3 className="text-lg font-semibold text-slate-50 mb-3 group-hover:text-emerald-100 transition-colors line-clamp-2 leading-snug">
+                                                        {post.title}
+                                                    </h3>
+
+                                                    <div className="flex items-center gap-3">
+                                                        {post.author?.profilePicture ? (
+                                                            <img
+                                                                src={post.author.profilePicture}
+                                                                alt={post.author.name}
+                                                                className="w-7 h-7 rounded-full object-cover"
+                                                            />
+                                                        ) : (
+                                                            <div className="w-7 h-7 rounded-full bg-slate-700 flex items-center justify-center">
+                                                                <User className="w-3.5 h-3.5 text-slate-400" />
+                                                            </div>
+                                                        )}
+                                                        <div className="text-xs text-slate-400">
+                                                            <span className="text-slate-300">{post.author?.name || "CredoCarbon"}</span>
+                                                            <span className="mx-2">·</span>
+                                                            <span>{post.readTimeInMinutes} min</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Grid Posts with Decorative Elements */}
+                            {gridPosts.length > 0 && (
+                                <>
+                                    <div className="flex items-center gap-4 mb-8">
+                                        <h2 className="text-2xl font-bold text-slate-200">More Articles</h2>
+                                        <div className="flex-1 h-px bg-gradient-to-r from-slate-700 to-transparent" />
                                     </div>
 
-                                    {/* Title */}
-                                    <h3 className="text-xl font-semibold text-slate-50 mb-3 group-hover:text-emerald-100 transition-colors">
-                                        {post.title}
-                                    </h3>
+                                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                        {gridPosts.map((post, index) => {
+                                            const pattern = decorativePatterns[index % decorativePatterns.length];
 
-                                    {/* Excerpt */}
-                                    <p className="text-sm text-slate-300 mb-4 leading-relaxed">
-                                        {post.excerpt}
+                                            return (
+                                                <a
+                                                    key={post.id}
+                                                    href={getPostUrl(post.slug)}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="group"
+                                                >
+                                                    <article className="relative">
+                                                        {/* Decorative Background Shape */}
+                                                        <div className={`absolute -inset-3 rounded-3xl bg-gradient-to-br ${pattern.bg} opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500`} />
+
+                                                        {/* Card */}
+                                                        <div className="relative rounded-2xl overflow-hidden border border-slate-700/50 bg-slate-900/90 backdrop-blur-sm group-hover:border-slate-600 transition-all duration-300">
+                                                            {/* Image Container with Pattern */}
+                                                            <div className="relative">
+                                                                {/* Decorative Corner */}
+                                                                <div className={`absolute -top-10 -right-10 w-32 h-32 ${pattern.accent} opacity-20 rounded-full blur-2xl`} />
+
+                                                                <div className="relative h-48 overflow-hidden">
+                                                                    {post.coverImage?.url ? (
+                                                                        <img
+                                                                            src={post.coverImage.url}
+                                                                            alt={post.title}
+                                                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                                                            loading="lazy"
+                                                                        />
+                                                                    ) : (
+                                                                        <div className={`w-full h-full bg-gradient-to-br ${pattern.bg}`} />
+                                                                    )}
+                                                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent" />
+                                                                </div>
+
+                                                                {/* Tag */}
+                                                                {post.tags?.[0] && (
+                                                                    <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-sm border border-slate-600/50 text-emerald-400 text-xs font-semibold uppercase tracking-wide">
+                                                                        {post.tags[0].name}
+                                                                    </div>
+                                                                )}
+                                                            </div>
+
+                                                            {/* Content */}
+                                                            <div className="p-6">
+                                                                <h3 className="text-xl font-bold text-slate-50 mb-3 group-hover:text-emerald-100 transition-colors line-clamp-2 leading-tight">
+                                                                    {post.title}
+                                                                </h3>
+
+                                                                <p className="text-sm text-slate-400 mb-5 line-clamp-2 leading-relaxed">
+                                                                    {post.brief}
+                                                                </p>
+
+                                                                <div className="flex items-center justify-between">
+                                                                    <div className="flex items-center gap-3">
+                                                                        {post.author?.profilePicture ? (
+                                                                            <img
+                                                                                src={post.author.profilePicture}
+                                                                                alt={post.author.name}
+                                                                                className="w-8 h-8 rounded-full object-cover border border-slate-600"
+                                                                            />
+                                                                        ) : (
+                                                                            <div className="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center">
+                                                                                <User className="w-4 h-4 text-slate-400" />
+                                                                            </div>
+                                                                        )}
+                                                                        <div className="text-xs">
+                                                                            <p className="text-slate-300 font-medium">{post.author?.name || "CredoCarbon"}</p>
+                                                                            <p className="text-slate-500">{formatDate(post.publishedAt)}</p>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="flex items-center gap-1 text-xs text-slate-500">
+                                                                        <Clock className="w-3.5 h-3.5" />
+                                                                        {post.readTimeInMinutes} min
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                </a>
+                                            );
+                                        })}
+                                    </div>
+                                </>
+                            )}
+
+                            {/* Load More */}
+                            <div className="flex flex-col items-center gap-6 mt-16">
+                                {pageInfo.hasNextPage && (
+                                    <button
+                                        onClick={handleLoadMore}
+                                        disabled={loadingMore}
+                                        className="group relative inline-flex items-center gap-3 px-10 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-bold text-lg hover:shadow-2xl hover:shadow-emerald-500/30 hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                        {loadingMore ? (
+                                            <>
+                                                <Loader2 className="w-5 h-5 animate-spin" />
+                                                Loading...
+                                            </>
+                                        ) : (
+                                            <>
+                                                Load More Articles
+                                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                            </>
+                                        )}
+                                    </button>
+                                )}
+
+                                {!pageInfo.hasNextPage && posts.length > 3 && (
+                                    <p className="text-slate-500">
+                                        You've explored all {posts.length} articles! ✨
                                     </p>
+                                )}
 
-                                    {/* Read More */}
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-xs text-slate-500">{post.readTime}</span>
-                                        <button className="flex items-center gap-2 text-sm text-emerald-400 font-medium group-hover:gap-3 transition-all">
-                                            Read More
-                                            <ArrowRight className="w-4 h-4" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        ))}
-                    </div>
+                                <a
+                                    href={`https://${BLOG_HOST}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 text-slate-400 hover:text-emerald-400 transition-colors"
+                                >
+                                    <span>View on Hashnode</span>
+                                    <ExternalLink className="w-4 h-4" />
+                                </a>
+                            </div>
+                        </>
+                    )}
 
-                    {/* Load More */}
-                    <div className="text-center mt-12">
-                        <button className="px-8 py-4 rounded-xl border border-emerald-400/30 text-emerald-400 font-semibold hover:bg-emerald-500/10 transition-all duration-300">
-                            Load More Posts
-                        </button>
-                    </div>
+                    {/* Empty State */}
+                    {!loading && !error && posts.length === 0 && (
+                        <div className="text-center py-32">
+                            <div className="relative inline-block mb-6">
+                                <div className="absolute inset-0 rounded-3xl blur-2xl bg-emerald-400/10" />
+                                <FileText className="relative w-20 h-20 text-slate-600" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-slate-300 mb-3">
+                                No posts yet
+                            </h3>
+                            <p className="text-slate-500">
+                                Check back soon for exciting updates!
+                            </p>
+                        </div>
+                    )}
                 </div>
             </section>
 
             {/* Newsletter CTA */}
-            <section className="relative py-16 md:py-20">
+            <section className="relative py-20">
                 <div className="mx-auto max-w-4xl px-4">
-                    <div className="rounded-3xl border border-emerald-400/30 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 backdrop-blur-sm p-12 text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-50 mb-4">
-                            Subscribe to our newsletter
-                        </h2>
-                        <p className="text-lg text-slate-300 mb-8">
-                            Get the latest insights delivered to your inbox every week.
-                        </p>
-                        <div className="flex gap-3 max-w-md mx-auto">
-                            <input
-                                type="email"
-                                placeholder="Enter your email"
-                                className="flex-1 px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-slate-300 placeholder-slate-500 focus:outline-none focus:border-emerald-400/50"
-                            />
-                            <button className="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-semibold hover:shadow-lg hover:shadow-emerald-500/50 transition-all duration-300 hover:scale-105">
-                                Subscribe
-                            </button>
+                    <div className="relative rounded-3xl overflow-hidden">
+                        {/* Background */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/20 via-teal-600/20 to-cyan-600/20" />
+                        <div className="absolute inset-0 backdrop-blur-xl" />
+                        <div className="absolute inset-0 border border-emerald-400/30 rounded-3xl" />
+
+                        {/* Decorative Elements */}
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-400/10 rounded-full blur-3xl" />
+                        <div className="absolute bottom-0 left-0 w-48 h-48 bg-cyan-400/10 rounded-full blur-3xl" />
+
+                        <div className="relative p-12 md:p-16 text-center">
+                            <h2 className="text-3xl md:text-4xl font-bold text-slate-50 mb-4">
+                                Stay in the loop
+                            </h2>
+                            <p className="text-lg text-slate-300 mb-8 max-w-xl mx-auto">
+                                Subscribe to get the latest insights on carbon markets, sustainability, and climate tech.
+                            </p>
+                            <a
+                                href={`https://${BLOG_HOST}/newsletter`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-slate-50 text-slate-900 font-bold text-lg hover:bg-emerald-400 hover:scale-105 transition-all duration-300 shadow-xl"
+                            >
+                                Subscribe to Newsletter
+                                <ArrowRight className="w-5 h-5" />
+                            </a>
                         </div>
                     </div>
                 </div>

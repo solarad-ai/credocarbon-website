@@ -51,17 +51,18 @@ export default function AboutUs() {
     },
     {
       name: "Dr. Asad Abbas",
-      picture: "/images/Asad.jpeg",
+      picture: "/images/Asad.png",
       desg: "Advisor - MRV Engineering",
       expertise: "MRV systems and petrochemical engineering",
       linkedIn: "https://www.linkedin.com/in/asad-petrochem/",
     },
     {
       name: "Ali Abbas",
-      picture: null, // Placeholder
+      picture: "/images/Ali.png",
       desg: "Strategy and Business Head",
       expertise: "Business strategy and market development",
       linkedIn: "#", // Placeholder
+      imagePosition: "center 25%", // Custom position to better frame face
     },
   ];
 
@@ -318,6 +319,7 @@ export default function AboutUs() {
                         src={member.picture}
                         alt={member.name}
                         className="relative w-28 h-28 mx-auto rounded-full object-cover border border-cyan-300/40"
+                        style={{ objectPosition: member.imagePosition || 'top' }}
                       />
                     ) : (
                       <div className="relative w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-slate-700 to-slate-800 border border-cyan-300/40 flex items-center justify-center">
