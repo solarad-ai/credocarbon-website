@@ -25,7 +25,7 @@ export default function CallToAction() {
             Book a 30-min discovery call
           </Button>
           <a
-            href="https://credocarbon-web-641001192587.asia-south2.run.app"
+            href="https://dashboard.credocarbon.com"
             target="_blank"
             rel="noopener noreferrer"
           >

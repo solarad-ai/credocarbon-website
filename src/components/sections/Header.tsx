@@ -89,7 +89,7 @@ export default function Header() {
           {/* CTA BUTTON & MOBILE MENU TOGGLE */}
           <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
             <a
-              href="https://credocarbon-web-641001192587.asia-south2.run.app"
+              href="https://dashboard.credocarbon.com"
               target="_blank"
               rel="noopener noreferrer"
               className="relative group rounded-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-500 px-4 py-2 md:px-6 md:py-2.5 text-[11px] md:text-sm font-bold text-slate-900 transition-all duration-300 shadow-lg shadow-emerald-500/40 hover:shadow-emerald-400/60 hover:shadow-xl hover:scale-105 whitespace-nowrap overflow-hidden animate-pulse-subtle"
@@ -233,7 +233,7 @@ export default function Header() {
               {/* Footer CTA */}
               <div className="px-5 py-4 border-t border-slate-800/50 animate-in fade-in slide-in-from-bottom-2 duration-700 delay-[800ms]">
                 <a
-                  href="https://credocarbon-web-641001192587.asia-south2.run.app"
+                  href="https://dashboard.credocarbon.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative flex items-center justify-center gap-2 w-full rounded-lg bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-500 px-4 py-3 text-sm font-bold text-slate-900 transition-all duration-300 shadow-lg shadow-emerald-500/40 overflow-hidden animate-pulse-subtle"

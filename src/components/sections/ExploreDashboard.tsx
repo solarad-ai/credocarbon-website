@@ -94,8 +94,8 @@ export default function ExploreDashboard() {
               {/* Dashboard Video - shown when no view is selected */}
               <div
                 className={`absolute inset-3 md:inset-6 transition-all duration-700 ${selectedView === null
-                    ? 'opacity-100 scale-100 z-10'
-                    : 'opacity-0 scale-95 z-0'
+                  ? 'opacity-100 scale-100 z-10'
+                  : 'opacity-0 scale-95 z-0'
                   }`}
               >
                 <video
@@ -113,8 +113,8 @@ export default function ExploreDashboard() {
                 <div
                   key={view.id}
                   className={`absolute inset-3 md:inset-6 transition-all duration-700 ${index === selectedView
-                      ? 'opacity-100 scale-100 z-10'
-                      : 'opacity-0 scale-95 z-0'
+                    ? 'opacity-100 scale-100 z-10'
+                    : 'opacity-0 scale-95 z-0'
                     }`}
                 >
                   <img
@@ -147,8 +147,8 @@ export default function ExploreDashboard() {
                 key={view.id}
                 onClick={() => handleViewSelect(index)}
                 className={`relative group rounded-xl overflow-hidden transition-all duration-300 touch-manipulation ${index === selectedView
-                    ? 'ring-2 ring-emerald-400 scale-105'
-                    : 'opacity-70 hover:opacity-100 hover:scale-102'
+                  ? 'ring-2 ring-emerald-400 scale-105'
+                  : 'opacity-70 hover:opacity-100 hover:scale-102'
                   }`}
               >
                 <div className={`absolute inset-0 bg-gradient-to-r ${view.gradient} opacity-0 group-hover:opacity-20 transition-opacity`} />
@@ -170,7 +170,7 @@ export default function ExploreDashboard() {
         {/* CTA */}
         <div className="text-center px-4">
           <a
-            href="https://credocarbon-web-641001192587.asia-south2.run.app"
+            href="https://dashboard.credocarbon.com"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 hover:from-emerald-400 hover:via-blue-400 hover:to-purple-400 text-white font-bold text-base md:text-lg px-8 md:px-12 py-4 md:py-5 rounded-xl md:rounded-2xl transition-all duration-300 shadow-2xl shadow-emerald-500/30 hover:shadow-emerald-500/60 hover:scale-105 group touch-manipulation"

@@ -62,7 +62,7 @@ export default function ExplorePopup() {
     const handleContinue = () => {
         // Remember that they clicked continue
         localStorage.setItem("explorePopupDismissed", Date.now().toString());
-        window.open("https://credocarbon-web-641001192587.asia-south2.run.app", "_blank");
+        window.open("https://dashboard.credocarbon.com", "_blank");
         setIsExiting(true);
         setTimeout(() => {
             setIsVisible(false);

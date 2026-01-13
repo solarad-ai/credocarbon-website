@@ -114,7 +114,7 @@ export default function WhyCredoCarbon() {
                             {/* CTA */}
                             <div className="mt-10 pt-8 border-t border-slate-700/40">
                                 <a
-                                    href="https://credocarbon-web-641001192587.asia-south2.run.app"
+                                    href="https://dashboard.credocarbon.com"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center justify-center gap-2 w-full md:w-auto md:mx-auto md:px-10 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-900 font-bold text-sm hover:from-cyan-400 hover:to-emerald-400 transition-all duration-300 shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-[1.02] group"
