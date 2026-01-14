@@ -77,6 +77,16 @@ export default function Footer() {
                 <Phone className="w-3.5 h-3.5 text-emerald-400" />
                 +91 97951 19246
               </a>
+
+              <a
+                href="https://www.linkedin.com/company/credocarbon/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-emerald-400 transition"
+              >
+                <Linkedin className="w-3.5 h-3.5 text-emerald-400" />
+                LinkedIn
+              </a>
             </div>
           </div>
 
