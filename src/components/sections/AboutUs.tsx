@@ -40,7 +40,23 @@ export default function AboutUs() {
       "His long-term vision is to make climate data as trusted, auditable, and foundational to global markets as financial data is today.",
   };
 
+  const strategyHead = {
+    name: "Ali Abbas",
+    picture: "/images/Ali.png",
+    desg: "Strategy and Business Head",
+    linkedIn: "https://www.linkedin.com/in/s-ali-abbas-9a5579151/",
+    imagePosition: "center 25%", // Custom position to better frame face
+  };
+
   const advisors = [
+    {
+      name: "Dr. Asad Abbas",
+      picture: "/images/Asad.png",
+      desg: "Advisor - MRV Engineering",
+      expertise: "MRV systems and petrochemical engineering",
+      linkedIn: "https://www.linkedin.com/in/asad-petrochem/",
+      imagePosition: undefined as string | undefined,
+    },
     {
       name: "Prof. Vikram Singh",
       picture: "/images/vikram.jpeg",
@@ -48,21 +64,15 @@ export default function AboutUs() {
       expertise: "Energy systems, climate policy, and renewable energy markets",
       linkedIn:
         "https://www.linkedin.com/in/vikram-singh-53548521/?originalSubdomain=in",
+      imagePosition: undefined as string | undefined,
     },
     {
-      name: "Dr. Asad Abbas",
-      picture: "/images/Asad.png",
-      desg: "Advisor - MRV Engineering",
-      expertise: "MRV systems and petrochemical engineering",
-      linkedIn: "https://www.linkedin.com/in/asad-petrochem/",
-    },
-    {
-      name: "Ali Abbas",
-      picture: "/images/Ali.png",
-      desg: "Strategy and Business Head",
-      expertise: "Business strategy and market development",
-      linkedIn: "#", // Placeholder
-      imagePosition: "center 25%", // Custom position to better frame face
+      name: "Waqar Naqvi",
+      picture: "/images/Waqar.jpeg",
+      desg: "Advisor",
+      expertise: "Asset finance, portfolio management, and strategic advisory",
+      linkedIn: "https://www.linkedin.com/in/waqar-naqvi-79084415/",
+      imagePosition: undefined as string | undefined,
     },
   ];
 
@@ -295,66 +305,71 @@ export default function AboutUs() {
           </div>
         </div>
 
-        {/* ADVISORS */}
+        {/* STRATEGY AND BUSINESS HEAD */}
         <div className="mb-28">
-          <h3 className="text-3xl font-bold text-slate-50 mb-12 text-center">
-            Advisors
-          </h3>
+          {/* Decorative Title with Icon and Lines */}
+          <div className="flex items-center justify-center gap-3 mb-12">
+            <div className="h-px w-16 bg-gradient-to-r from-transparent to-emerald-400/50" />
+            <div className="flex items-center gap-3">
+              <TrendingUp className="w-6 h-6 text-emerald-400" />
+              <h3 className="text-3xl font-bold text-slate-50">
+                Strategy & Business Head
+              </h3>
+            </div>
+            <div className="h-px w-16 bg-gradient-to-l from-transparent to-emerald-400/50" />
+          </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {advisors.map((member) => (
-              <div
-                key={member.name}
-                className="group relative rounded-[2rem] border border-slate-800 bg-[#0b1220]/70 p-8 
-                           hover:-translate-y-2 hover:border-cyan-400/40 transition duration-500 text-center"
-              >
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-[2rem] bg-gradient-to-br 
-                                from-cyan-400/10 via-transparent to-violet-400/10 transition" />
+          <div className="relative max-w-3xl mx-auto border border-emerald-500/25 bg-[#0b1220]/80 rounded-[3rem] p-10 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-cyan-500/10" />
 
-                <div className="relative">
-                  <div className="relative inline-block mb-5">
-                    <div className="absolute inset-0 rounded-full blur-xl bg-gradient-to-br from-cyan-400/30 to-violet-400/30" />
-                    {member.picture ? (
-                      <img
-                        src={member.picture}
-                        alt={member.name}
-                        className="relative w-28 h-28 mx-auto rounded-full object-cover border border-cyan-300/40"
-                        style={{ objectPosition: member.imagePosition || 'top' }}
-                      />
-                    ) : (
-                      <div className="relative w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-slate-700 to-slate-800 border border-cyan-300/40 flex items-center justify-center">
-                        <span className="text-3xl font-bold text-cyan-300">
-                          {member.name.split(' ').map(n => n[0]).join('')}
-                        </span>
-                      </div>
-                    )}
-                  </div>
+            <div className="relative flex flex-col items-center text-center space-y-6">
+              {/* Image - White Background */}
+              <div className="relative inline-block">
+                {/* White circular background for picture only */}
+                <div className="absolute inset-0 rounded-full bg-white" />
+                <div className="absolute inset-0 rounded-full blur-xl bg-gradient-to-br from-emerald-400/20 to-cyan-400/20" />
+                <img
+                  src={strategyHead.picture}
+                  alt={strategyHead.name}
+                  className="relative w-48 h-48 mx-auto rounded-full object-cover border-4 border-white shadow-lg"
+                  style={{ objectPosition: strategyHead.imagePosition || 'center' }}
+                />
+              </div>
 
-                  <h4 className="text-lg font-semibold text-slate-50">
-                    {member.name}
-                  </h4>
-                  <p className="text-xs text-cyan-300 mt-1">
-                    {member.desg}
+              {/* Name and Title */}
+              <div>
+                <h4 className="text-xl font-semibold text-slate-50">
+                  {strategyHead.name}
+                </h4>
+                <p className="text-sm text-emerald-300 mt-1">
+                  {strategyHead.desg}
+                </p>
+              </div>
+
+              {/* Vision Quote */}
+              <div className="relative w-full max-w-xl">
+                <div className="absolute -left-2 top-0 text-4xl text-emerald-400/20 font-serif">"</div>
+                <div className="pl-6 pr-4 py-3 border-l-2 border-emerald-400/40">
+                  <p className="text-base font-medium text-slate-200 leading-relaxed italic text-left">
+                    Driving CredoCarbon's market presence through strategic partnerships and ecosystem development
                   </p>
-                  {member.expertise && (
-                    <p className="text-xs text-slate-400 mt-2 italic">
-                      {member.expertise}
-                    </p>
-                  )}
-
-                  <div className="mt-5 flex justify-center">
-                    <a
-                      href={member.linkedIn}
-                      target={member.linkedIn !== '#' ? '_blank' : undefined}
-                      rel={member.linkedIn !== '#' ? 'noopener noreferrer' : undefined}
-                      className={member.linkedIn === '#' ? 'opacity-50 cursor-not-allowed' : ''}
-                    >
-                      <Linkedin className="w-5 h-5 text-slate-400 hover:text-cyan-400 transition" />
-                    </a>
-                  </div>
                 </div>
               </div>
-            ))}
+
+              {/* Bio Content */}
+              <div className="space-y-3 w-full max-w-xl text-left">
+                <p className="text-sm text-slate-300 leading-relaxed">
+                  Ali spearheads CredoCarbon's strategic growth and business development initiatives, bringing a wealth of experience in scaling climate technology ventures and building high-impact partnerships across the carbon market value chain.
+                </p>
+              </div>
+
+              {/* LinkedIn */}
+              <div className="mt-2 flex justify-center gap-5">
+                <a href={strategyHead.linkedIn} target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="w-5 h-5 text-slate-400 hover:text-emerald-400 transition" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -369,12 +384,12 @@ export default function AboutUs() {
         </div>
 
         {/* TEAM MEMBERS (No Title) */}
-        <div className="mb-20">
+        <div className="mb-28">
           <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {teamMembers.map((member) => (
               <div
                 key={member.name}
-                className="group relative rounded-[2rem] border border-slate-800 bg-[#0b1220]/70 p-8 
+                className="group relative rounded-[2rem] border border-slate-800 bg-[#0b1220]/70 p-7 
                            hover:-translate-y-2 hover:border-emerald-400/40 transition duration-500 text-center"
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-[2rem] bg-gradient-to-br 
@@ -387,10 +402,10 @@ export default function AboutUs() {
                       <img
                         src={member.picture}
                         alt={member.name}
-                        className="relative w-28 h-28 mx-auto rounded-full object-cover object-top border border-emerald-300/40"
+                        className="relative w-32 h-32 mx-auto rounded-full object-cover object-top border border-emerald-300/40"
                       />
                     ) : (
-                      <div className="relative w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-slate-700 to-slate-800 border border-emerald-300/40 flex items-center justify-center">
+                      <div className="relative w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-slate-700 to-slate-800 border border-emerald-300/40 flex items-center justify-center">
                         <span className="text-3xl font-bold text-emerald-300">
                           {member.name.split(' ').map(n => n[0]).join('')}
                         </span>
@@ -412,6 +427,69 @@ export default function AboutUs() {
                       rel="noopener noreferrer"
                     >
                       <Linkedin className="w-5 h-5 text-slate-400 hover:text-emerald-400 transition" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ADVISORY BOARD */}
+        <div className="mb-28">
+          <h3 className="text-3xl font-bold text-slate-50 mb-12 text-center">
+            Advisory Board
+          </h3>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {advisors.map((member) => (
+              <div
+                key={member.name}
+                className="group relative rounded-[2rem] border border-slate-800 bg-[#0b1220]/70 p-7 
+                           hover:-translate-y-2 hover:border-cyan-400/40 transition duration-500 text-center"
+              >
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-[2rem] bg-gradient-to-br 
+                                from-cyan-400/10 via-transparent to-violet-400/10 transition" />
+
+                <div className="relative">
+                  <div className="relative inline-block mb-5">
+                    <div className="absolute inset-0 rounded-full blur-xl bg-gradient-to-br from-cyan-400/30 to-violet-400/30" />
+                    {member.picture ? (
+                      <img
+                        src={member.picture}
+                        alt={member.name}
+                        className="relative w-28 h-28 mx-auto rounded-full object-cover border border-cyan-300/40"
+                        style={{ objectPosition: member.imagePosition || 'top' }}
+                      />
+                    ) : (
+                      <div className="relative w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-slate-700 to-slate-800 border border-cyan-300/40 flex items-center justify-center">
+                        <span className="text-2xl font-bold text-cyan-300">
+                          {member.name.split(' ').map(n => n[0]).join('')}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  <h4 className="text-base font-semibold text-slate-50">
+                    {member.name}
+                  </h4>
+                  <p className="text-xs text-cyan-300 mt-1">
+                    {member.desg}
+                  </p>
+                  {member.expertise && (
+                    <p className="text-xs text-slate-400 mt-2 italic">
+                      {member.expertise}
+                    </p>
+                  )}
+
+                  <div className="mt-5 flex justify-center">
+                    <a
+                      href={member.linkedIn}
+                      target={member.linkedIn !== '#' ? '_blank' : undefined}
+                      rel={member.linkedIn !== '#' ? 'noopener noreferrer' : undefined}
+                      className={member.linkedIn === '#' ? 'opacity-50 cursor-not-allowed' : ''}
+                    >
+                      <Linkedin className="w-5 h-5 text-slate-400 hover:text-cyan-400 transition" />
                     </a>
                   </div>
                 </div>

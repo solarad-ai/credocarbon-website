@@ -3,8 +3,10 @@ import { FileText, Calendar, Clock, ArrowRight, ExternalLink, Loader2, RefreshCw
 
 // Hashnode GraphQL API endpoint and blog host
 const HASHNODE_API = "https://gql.hashnode.com";
-const BLOG_HOST = "credocarbon.hashnode.dev";
-const POSTS_PER_PAGE = 12;
+// const BLOG_HOST = "credocarbon.hashnode.dev"; // API requires the .hashnode.dev subdomain
+const BLOG_HOST = "blog.credocarbon.com"
+const BLOG_URL = "https://blog.credocarbon.com"; // Custom domain for links (note: blog not blogs)
+const POSTS_PER_PAGE = 50; // Optimal limit - 100 causes API errors
 
 // GraphQL query to fetch posts from Hashnode with pagination
 const GET_POSTS_QUERY = `
@@ -127,11 +129,19 @@ export default function Blog() {
                 setError(null);
             }
 
-            const response = await fetch(HASHNODE_API, {
+            // Add cache-busting timestamp to URL to bypass CDN cache
+            const cacheBuster = `?t=${Date.now()}_${Math.random().toString(36).substring(7)}`;
+            const apiUrl = `${HASHNODE_API}${cacheBuster}`;
+
+            const response = await fetch(apiUrl, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    "Cache-Control": "no-cache, no-store, must-revalidate",
+                    "Pragma": "no-cache",
+                    "Expires": "0",
                 },
+                cache: "no-store", // Prevent browser caching to always fetch fresh posts
                 body: JSON.stringify({
                     query: GET_POSTS_QUERY,
                     variables: {
@@ -139,6 +149,11 @@ export default function Blog() {
                         first: POSTS_PER_PAGE,
                         after: cursor || null,
                     },
+                    // Add timestamp to bust any CDN/API caching
+                    extensions: {
+                        timestamp: Date.now(),
+                        random: Math.random()
+                    }
                 }),
             });
 
@@ -159,10 +174,20 @@ export default function Blog() {
                     setPosts(fetchedPosts);
                 }
 
-                setPageInfo(data.data.publication.posts.pageInfo);
+                const newPageInfo = data.data.publication.posts.pageInfo;
+                setPageInfo(newPageInfo);
+
+                // AUTOMATIC RECURSIVE FETCH: If there are more posts on initial load, fetch them all
+                if (!append && newPageInfo.hasNextPage && newPageInfo.endCursor) {
+                    // Recursively fetch the next batch
+                    setTimeout(() => {
+                        fetchPosts(newPageInfo.endCursor, true);
+                    }, 100); // Small delay to avoid rate limiting
+                }
             }
         } catch (err) {
             console.error("Error fetching posts:", err);
+            console.error("Full error details:", JSON.stringify(err, null, 2));
             setError("Failed to load blog posts. Please try again later.");
         } finally {
             setLoading(false);
@@ -195,7 +220,7 @@ export default function Blog() {
     };
 
     const getPostUrl = (slug: string) => {
-        return `https://${BLOG_HOST}/${slug}`;
+        return `${BLOG_URL}/${slug}`;
     };
 
     // Split posts for layout
@@ -268,7 +293,7 @@ export default function Blog() {
                             <p className="text-slate-400 mb-6">
                                 Visit our blog directly at{" "}
                                 <a
-                                    href={`https://${BLOG_HOST}`}
+                                    href={BLOG_URL}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-emerald-400 hover:underline"
@@ -560,7 +585,7 @@ export default function Blog() {
                                 )}
 
                                 <a
-                                    href={`https://${BLOG_HOST}`}
+                                    href={BLOG_URL}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 text-slate-400 hover:text-emerald-400 transition-colors"
@@ -611,7 +636,7 @@ export default function Blog() {
                                 Subscribe to get the latest insights on carbon markets, sustainability, and climate tech.
                             </p>
                             <a
-                                href={`https://${BLOG_HOST}/newsletter`}
+                                href={`${BLOG_URL}/newsletter`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-slate-50 text-slate-900 font-bold text-lg hover:bg-emerald-400 hover:scale-105 transition-all duration-300 shadow-xl"
