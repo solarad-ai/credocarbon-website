@@ -1,6 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
 import { FileText, Calendar, Clock, ArrowRight, ExternalLink, Loader2, RefreshCw, User } from "lucide-react";
 
+// Priority blog slugs (partial match) - these will always appear first
+// If a blog is deleted, it will simply not appear (no errors)
+const PINNED_BLOG_SLUGS = [
+    "1-carbon-credit",              // Position 1 - Featured: "What Is 1 Carbon Credit"
+    "renewable-energy-certificate", // Position 2 - Sidebar: "What Is a REC"
+];
+
 // Hashnode GraphQL API endpoint and blog host
 const HASHNODE_API = "https://gql.hashnode.com";
 // const BLOG_HOST = "credocarbon.hashnode.dev"; // API requires the .hashnode.dev subdomain
@@ -223,10 +230,36 @@ export default function Blog() {
         return `${BLOG_URL}/${slug}`;
     };
 
+    // Get priority index for a post (-1 if not a priority post)
+    const getPriorityIndex = (slug: string) => {
+        const index = PINNED_BLOG_SLUGS.findIndex(pinnedSlug =>
+            slug.toLowerCase().includes(pinnedSlug.toLowerCase())
+        );
+        return index;
+    };
+
+    // Sort posts: priority posts first (in order), then by date
+    const sortedPosts = [...posts].sort((a, b) => {
+        const aPriority = getPriorityIndex(a.slug);
+        const bPriority = getPriorityIndex(b.slug);
+
+        // Both are priority posts - sort by their priority order
+        if (aPriority !== -1 && bPriority !== -1) {
+            return aPriority - bPriority;
+        }
+
+        // One is priority, one is not
+        if (aPriority !== -1 && bPriority === -1) return -1;
+        if (aPriority === -1 && bPriority !== -1) return 1;
+
+        // Neither is priority: sort by date (newest first)
+        return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+    });
+
     // Split posts for layout
-    const featuredPost = posts[0];
-    const sidebarPosts = posts.slice(1, 3);
-    const gridPosts = posts.slice(3);
+    const featuredPost = sortedPosts[0];
+    const sidebarPosts = sortedPosts.slice(1, 3);
+    const gridPosts = sortedPosts.slice(3);
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
