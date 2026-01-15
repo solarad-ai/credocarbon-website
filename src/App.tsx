@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Header from "./components/sections/Header";
 import Footer from "./components/sections/Footer";
@@ -34,7 +34,7 @@ export default function App() {
         <Route path="/developers" element={<Developers />} />
         <Route path="/vvb" element={<VVB />} />
         <Route path="/buyers" element={<Buyers />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<Navigate to="/about-us" replace />} />
 
         {/* Footer Pages - Organized by Category */}
         {productRoutes}
