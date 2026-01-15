@@ -1,0 +1,25 @@
+{
+    "name": "CredoCarbon",
+    "short_name": "CredoCarbon",
+    "description": "Unified MRV, Registry & Trading Platform for Carbon Credits",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#10b981",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": [
+        "business",
+        "finance",
+        "productivity"
+    ],
+    "lang": "en",
+    "dir": "ltr"
+}

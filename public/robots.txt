@@ -1,0 +1,12 @@
+# CredoCarbon Robots.txt
+# https://credocarbon.com
+
+User-agent: *
+Allow: /
+
+# Block admin pages from indexing
+Disallow: /admin/
+Disallow: /superadmin
+
+# Sitemap location
+Sitemap: https://credocarbon.com/sitemap.xml
