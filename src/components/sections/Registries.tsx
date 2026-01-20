@@ -201,7 +201,7 @@ export default function Registries() {
               {t('registries.featuredLabel', 'Featured Integrations')}
             </span>
           </div>
-          <div className="relative overflow-hidden rounded-3xl border border-slate-700/50 bg-gradient-to-r from-white/[0.03] via-white/[0.07] to-white/[0.03] backdrop-blur-sm px-8 py-10">
+          <div dir="ltr" className="relative overflow-hidden rounded-3xl border border-slate-700/50 bg-gradient-to-r from-white/[0.03] via-white/[0.07] to-white/[0.03] backdrop-blur-sm px-8 py-10">
             {/* Animated scrolling logo strip */}
             <div className="flex animate-scroll-slow">
               <div className="flex items-center gap-16 px-8">

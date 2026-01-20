@@ -65,7 +65,7 @@ export default function CarbonTradingBanner() {
     const activeRec = data.recRegistries.filter(r => r.active && r.issued !== null);
 
     return (
-        <div className="relative w-full bg-slate-950/40 backdrop-blur-sm border-b border-white/10">
+        <div dir="ltr" className="relative w-full bg-slate-950/40 backdrop-blur-sm border-b border-white/10">
             {/* Animated gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-500/5 to-transparent animate-shimmer" />
 

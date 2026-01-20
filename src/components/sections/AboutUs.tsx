@@ -247,7 +247,7 @@ export default function AboutUs() {
         {/* ═══════════════════════════════════════════════════════════════ */}
         {/* MEET THE TEAM SECTION */}
         {/* ═══════════════════════════════════════════════════════════════ */}
-        <div className="mb-20">
+        <div dir="ltr" className="mb-20">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-violet-400/30 bg-violet-400/10 backdrop-blur-sm mb-6">
               <Users className="w-4 h-4 text-violet-300" />
@@ -265,7 +265,7 @@ export default function AboutUs() {
         </div>
 
         {/* FOUNDER — CINEMATIC BLOCK */}
-        <div className="mb-28">
+        <div dir="ltr" className="mb-28">
           {/* Decorative Title with Icon and Lines */}
           <div className="flex items-center justify-center gap-3 mb-12">
             <div className="h-px w-16 bg-gradient-to-r from-transparent to-violet-400/50" />
@@ -338,7 +338,7 @@ export default function AboutUs() {
         </div>
 
         {/* LEADERSHIP HEADS */}
-        <div className="mb-28">
+        <div dir="ltr" className="mb-28">
           {/* Decorative Title with Icon and Lines */}
           <div className="flex items-center justify-center gap-3 mb-12">
             <div className="h-px w-16 bg-gradient-to-r from-transparent to-emerald-400/50" />
@@ -422,7 +422,7 @@ export default function AboutUs() {
         </div>
 
         {/* TEAM MEMBERS (No Title) */}
-        <div className="mb-28">
+        <div dir="ltr" className="mb-28">
           <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {teamMembers.map((member) => (
               <div
@@ -474,7 +474,7 @@ export default function AboutUs() {
         </div>
 
         {/* ADVISORY BOARD */}
-        <div className="mb-28">
+        <div dir="ltr" className="mb-28">
           <h3 className="text-3xl font-bold text-slate-50 mb-12 text-center">
             {t('sections.advisoryBoard')}
           </h3>

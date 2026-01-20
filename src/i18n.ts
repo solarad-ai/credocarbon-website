@@ -69,7 +69,9 @@ const LTR_ONLY_ROUTES = [
     '/terms',
     '/privacy',
     '/cookies',
-    '/compliance'
+    '/compliance',
+    '/superadmin',
+    '/admin'
 ];
 
 // Helper to check if current route is LTR-only
