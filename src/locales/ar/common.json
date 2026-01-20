@@ -51,5 +51,16 @@
         "getStarted": "ابدأ الآن",
         "contactUs": "اتصل بنا",
         "viewAll": "عرض الكل"
+    },
+    "explorePopup": {
+        "badge": "وصول مجاني",
+        "title": "استكشف CredoCarbon",
+        "description": "جرّب منصتنا الموحدة",
+        "highlight": "MRV والسجل والتداول",
+        "descriptionEnd": ". شاهد إدارة أرصدة الكربون الحقيقية — بدون تسجيل.",
+        "noSignup": "لا حاجة للتسجيل",
+        "instantAccess": "وصول فوري",
+        "explorePlatform": "استكشف المنصة",
+        "maybeLater": "ربما لاحقاً"
     }
 }

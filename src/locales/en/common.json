@@ -51,5 +51,16 @@
         "getStarted": "Get Started",
         "contactUs": "Contact Us",
         "viewAll": "View All"
+    },
+    "explorePopup": {
+        "badge": "Free Access",
+        "title": "Explore CredoCarbon",
+        "description": "Experience our unified",
+        "highlight": "MRV, Registry & Trading",
+        "descriptionEnd": "platform. See real carbon credit management in action — no sign-up needed.",
+        "noSignup": "No Sign-up Required",
+        "instantAccess": "Instant Access",
+        "explorePlatform": "Explore Platform",
+        "maybeLater": "Maybe Later"
     }
 }

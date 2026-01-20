@@ -1,7 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
 import { Sparkles, X, ArrowRight, Zap, Shield, Clock } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function ExplorePopup() {
+    const { t } = useTranslation('common');
     const [isVisible, setIsVisible] = useState(false);
     const [isExiting, setIsExiting] = useState(false);
     const [hasTriggered, setHasTriggered] = useState(false);
@@ -126,32 +128,32 @@ export default function ExplorePopup() {
                                 <div>
                                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">
                                         <Zap className="h-3 w-3" />
-                                        Free Access
+                                        {t('explorePopup.badge')}
                                     </span>
                                     <h4 className="text-xl md:text-2xl font-bold text-white">
-                                        Explore CredoCarbon
+                                        {t('explorePopup.title')}
                                     </h4>
                                 </div>
                             </div>
 
                             {/* Description */}
                             <p className="text-base text-slate-300 leading-relaxed mb-6">
-                                Experience our unified{" "}
+                                {t('explorePopup.description')}{" "}
                                 <span className="text-emerald-400 font-semibold">
-                                    MRV, Registry & Trading
+                                    {t('explorePopup.highlight')}
                                 </span>{" "}
-                                platform. See real carbon credit management in action — no sign-up needed.
+                                {t('explorePopup.descriptionEnd')}
                             </p>
 
                             {/* Feature pills */}
                             <div className="flex flex-wrap gap-3 mb-8">
                                 <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700/50">
                                     <Shield className="h-4 w-4 text-cyan-400" />
-                                    <span className="text-sm text-slate-300">No Sign-up Required</span>
+                                    <span className="text-sm text-slate-300">{t('explorePopup.noSignup')}</span>
                                 </div>
                                 <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700/50">
                                     <Clock className="h-4 w-4 text-emerald-400" />
-                                    <span className="text-sm text-slate-300">Instant Access</span>
+                                    <span className="text-sm text-slate-300">{t('explorePopup.instantAccess')}</span>
                                 </div>
                             </div>
 
@@ -161,14 +163,14 @@ export default function ExplorePopup() {
                                     onClick={handleDismiss}
                                     className="flex-1 px-6 py-3.5 text-sm font-medium text-slate-400 hover:text-slate-200 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/50 rounded-xl transition-all duration-200 order-2 sm:order-1"
                                 >
-                                    Maybe Later
+                                    {t('explorePopup.maybeLater')}
                                 </button>
                                 <button
                                     onClick={handleContinue}
                                     className="flex-1 sm:flex-[1.5] px-6 py-3.5 text-base font-bold text-slate-900 bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-500 hover:from-emerald-300 hover:via-cyan-300 hover:to-emerald-400 rounded-xl transition-all duration-300 shadow-xl shadow-emerald-500/30 hover:shadow-emerald-500/50 hover:scale-[1.02] flex items-center justify-center gap-2 group order-1 sm:order-2"
                                 >
-                                    <span>Explore Platform</span>
-                                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                                    <span>{t('explorePopup.explorePlatform')}</span>
+                                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform" />
                                 </button>
                             </div>
                         </div>

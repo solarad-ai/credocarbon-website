@@ -5,7 +5,6 @@ import Footer from "./components/sections/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import LtrRouteHandler from "./components/LtrRouteHandler";
 import ExplorePopup from "./components/ui/ExplorePopup";
-import LanguageBar from "./components/ui/LanguageBar";
 
 // Main Pages
 import Home from "./pages/Home";
@@ -28,7 +27,6 @@ export default function App() {
     <>
       <ScrollToTop />
       <LtrRouteHandler />
-      <LanguageBar />
       <Header />
 
       <Routes>
