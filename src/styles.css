@@ -21,10 +21,10 @@ body {
   text-align: right;
 }
 
-[dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]),
-[dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]),
-[dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]),
-[dir="rtl"] .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+[dir="rtl"] .space-x-2> :not([hidden])~ :not([hidden]),
+[dir="rtl"] .space-x-3> :not([hidden])~ :not([hidden]),
+[dir="rtl"] .space-x-4> :not([hidden])~ :not([hidden]),
+[dir="rtl"] .space-x-8> :not([hidden])~ :not([hidden]) {
   --tw-space-x-reverse: 1;
 }
 
@@ -59,4 +59,58 @@ body {
 [dir="rtl"] .pr-4 {
   padding-right: 0;
   padding-left: 1rem;
+}
+
+/* Footer LTR Override - Ensure footer stays LTR even when document is RTL */
+footer[dir="ltr"],
+footer[dir="ltr"] * {
+  direction: ltr !important;
+}
+
+/* Reset text alignment for footer (don't force left, let elements use their own) */
+[dir="rtl"] footer[dir="ltr"] {
+  text-align: left;
+}
+
+/* Override flex-direction for footer */
+[dir="rtl"] footer[dir="ltr"] .flex-row {
+  flex-direction: row !important;
+}
+
+/* Override space-x for footer */
+[dir="rtl"] footer[dir="ltr"] .space-x-2> :not([hidden])~ :not([hidden]),
+[dir="rtl"] footer[dir="ltr"] .space-x-3> :not([hidden])~ :not([hidden]),
+[dir="rtl"] footer[dir="ltr"] .space-x-4> :not([hidden])~ :not([hidden]),
+[dir="rtl"] footer[dir="ltr"] .space-x-8> :not([hidden])~ :not([hidden]) {
+  --tw-space-x-reverse: 0 !important;
+}
+
+/* Override gap direction for footer */
+[dir="rtl"] footer[dir="ltr"] .gap-2,
+[dir="rtl"] footer[dir="ltr"] .gap-3,
+[dir="rtl"] footer[dir="ltr"] .gap-4,
+[dir="rtl"] footer[dir="ltr"] .gap-8 {
+  direction: ltr !important;
+}
+
+/* Override border for footer */
+[dir="rtl"] footer[dir="ltr"] .border-l {
+  border-left-width: 1px !important;
+  border-right-width: 0 !important;
+}
+
+[dir="rtl"] footer[dir="ltr"] .border-l-2 {
+  border-left-width: 2px !important;
+  border-right-width: 0 !important;
+}
+
+/* Override padding for footer */
+[dir="rtl"] footer[dir="ltr"] .pl-6 {
+  padding-left: 1.5rem !important;
+  padding-right: 0 !important;
+}
+
+[dir="rtl"] footer[dir="ltr"] .pr-4 {
+  padding-right: 1rem !important;
+  padding-left: 0 !important;
 }

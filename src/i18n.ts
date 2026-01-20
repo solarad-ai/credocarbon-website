@@ -56,13 +56,38 @@ i18n
         },
     });
 
-// Function to update document direction based on language
+// LTR-only routes (footer pages that should not switch to RTL)
+// Registries (/registries) and About Us (/about-us) are EXCLUDED - they respond to RTL
+const LTR_ONLY_ROUTES = [
+    '/pricing',
+    '/insights',
+    '/careers',
+    '/blog',
+    '/docs',
+    '/help',
+    '/faq',
+    '/terms',
+    '/privacy',
+    '/cookies',
+    '/compliance'
+];
+
+// Helper to check if current route is LTR-only
+export const isLtrOnlyRoute = (pathname: string): boolean => {
+    return LTR_ONLY_ROUTES.some(route => pathname === route || pathname.startsWith(route + '/'));
+};
+
+// Function to update document direction based on language and route
 export const updateDirection = (lang: string) => {
-    const dir = lang === 'ar' ? 'rtl' : 'ltr';
+    const currentPath = window.location.pathname;
+
+    // Force LTR for specific routes regardless of language
+    const dir = isLtrOnlyRoute(currentPath) ? 'ltr' : (lang === 'ar' ? 'rtl' : 'ltr');
+
     document.documentElement.setAttribute('dir', dir);
     document.documentElement.setAttribute('lang', lang);
 
-    // Add/remove Arabic font class
+    // Add/remove Arabic font class (keep font for text even on LTR pages)
     if (lang === 'ar') {
         document.body.classList.add('font-arabic');
     } else {

@@ -1,33 +1,32 @@
 import { Mail, Phone, Linkedin } from "lucide-react";
 import { Leaf } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 
+// Footer remains in English (LTR) for both language versions
 export default function Footer() {
-  const { t } = useTranslation('common');
   const year = new Date().getFullYear();
 
   const navigationLinks = {
     product: [
-      { labelKey: "footer.pricing", href: "/pricing" },
-      { labelKey: "footer.registries", href: "/registries" }
+      { label: "Pricing", href: "/pricing" },
+      { label: "Registries", href: "/registries" }
     ],
     company: [
-      { labelKey: "footer.aboutUs", href: "/about-us" },
-      { labelKey: "footer.insights", href: "/insights" },
-      { labelKey: "footer.careers", href: "/careers" },
-      { labelKey: "footer.blog", href: "/blog" }
+      { label: "About Us", href: "/about-us" },
+      { label: "Insights", href: "/insights" },
+      { label: "Careers", href: "/careers" },
+      { label: "Blog", href: "/blog" }
     ],
     resources: [
-      { labelKey: "footer.documentation", href: "/docs" },
-      { labelKey: "footer.helpCenter", href: "/help" },
-      { labelKey: "footer.faq", href: "/faq" }
+      { label: "Documentation", href: "/docs" },
+      { label: "Help Center", href: "/help" },
+      { label: "FAQ", href: "/faq" }
     ],
     legal: [
-      { labelKey: "footer.terms", href: "/terms" },
-      { labelKey: "footer.privacy", href: "/privacy" },
-      { labelKey: "footer.cookies", href: "/cookies" },
-      { labelKey: "footer.compliance", href: "/compliance" }
+      { label: "Terms of Service", href: "/terms" },
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Cookie Policy", href: "/cookies" },
+      { label: "Compliance", href: "/compliance" }
     ]
   };
 
@@ -39,7 +38,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative border-t border-emerald-500/10 bg-slate-950/90">
+    <footer dir="ltr" className="relative border-t border-emerald-500/10 bg-slate-950/90">
       <div className="mx-auto max-w-7xl px-4 py-8 md:py-12 text-slate-400">
         {/* TOP GRID - Brand + Navigation */}
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-6 md:gap-8 mb-8 md:mb-12">
@@ -59,7 +58,7 @@ export default function Footer() {
             </div>
 
             <p className="text-xs md:text-sm leading-relaxed text-slate-400 max-w-xs">
-              {t('footer.description')}
+              The digital backbone for next-era carbon markets — where transparency, verification integrity and market confidence operate on a shared system of record.
             </p>
 
             {/* Contact Info */}
@@ -95,16 +94,16 @@ export default function Footer() {
           {/* PRODUCT */}
           <div>
             <h4 className="text-xs md:text-sm font-semibold text-slate-200 mb-2 md:mb-4">
-              {t('footer.product')}
+              Product
             </h4>
             <ul className="space-y-1.5 md:space-y-2.5 text-xs md:text-sm">
               {navigationLinks.product.map((link) => (
-                <li key={link.labelKey}>
+                <li key={link.label}>
                   <Link
                     to={link.href}
                     className="hover:text-emerald-400 transition-colors"
                   >
-                    {t(link.labelKey)}
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -114,16 +113,16 @@ export default function Footer() {
           {/* COMPANY */}
           <div>
             <h4 className="text-xs md:text-sm font-semibold text-slate-200 mb-2 md:mb-4">
-              {t('footer.company')}
+              Company
             </h4>
             <ul className="space-y-1.5 md:space-y-2.5 text-xs md:text-sm">
               {navigationLinks.company.map((link) => (
-                <li key={link.labelKey}>
+                <li key={link.label}>
                   <Link
                     to={link.href}
                     className="hover:text-emerald-400 transition-colors"
                   >
-                    {t(link.labelKey)}
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -133,16 +132,16 @@ export default function Footer() {
           {/* RESOURCES */}
           <div>
             <h4 className="text-xs md:text-sm font-semibold text-slate-200 mb-2 md:mb-4">
-              {t('footer.resources')}
+              Resources
             </h4>
             <ul className="space-y-1.5 md:space-y-2.5 text-xs md:text-sm">
               {navigationLinks.resources.map((link) => (
-                <li key={link.labelKey}>
+                <li key={link.label}>
                   <Link
                     to={link.href}
                     className="hover:text-emerald-400 transition-colors"
                   >
-                    {t(link.labelKey)}
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -152,16 +151,16 @@ export default function Footer() {
           {/* LEGAL */}
           <div>
             <h4 className="text-xs md:text-sm font-semibold text-slate-200 mb-2 md:mb-4">
-              {t('footer.legal')}
+              Legal
             </h4>
             <ul className="space-y-1.5 md:space-y-2.5 text-xs md:text-sm">
               {navigationLinks.legal.map((link) => (
-                <li key={link.labelKey}>
+                <li key={link.label}>
                   <Link
                     to={link.href}
                     className="hover:text-emerald-400 transition-colors"
                   >
-                    {t(link.labelKey)}
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -201,7 +200,7 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
           <p className="text-slate-500">
-            © {year} CredoCarbon. {t('footer.allRightsReserved')}
+            © {year} CredoCarbon. All rights reserved.
           </p>
 
           <div className="flex items-center gap-2">

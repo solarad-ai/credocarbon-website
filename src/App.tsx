@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/sections/Header";
 import Footer from "./components/sections/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import LtrRouteHandler from "./components/LtrRouteHandler";
 import ExplorePopup from "./components/ui/ExplorePopup";
 import LanguageBar from "./components/ui/LanguageBar";
 
@@ -26,6 +27,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+      <LtrRouteHandler />
       <LanguageBar />
       <Header />
 
