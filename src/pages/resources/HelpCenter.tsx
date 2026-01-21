@@ -2,12 +2,17 @@ import {
     Mail, Search, BookOpen, FileText, ArrowRight, Headphones
 } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export default function HelpCenter() {
+    const { t, i18n } = useTranslation('pages');
+    const isArabic = i18n.language === 'ar';
+    const help = t('helpCenter', { returnObjects: true }) as any;
     const [searchQuery, setSearchQuery] = useState("");
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+        <div dir={isArabic ? 'rtl' : 'ltr'} className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
             {/* Hero Section */}
             <section className="relative py-20 md:py-32 overflow-hidden">
                 {/* Background Effects */}
@@ -22,32 +27,32 @@ export default function HelpCenter() {
                     <div className="inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-500/10 px-5 py-2.5 mb-8 backdrop-blur-sm shadow-lg shadow-violet-500/10">
                         <Headphones className="w-4 h-4 text-violet-400" />
                         <span className="text-xs font-semibold uppercase tracking-[0.22em] text-violet-400">
-                            Support Hub
+                            {help.badge}
                         </span>
                     </div>
 
                     {/* Heading */}
                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-50 mb-6 leading-tight">
-                        Welcome to the
+                        {help.title1}
                         <span className="block bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent mt-2">
-                            CredoCarbon Help Center
+                            {help.titleHighlight}
                         </span>
                     </h1>
 
                     <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-10">
-                        Explore resources and get support for your carbon credit workflows.
+                        {help.subtitle}
                     </p>
 
                     {/* Search Bar */}
                     <div className="max-w-2xl mx-auto">
                         <div className="relative group">
-                            <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-violet-400 transition-colors" />
+                            <Search className={`absolute ${isArabic ? 'right-5' : 'left-5'} top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-violet-400 transition-colors`} />
                             <input
                                 type="text"
-                                placeholder="Search help resources..."
+                                placeholder={help.searchPlaceholder}
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full pl-14 pr-6 py-5 rounded-2xl bg-slate-900/80 border border-slate-700 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-violet-400/50 focus:bg-slate-900 transition-all duration-300 shadow-xl shadow-slate-950/50"
+                                className={`w-full ${isArabic ? 'pr-14 pl-6' : 'pl-14 pr-6'} py-5 rounded-2xl bg-slate-900/80 border border-slate-700 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-violet-400/50 focus:bg-slate-900 transition-all duration-300 shadow-xl shadow-slate-950/50`}
                             />
                         </div>
                     </div>
@@ -59,10 +64,10 @@ export default function HelpCenter() {
                 <div className="mx-auto max-w-4xl px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-50 mb-4">
-                            Get in Touch
+                            {help.contact.title}
                         </h2>
                         <p className="text-lg text-slate-300">
-                            Our team is here to help you succeed
+                            {help.contact.subtitle}
                         </p>
                     </div>
 
@@ -75,11 +80,11 @@ export default function HelpCenter() {
                             </div>
 
                             <h3 className="text-2xl font-bold text-slate-50 mb-3">
-                                Email Support
+                                {help.contact.emailSupport}
                             </h3>
 
                             <p className="text-slate-300 mb-6 leading-relaxed max-w-2xl mx-auto">
-                                Send us your questions, feedback, or support requests. Our team will get back to you as soon as possible.
+                                {help.contact.emailDesc}
                             </p>
 
                             <a
@@ -99,17 +104,17 @@ export default function HelpCenter() {
                 <div className="mx-auto max-w-6xl px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-50 mb-4">
-                            Explore Resources
+                            {help.resources.title}
                         </h2>
                         <p className="text-lg text-slate-300">
-                            Find the information you need
+                            {help.resources.subtitle}
                         </p>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                         {/* Documentation */}
-                        <a
-                            href="/docs"
+                        <Link
+                            to="/docs"
                             className="group relative overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-900/40 backdrop-blur-sm p-8 transition-all duration-300 hover:border-violet-400/40 hover:bg-slate-900/60 hover:scale-105"
                         >
                             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-violet-500/10 to-purple-500/10" />
@@ -120,18 +125,18 @@ export default function HelpCenter() {
                                 </div>
 
                                 <h3 className="text-xl font-semibold text-slate-50 mb-3 group-hover:text-violet-100 transition-colors">
-                                    Documentation
+                                    {help.resources.documentation}
                                 </h3>
 
                                 <p className="text-sm text-slate-300 leading-relaxed">
-                                    Comprehensive guides and technical documentation
+                                    {help.resources.documentationDesc}
                                 </p>
                             </div>
-                        </a>
+                        </Link>
 
                         {/* FAQ */}
-                        <a
-                            href="/faq"
+                        <Link
+                            to="/faq"
                             className="group relative overflow-hidden rounded-2xl border border-slate-700/60 bg-slate-900/40 backdrop-blur-sm p-8 transition-all duration-300 hover:border-emerald-400/40 hover:bg-slate-900/60 hover:scale-105"
                         >
                             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-emerald-500/10 to-cyan-500/10" />
@@ -142,14 +147,14 @@ export default function HelpCenter() {
                                 </div>
 
                                 <h3 className="text-xl font-semibold text-slate-50 mb-3 group-hover:text-emerald-100 transition-colors">
-                                    FAQ
+                                    {help.resources.faq}
                                 </h3>
 
                                 <p className="text-sm text-slate-300 leading-relaxed">
-                                    Quick answers to common questions
+                                    {help.resources.faqDesc}
                                 </p>
                             </div>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -159,35 +164,35 @@ export default function HelpCenter() {
                 <div className="mx-auto max-w-6xl px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-50 mb-4">
-                            Quick Links
+                            {help.quickLinks.title}
                         </h2>
                         <p className="text-lg text-slate-300">
-                            Navigate to key platform pages
+                            {help.quickLinks.subtitle}
                         </p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
                         <div className="space-y-4">
                             <h3 className="text-lg font-semibold text-violet-400 mb-4">
-                                Platform
+                                {help.quickLinks.platform}
                             </h3>
                             <ul className="space-y-3">
                                 {[
-                                    { title: "Platform Overview", href: "/platform" },
-                                    { title: "For Developers", href: "/developers" },
-                                    { title: "For VVBs", href: "/vvb" },
-                                    { title: "For Buyers", href: "/buyers" }
+                                    { title: help.quickLinks.platformOverview, href: "/platform" },
+                                    { title: help.quickLinks.forDevelopers, href: "/developers" },
+                                    { title: help.quickLinks.forVVBs, href: "/vvb" },
+                                    { title: help.quickLinks.forBuyers, href: "/buyers" }
                                 ].map((link) => (
-                                    <li key={link.title}>
-                                        <a
-                                            href={link.href}
+                                    <li key={link.href}>
+                                        <Link
+                                            to={link.href}
                                             className="group flex items-center gap-2 text-slate-300 hover:text-violet-400 transition-colors"
                                         >
-                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                                            <span className="group-hover:translate-x-2 transition-transform duration-300">
+                                            <ArrowRight className={`w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300 ${isArabic ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
+                                            <span className={`transition-transform duration-300 ${isArabic ? 'group-hover:-translate-x-2' : 'group-hover:translate-x-2'}`}>
                                                 {link.title}
                                             </span>
-                                        </a>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
@@ -195,25 +200,25 @@ export default function HelpCenter() {
 
                         <div className="space-y-4">
                             <h3 className="text-lg font-semibold text-violet-400 mb-4">
-                                Resources
+                                {help.quickLinks.resourcesTitle}
                             </h3>
                             <ul className="space-y-3">
                                 {[
-                                    { title: "Documentation", href: "/docs" },
-                                    { title: "Registries", href: "/registries" },
-                                    { title: "Pricing", href: "/pricing" },
-                                    { title: "About Us", href: "/about" }
+                                    { title: help.quickLinks.documentationLink, href: "/docs" },
+                                    { title: help.quickLinks.registries, href: "/registries" },
+                                    { title: help.quickLinks.pricing, href: "/pricing" },
+                                    { title: help.quickLinks.aboutUs, href: "/about-us" }
                                 ].map((link) => (
-                                    <li key={link.title}>
-                                        <a
-                                            href={link.href}
+                                    <li key={link.href}>
+                                        <Link
+                                            to={link.href}
                                             className="group flex items-center gap-2 text-slate-300 hover:text-violet-400 transition-colors"
                                         >
-                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                                            <span className="group-hover:translate-x-2 transition-transform duration-300">
+                                            <ArrowRight className={`w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300 ${isArabic ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
+                                            <span className={`transition-transform duration-300 ${isArabic ? 'group-hover:-translate-x-2' : 'group-hover:translate-x-2'}`}>
                                                 {link.title}
                                             </span>
-                                        </a>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
@@ -221,25 +226,25 @@ export default function HelpCenter() {
 
                         <div className="space-y-4">
                             <h3 className="text-lg font-semibold text-violet-400 mb-4">
-                                Legal
+                                {help.quickLinks.legalTitle}
                             </h3>
                             <ul className="space-y-3">
                                 {[
-                                    { title: "Terms of Service", href: "/terms" },
-                                    { title: "Privacy Policy", href: "/privacy" },
-                                    { title: "Cookie Policy", href: "/cookies" },
-                                    { title: "Compliance", href: "/compliance" }
+                                    { title: help.quickLinks.termsOfService, href: "/terms" },
+                                    { title: help.quickLinks.privacyPolicy, href: "/privacy" },
+                                    { title: help.quickLinks.cookiePolicy, href: "/cookies" },
+                                    { title: help.quickLinks.compliance, href: "/compliance" }
                                 ].map((link) => (
-                                    <li key={link.title}>
-                                        <a
-                                            href={link.href}
+                                    <li key={link.href}>
+                                        <Link
+                                            to={link.href}
                                             className="group flex items-center gap-2 text-slate-300 hover:text-violet-400 transition-colors"
                                         >
-                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                                            <span className="group-hover:translate-x-2 transition-transform duration-300">
+                                            <ArrowRight className={`w-4 h-4 opacity-0 group-hover:opacity-100 transition-all duration-300 ${isArabic ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
+                                            <span className={`transition-transform duration-300 ${isArabic ? 'group-hover:-translate-x-2' : 'group-hover:translate-x-2'}`}>
                                                 {link.title}
                                             </span>
-                                        </a>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
@@ -256,17 +261,17 @@ export default function HelpCenter() {
 
                         <div className="relative">
                             <h2 className="text-3xl md:text-4xl font-bold text-slate-50 mb-4">
-                                Need More Help?
+                                {help.cta.title}
                             </h2>
                             <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-                                Can't find what you're looking for? Reach out to our team directly.
+                                {help.cta.subtitle}
                             </p>
                             <a
                                 href="mailto:info@credocarbon.com"
                                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-violet-500 to-purple-500 text-slate-950 font-bold hover:from-violet-400 hover:to-purple-400 transition-all duration-300 hover:scale-105 shadow-lg shadow-violet-500/30"
                             >
                                 <Mail className="w-5 h-5" />
-                                <span>Contact Support</span>
+                                <span>{help.cta.contactSupport}</span>
                             </a>
                         </div>
                     </div>

@@ -1,0 +1,35 @@
+{
+    "brand": {
+        "tagline": "The digital backbone for next-era carbon markets — where transparency, verification integrity and market confidence operate on a shared system of record."
+    },
+    "sections": {
+        "product": "Product",
+        "company": "Company",
+        "resources": "Resources",
+        "legal": "Legal"
+    },
+    "links": {
+        "pricing": "Pricing",
+        "registries": "Registries",
+        "aboutUs": "About Us",
+        "insights": "Insights",
+        "careers": "Careers",
+        "blog": "Blog",
+        "documentation": "Documentation",
+        "helpCenter": "Help Center",
+        "faq": "FAQ",
+        "termsOfService": "Terms of Service",
+        "privacyPolicy": "Privacy Policy",
+        "cookiePolicy": "Cookie Policy",
+        "compliance": "Compliance"
+    },
+    "contact": {
+        "email": "info@credocarbon.com",
+        "phone": "+91 97951 19246",
+        "linkedin": "LinkedIn"
+    },
+    "bottom": {
+        "copyright": "© {{year}} CredoCarbon. All rights reserved.",
+        "status": "All systems operational"
+    }
+}

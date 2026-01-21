@@ -1,5 +1,6 @@
 import { Sparkles, Leaf, Zap, Building2, TrendingUp, ChevronDown, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 const pricingCards = [
     {
@@ -220,6 +221,9 @@ const faqCategories = [
 ];
 
 export default function Pricing() {
+    const { t, i18n } = useTranslation('pages');
+    const isArabic = i18n.language === 'ar';
+    const pricing = t('pricing', { returnObjects: true }) as any;
     const [expandedCard, setExpandedCard] = useState<string | null>(null);
     const [openCategory, setOpenCategory] = useState<string | null>(null);
     const [openQuestion, setOpenQuestion] = useState<string | null>(null);
@@ -239,7 +243,7 @@ export default function Pricing() {
     }, [expandedCard]);
 
     return (
-        <div className="min-h-screen bg-white">
+        <div dir={isArabic ? 'rtl' : 'ltr'} className="min-h-screen bg-white">
             {/* Hero Section */}
             <section className="relative py-12 md:py-16 overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-slate-50">
                 {/* Decorative Background Elements */}

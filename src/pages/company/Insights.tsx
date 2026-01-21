@@ -5,6 +5,7 @@ import {
     Sun, Wind, Droplets, Flame, TreePine, Factory, Sparkles,
     Info, Activity
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { DATA_URLS } from '../../config/dataUrls';
 
 // Types
@@ -359,6 +360,9 @@ function aggregateSectors(registries: Registry[]): AggregatedSector[] {
 
 // Main Component
 export default function Insights() {
+    const { t, i18n } = useTranslation('pages');
+    const isArabic = i18n.language === 'ar';
+    const insights = t('insights', { returnObjects: true }) as any;
     const [data, setData] = useState<InsightsData | null>(null);
     const [loading, setLoading] = useState(true);
     const [activeTab, setActiveTab] = useState<'carbon' | 'rec'>('carbon');
@@ -384,10 +388,10 @@ export default function Insights() {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+            <div dir={isArabic ? 'rtl' : 'ltr'} className="min-h-screen bg-slate-950 flex items-center justify-center">
                 <div className="flex flex-col items-center gap-4">
                     <div className="w-12 h-12 border-4 border-emerald-500/30 border-t-emerald-500 rounded-full animate-spin" />
-                    <p className="text-slate-400">Loading insights data...</p>
+                    <p className="text-slate-400">{insights.loading}</p>
                 </div>
             </div>
         );
@@ -395,9 +399,9 @@ export default function Insights() {
 
     if (error || !data) {
         return (
-            <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+            <div dir={isArabic ? 'rtl' : 'ltr'} className="min-h-screen bg-slate-950 flex items-center justify-center">
                 <div className="text-center">
-                    <p className="text-red-400 mb-2">Error loading data</p>
+                    <p className="text-red-400 mb-2">{insights.error}</p>
                     <p className="text-slate-500 text-sm">{error}</p>
                 </div>
             </div>
@@ -428,7 +432,7 @@ export default function Insights() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-950">
+        <div dir={isArabic ? 'rtl' : 'ltr'} className="min-h-screen bg-slate-950">
             {/* Hero Section */}
             <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden">
                 {/* Background effects */}
@@ -441,22 +445,21 @@ export default function Insights() {
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/60 border border-slate-700/50 mb-6">
                             <BarChart3 className="w-4 h-4 text-emerald-400" />
                             <span className="text-xs font-medium text-slate-300 uppercase tracking-wider">
-                                Market Insights
+                                {insights.badge}
                             </span>
                         </div>
 
                         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-400 mb-4 pb-2">
-                            Registry Insights
+                            {insights.title}
                         </h1>
 
                         <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                            Deep-dive analytics into carbon credits and renewable energy certificates
-                            across major global registries.
+                            {insights.subtitle}
                         </p>
 
                         <div className="flex items-center justify-center gap-2 mt-4 text-xs text-slate-500">
                             <Activity className="w-3.5 h-3.5" />
-                            <span>Data from last 12 months</span>
+                            <span>{insights.dataFrom}</span>
                         </div>
                     </div>
                 </div>

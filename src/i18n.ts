@@ -9,6 +9,9 @@ import enAbout from './locales/en/about.json';
 import enPlatform from './locales/en/platform.json';
 import enBuyers from './locales/en/buyers.json';
 import enVvb from './locales/en/vvb.json';
+import enFooter from './locales/en/footer.json';
+import enLegal from './locales/en/legal.json';
+import enPages from './locales/en/pages.json';
 
 // Arabic translations
 import arCommon from './locales/ar/common.json';
@@ -17,6 +20,9 @@ import arAbout from './locales/ar/about.json';
 import arPlatform from './locales/ar/platform.json';
 import arBuyers from './locales/ar/buyers.json';
 import arVvb from './locales/ar/vvb.json';
+import arFooter from './locales/ar/footer.json';
+import arLegal from './locales/ar/legal.json';
+import arPages from './locales/ar/pages.json';
 
 const resources = {
     en: {
@@ -26,6 +32,9 @@ const resources = {
         platform: enPlatform,
         buyers: enBuyers,
         vvb: enVvb,
+        footer: enFooter,
+        legal: enLegal,
+        pages: enPages,
     },
     ar: {
         common: arCommon,
@@ -34,6 +43,9 @@ const resources = {
         platform: arPlatform,
         buyers: arBuyers,
         vvb: arVvb,
+        footer: arFooter,
+        legal: arLegal,
+        pages: arPages,
     },
 };
 
@@ -44,7 +56,7 @@ i18n
         resources,
         fallbackLng: 'en',
         defaultNS: 'common',
-        ns: ['common', 'home', 'about', 'platform', 'buyers', 'vvb'],
+        ns: ['common', 'home', 'about', 'platform', 'buyers', 'vvb', 'footer', 'legal', 'pages'],
 
         detection: {
             order: ['localStorage', 'navigator'],
@@ -56,20 +68,11 @@ i18n
         },
     });
 
-// LTR-only routes (footer pages that should not switch to RTL)
-// Registries (/registries) and About Us (/about-us) are EXCLUDED - they respond to RTL
+// LTR-only routes (pages that should not switch to RTL)
+// Blog is from Hashnode and cannot be translated
+// All other footer pages now support Arabic RTL
 const LTR_ONLY_ROUTES = [
-    '/pricing',
-    '/insights',
-    '/careers',
     '/blog',
-    '/docs',
-    '/help',
-    '/faq',
-    '/terms',
-    '/privacy',
-    '/cookies',
-    '/compliance',
     '/superadmin',
     '/admin'
 ];

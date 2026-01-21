@@ -1,0 +1,35 @@
+{
+    "brand": {
+        "tagline": "العمود الفقري الرقمي لأسواق الكربون المستقبلية — حيث تعمل الشفافية ونزاهة التحقق وثقة السوق على نظام سجل مشترك."
+    },
+    "sections": {
+        "product": "المنتج",
+        "company": "الشركة",
+        "resources": "الموارد",
+        "legal": "قانوني"
+    },
+    "links": {
+        "pricing": "الأسعار",
+        "registries": "السجلات",
+        "aboutUs": "من نحن",
+        "insights": "رؤى",
+        "careers": "الوظائف",
+        "blog": "المدونة",
+        "documentation": "التوثيق",
+        "helpCenter": "مركز المساعدة",
+        "faq": "الأسئلة الشائعة",
+        "termsOfService": "شروط الخدمة",
+        "privacyPolicy": "سياسة الخصوصية",
+        "cookiePolicy": "سياسة ملفات تعريف الارتباط",
+        "compliance": "الامتثال"
+    },
+    "contact": {
+        "email": "info@credocarbon.com",
+        "phone": "+91 97951 19246",
+        "linkedin": "لينكد إن"
+    },
+    "bottom": {
+        "copyright": "© {{year}} كريدو كربون. جميع الحقوق محفوظة.",
+        "status": "جميع الأنظمة تعمل"
+    }
+}

@@ -1,0 +1,243 @@
+{
+    "pricing": {
+        "badge": "Pricing",
+        "title": "Pricing",
+        "subtitle": "Transparent, execution-based pricing for carbon projects, renewable energy certificates, and compliance obligations.",
+        "registryNote": "Registry, verifier, and regulator fees are always charged at cost.",
+        "viewDetails": "View Details",
+        "cards": {
+            "analysis": {
+                "label": "",
+                "name": "Free Analysis",
+                "description": "Evaluate feasibility before committing to registration.",
+                "price": "$0"
+            },
+            "developers": {
+                "label": "DEVELOPERS",
+                "name": "Voluntary Carbon Projects",
+                "description": "Registration, MRV, and issuance support.",
+                "price": "From $12k"
+            },
+            "generators": {
+                "label": "GENERATORS",
+                "name": "Renewable Energy Certificates",
+                "description": "REC registration and issuance.",
+                "price": "From $6k"
+            },
+            "compliance": {
+                "label": "REGULATED ENTITIES",
+                "name": "Compliance & ETS",
+                "description": "ETS setup and ongoing compliance.",
+                "price": "From $15k"
+            },
+            "buyers": {
+                "label": "CORPORATES & TRADERS",
+                "name": "Buyers",
+                "description": "Sourcing, due diligence, and transaction execution.",
+                "price": "From 1.0%"
+            }
+        },
+        "faqTitle": "Pricing FAQs",
+        "contactTitle": "Want to Know More?",
+        "contactSubtitle": "Get in touch with our team for detailed pricing information and custom solutions.",
+        "contactButton": "Contact us at info@credocarbon.com",
+        "bottomNote": "CredoCarbon does not mark up registry, verifier, or regulator fees. We price execution and coordination — not access, subscriptions, or trading spreads."
+    },
+    "faq": {
+        "badge": "Frequently Asked Questions",
+        "title": "Everything you need to know",
+        "titleHighlight": "about CredoCarbon",
+        "subtitle": "Get quick answers to common questions about our carbon credit execution platform, workflows, and market coverage.",
+        "searchPlaceholder": "Search FAQs...",
+        "questionsFound": "{{count}} questions found",
+        "noResults": "No results found",
+        "noResultsSubtitle": "Try adjusting your search query",
+        "clearSearch": "Clear Search",
+        "ctaTitle": "Still have questions?",
+        "ctaSubtitle": "Our team is here to help you understand how CredoCarbon can streamline your carbon credit workflows.",
+        "visitHelpCenter": "Visit Help Center",
+        "contactSupport": "Contact Support",
+        "questions": [
+            {
+                "question": "What does CredoCarbon do?",
+                "answer": "CredoCarbon manages the execution of carbon credit, renewable energy certificate (REC), and emissions compliance workflows—covering registration, monitoring, issuance, and coordination across global registries and schemes."
+            },
+            {
+                "question": "Who is CredoCarbon built for?",
+                "answer": "CredoCarbon is built for carbon project developers, renewable energy generators, corporate buyers, energy market participants, and regulated entities participating in voluntary and compliance carbon markets."
+            },
+            {
+                "question": "Is CredoCarbon a software platform or a consultancy?",
+                "answer": "CredoCarbon is an execution platform. We combine professional carbon market expertise with structured digital workflows to replace fragmented, manual consulting—without offering self-serve SaaS or acting as a broker."
+            },
+            {
+                "question": "Which carbon and energy markets does CredoCarbon support?",
+                "answer": "CredoCarbon supports voluntary carbon markets, renewable energy certificate (REC) systems, and emissions trading and compliance schemes across multiple regions."
+            },
+            {
+                "question": "Which registries and schemes are supported?",
+                "answer": "CredoCarbon works across leading global carbon registries, REC systems, and compliance registries. Registry and scheme coverage depends on project type, geography, and regulatory applicability."
+            },
+            {
+                "question": "Does CredoCarbon operate internationally?",
+                "answer": "Yes. CredoCarbon supports cross-border carbon and energy market workflows, coordinating with international registries, verification bodies, and regulators."
+            },
+            {
+                "question": "How does an engagement with CredoCarbon typically start?",
+                "answer": "Engagements typically begin with a feasibility and eligibility assessment. Once scope is confirmed, CredoCarbon executes the required registration, issuance, or compliance workflows."
+            },
+            {
+                "question": "Can CredoCarbon work alongside existing consultants or partners?",
+                "answer": "Yes. CredoCarbon can integrate with existing consultants, EPCs, technical advisors, or internal teams, with responsibilities clearly defined to avoid duplication or scope overlap."
+            },
+            {
+                "question": "How long do carbon projects or transactions usually take?",
+                "answer": "Timelines vary by registry, methodology, and project type. CredoCarbon focuses on reducing coordination delays, but final timelines depend on external registry and verification review cycles."
+            },
+            {
+                "question": "How is data and confidential information handled?",
+                "answer": "CredoCarbon operates under strict confidentiality standards and executes non-disclosure agreements (NDAs) where required."
+            },
+            {
+                "question": "Does CredoCarbon guarantee issuance or regulatory approval?",
+                "answer": "No. Issuance and approvals are determined by registries and regulators. CredoCarbon supports compliant documentation and execution through each required stage."
+            },
+            {
+                "question": "How is CredoCarbon different from traditional carbon consultants?",
+                "answer": "CredoCarbon replaces fragmented, manual consulting with structured execution, standardized workflows, and reduced coordination overhead—while remaining independent from trading and brokerage activities."
+            }
+        ]
+    },
+    "careers": {
+        "badge": "Join Our Mission",
+        "title1": "We're building",
+        "titleHighlight": "climate infrastructure",
+        "title2": "for the planet",
+        "subtitle": "Join a team of passionate innovators, engineers, and climate advocates working to make carbon markets transparent, verifiable, and impactful.",
+        "values": {
+            "missionDriven": {
+                "title": "Mission-Driven",
+                "desc": "Climate impact at the core"
+            },
+            "collaborative": {
+                "title": "Collaborative",
+                "desc": "Build together, grow together"
+            },
+            "innovation": {
+                "title": "Innovation",
+                "desc": "Push boundaries, solve hard problems"
+            }
+        },
+        "contactTitle": "Ready to make an impact?",
+        "contactSubtitle": "We're always looking for talented individuals who are passionate about climate action. Drop us a line with your resume and let's talk!",
+        "email": "info@credocarbon.com",
+        "responseNote": "We review all applications and respond within 48 hours"
+    },
+    "insights": {
+        "badge": "Market Insights",
+        "title": "Registry Insights",
+        "subtitle": "Deep-dive analytics into carbon credits and renewable energy certificates across major global registries.",
+        "dataFrom": "Data from last 12 months",
+        "stats": {
+            "carbonIssued": "Carbon Credits Issued",
+            "carbonRetired": "Carbon Credits Retired",
+            "recsIssued": "RECs Issued",
+            "recsRetired": "RECs Retired"
+        },
+        "tabs": {
+            "carbon": "Carbon Credits",
+            "rec": "RECs"
+        },
+        "sectorCard": {
+            "totalIssued": "Total Issued",
+            "totalRetired": "Total Retired",
+            "registries": "registries",
+            "registry": "registry",
+            "registryBreakdown": "Registry Breakdown for",
+            "issued": "Issued",
+            "retired": "Retired",
+            "retirementRate": "Retirement Rate"
+        },
+        "dataNotice": {
+            "title": "About this data",
+            "content": "Data is aggregated from official registry sources and updated periodically. Sector breakdowns represent estimated distributions based on available project data. For the most current figures, please refer to individual registry portals."
+        },
+        "loading": "Loading insights data...",
+        "error": "Error loading data"
+    },
+    "helpCenter": {
+        "badge": "Support Hub",
+        "title1": "Welcome to the",
+        "titleHighlight": "CredoCarbon Help Center",
+        "subtitle": "Explore resources and get support for your carbon credit workflows.",
+        "searchPlaceholder": "Search help resources...",
+        "contact": {
+            "title": "Get in Touch",
+            "subtitle": "Our team is here to help you succeed",
+            "emailSupport": "Email Support",
+            "emailDesc": "Send us your questions, feedback, or support requests. Our team will get back to you as soon as possible."
+        },
+        "resources": {
+            "title": "Explore Resources",
+            "subtitle": "Find the information you need",
+            "documentation": "Documentation",
+            "documentationDesc": "Comprehensive guides and technical documentation",
+            "faq": "FAQ",
+            "faqDesc": "Quick answers to common questions"
+        },
+        "quickLinks": {
+            "title": "Quick Links",
+            "subtitle": "Navigate to key platform pages",
+            "platform": "Platform",
+            "platformOverview": "Platform Overview",
+            "forDevelopers": "For Developers",
+            "forVVBs": "For VVBs",
+            "forBuyers": "For Buyers",
+            "resourcesTitle": "Resources",
+            "documentationLink": "Documentation",
+            "registries": "Registries",
+            "pricing": "Pricing",
+            "aboutUs": "About Us",
+            "legalTitle": "Legal",
+            "termsOfService": "Terms of Service",
+            "privacyPolicy": "Privacy Policy",
+            "cookiePolicy": "Cookie Policy",
+            "compliance": "Compliance"
+        },
+        "cta": {
+            "title": "Need More Help?",
+            "subtitle": "Can't find what you're looking for? Reach out to our team directly.",
+            "contactSupport": "Contact Support"
+        }
+    },
+    "documentation": {
+        "badge": "Documentation",
+        "title": "Platform Guides",
+        "subtitle": "Comprehensive guides for developers, buyers, VVBs, and registry operators",
+        "back": "Back to Documentation",
+        "viewGuide": "View Guide",
+        "guides": {
+            "developer": {
+                "title": "Developer Guide",
+                "description": "Learn how to register projects and submit monitoring reports."
+            },
+            "buyer": {
+                "title": "Buyer Guide",
+                "description": "Browse, purchase, and retire carbon credits from the marketplace."
+            },
+            "vvb": {
+                "title": "VVB Guide",
+                "description": "Conduct validation and verification audits efficiently."
+            },
+            "registry": {
+                "title": "Registry Guide",
+                "description": "Manage credit issuance and maintain registry operations."
+            }
+        },
+        "cta": {
+            "title": "Need Additional Support?",
+            "subtitle": "Our team is here to help you succeed with the CredoCarbon platform.",
+            "contactSupport": "Contact Support"
+        }
+    }
+}

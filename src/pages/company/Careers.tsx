@@ -1,160 +1,103 @@
-import { Mail, Sparkles, Heart, Users, Rocket } from "lucide-react";
+import { Sparkles, Briefcase, Heart, Zap, Mail } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function Careers() {
+    const { t, i18n } = useTranslation('pages');
+    const isArabic = i18n.language === 'ar';
+    const careers = t('careers', { returnObjects: true }) as any;
+    const values = careers.values || {};
+
+    const valuesData = [
+        { Icon: Heart, ...values.missionDriven },
+        { Icon: Briefcase, ...values.collaborative },
+        { Icon: Zap, ...values.innovation }
+    ];
+
     return (
-        <div className="min-h-screen bg-[#05080f] relative overflow-hidden">
-            {/* Animated Background */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {/* Gradient orbs */}
-                <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-full blur-[120px] animate-pulse" />
-                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-cyan-500/20 to-violet-500/20 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-r from-violet-500/10 to-indigo-500/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }} />
+        <div dir={isArabic ? 'rtl' : 'ltr'} className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+            {/* Hero Section */}
+            <section className="relative py-20 md:py-32 overflow-hidden">
+                {/* Background Effects */}
+                <div className="absolute inset-0">
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(16,185,129,0.12),rgba(255,255,255,0))]" />
+                    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse" />
+                    <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/15 to-emerald-500/15 rounded-full blur-3xl" />
+                </div>
 
-                {/* Grid pattern */}
-                <div className="absolute inset-0 opacity-[0.02]" style={{
-                    backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(148 163 184) 1px, transparent 0)',
-                    backgroundSize: '50px 50px'
-                }} />
-            </div>
-
-            {/* Main Content */}
-            <div className="relative min-h-screen flex items-center justify-center px-4 py-20">
-                <div className="max-w-5xl mx-auto">
-
+                <div className="relative mx-auto max-w-4xl px-4 text-center">
                     {/* Badge */}
-                    <div className="flex justify-center mb-8 animate-fade-in">
-                        <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-emerald-400/40 bg-emerald-500/10 backdrop-blur-xl shadow-lg shadow-emerald-500/20">
-                            <Sparkles className="w-4 h-4 text-emerald-400 animate-pulse" />
-                            <span className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-300">
-                                Join Our Mission
-                            </span>
-                        </div>
+                    <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-5 py-2.5 mb-8 backdrop-blur-sm shadow-lg shadow-emerald-500/10">
+                        <Sparkles className="w-4 h-4 text-emerald-400" />
+                        <span className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-400">
+                            {careers.badge}
+                        </span>
                     </div>
 
-                    {/* Main Heading */}
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-center mb-8 leading-[1.1] animate-fade-in-up">
-                        <span className="text-slate-50">We're building </span>
-                        <span className="block bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent animate-gradient">
-                            climate infrastructure
+                    {/* Heading */}
+                    <h1 className="text-5xl md:text-6xl font-bold text-slate-50 mb-6 leading-tight">
+                        {careers.title1}{" "}
+                        <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
+                            {careers.titleHighlight}
                         </span>
-                        <span className="text-slate-50">for the planet</span>
+                        {" "}{careers.title2}
                     </h1>
 
-                    {/* Subheading */}
-                    <p className="text-xl md:text-2xl text-slate-300 text-center leading-relaxed mb-16 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-                        Join a team of passionate innovators, engineers, and climate advocates
-                        working to make carbon markets transparent, verifiable, and impactful.
+                    <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                        {careers.subtitle}
                     </p>
+                </div>
+            </section>
 
-                    {/* Values Grid */}
-                    <div className="grid md:grid-cols-3 gap-6 mb-16 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                        {[
-                            { icon: Heart, title: "Mission-Driven", desc: "Climate impact at the core" },
-                            { icon: Users, title: "Collaborative", desc: "Build together, grow together" },
-                            { icon: Rocket, title: "Innovation", desc: "Push boundaries, solve hard problems" }
-                        ].map((value, idx) => (
-                            <div key={value.title} className="group relative">
-                                <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400/20 to-teal-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-500" />
-                                <div className="relative rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl p-6 text-center hover:border-emerald-400/40 transition-all duration-300">
-                                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-400/20 to-teal-500/20 border border-emerald-400/30 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                                        <value.icon className="w-6 h-6 text-emerald-400" />
-                                    </div>
-                                    <h3 className="text-lg font-bold text-slate-50 mb-2">{value.title}</h3>
-                                    <p className="text-sm text-slate-400">{value.desc}</p>
+            {/* Values Section */}
+            <section className="relative py-16 md:py-20">
+                <div className="mx-auto max-w-5xl px-4">
+                    <div className="grid md:grid-cols-3 gap-6">
+                        {valuesData.map((value, idx) => (
+                            <div
+                                key={idx}
+                                className="group rounded-2xl border border-slate-700/60 bg-slate-900/40 backdrop-blur-sm p-8 hover:border-emerald-400/30 hover:bg-slate-900/60 transition-all duration-300"
+                            >
+                                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-400/30 flex items-center justify-center mb-6 group-hover:from-emerald-500/30 group-hover:to-cyan-500/30 transition-all">
+                                    <value.Icon className="w-7 h-7 text-emerald-400" />
                                 </div>
+                                <h3 className="text-xl font-bold text-slate-50 mb-3">{value.title}</h3>
+                                <p className="text-slate-400 leading-relaxed">{value.desc}</p>
                             </div>
                         ))}
                     </div>
+                </div>
+            </section>
 
-                    {/* Contact Section */}
-                    <div className="relative max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-                        <div className="absolute -inset-4 bg-gradient-to-r from-emerald-400/30 via-teal-400/30 to-cyan-400/30 rounded-[3rem] blur-3xl opacity-50" />
+            {/* CTA Section */}
+            <section className="relative py-16 md:py-20">
+                <div className="mx-auto max-w-4xl px-4">
+                    <div className="relative rounded-3xl border border-emerald-400/30 bg-gradient-to-br from-emerald-500/10 via-cyan-500/10 to-teal-500/10 backdrop-blur-sm p-10 md:p-12 text-center overflow-hidden">
+                        {/* Background glow */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-cyan-500/5 blur-2xl" />
 
-                        <div className="relative rounded-[3rem] border border-emerald-400/40 bg-gradient-to-br from-slate-900/90 via-slate-900/80 to-slate-900/90 backdrop-blur-2xl overflow-hidden">
-                            {/* Decorative elements */}
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-emerald-400/10 to-transparent rounded-full blur-3xl" />
-                            <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-cyan-400/10 to-transparent rounded-full blur-3xl" />
+                        <div className="relative">
+                            <h2 className="text-3xl md:text-4xl font-bold text-slate-50 mb-4">
+                                {careers.contactTitle}
+                            </h2>
+                            <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
+                                {careers.contactSubtitle}
+                            </p>
 
-                            <div className="relative p-12 md:p-16 text-center">
-                                {/* Icon */}
-                                <div className="flex justify-center mb-8">
-                                    <div className="relative">
-                                        <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-3xl blur-2xl opacity-50 animate-pulse" />
-                                        <div className="relative w-20 h-20 rounded-3xl bg-gradient-to-br from-emerald-400/30 to-teal-500/30 border-2 border-emerald-400/50 flex items-center justify-center">
-                                            <Mail className="w-10 h-10 text-emerald-400" />
-                                        </div>
-                                    </div>
-                                </div>
+                            <a
+                                href={`mailto:${careers.email}`}
+                                className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 font-bold hover:from-emerald-400 hover:to-cyan-400 transition-all duration-300 hover:scale-105 shadow-lg shadow-emerald-500/30"
+                            >
+                                <Mail className="w-5 h-5" />
+                                <span>{careers.email}</span>
+                            </a>
 
-                                <h2 className="text-3xl md:text-4xl font-bold text-slate-50 mb-4">
-                                    Ready to make an impact?
-                                </h2>
-
-                                <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-xl mx-auto">
-                                    We're always looking for talented individuals who are passionate about climate action.
-                                    Drop us a line with your resume and let's talk!
-                                </p>
-
-                                {/* Email Button */}
-                                <a
-                                    href="mailto:info@credocarbon.com"
-                                    className="group inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-bold text-lg shadow-2xl shadow-emerald-500/50 hover:shadow-emerald-500/70 hover:scale-105 transition-all duration-300 relative overflow-hidden"
-                                >
-                                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                    <Mail className="w-6 h-6 relative z-10" />
-                                    <span className="relative z-10">info@credocarbon.com</span>
-                                </a>
-
-                                {/* Additional Info */}
-                                <p className="text-sm text-slate-500 mt-8">
-                                    We review all applications and respond within 48 hours
-                                </p>
-                            </div>
-
-                            {/* Bottom gradient accent */}
-                            <div className="h-2 w-full bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400" />
+                            <p className="mt-6 text-sm text-slate-400">
+                                {careers.responseNote}
+                            </p>
                         </div>
                     </div>
-
                 </div>
-            </div>
-
-            <style>{`
-                @keyframes fade-in {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
-                }
-                
-                @keyframes fade-in-up {
-                    from {
-                        opacity: 0;
-                        transform: translateY(20px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-
-                @keyframes gradient {
-                    0%, 100% { background-position: 0% 50%; }
-                    50% { background-position: 100% 50%; }
-                }
-
-                .animate-fade-in {
-                    animation: fade-in 0.6s ease-out forwards;
-                }
-
-                .animate-fade-in-up {
-                    animation: fade-in-up 0.8s ease-out forwards;
-                    opacity: 0;
-                }
-
-                .animate-gradient {
-                    background-size: 200% 200%;
-                    animation: gradient 8s ease infinite;
-                }
-            `}</style>
+            </section>
         </div>
     );
 }
