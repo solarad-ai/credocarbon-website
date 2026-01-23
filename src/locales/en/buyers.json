@@ -1,6 +1,7 @@
 {
     "buyerJourney": {
         "badge": "Buyer Experience",
+        "hub": "Buyer Hub",
         "title1": "Intelligent",
         "title2": "Procurement",
         "description": "Risk-adjusted pricing, full provenance tracking, and VVB-verified documentation for confident carbon credit procurement",

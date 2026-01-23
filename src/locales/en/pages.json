@@ -1,46 +1,453 @@
 {
     "pricing": {
-        "badge": "Pricing",
-        "title": "Pricing",
-        "subtitle": "Transparent, execution-based pricing for carbon projects, renewable energy certificates, and compliance obligations.",
-        "registryNote": "Registry, verifier, and regulator fees are always charged at cost.",
-        "viewDetails": "View Details",
-        "cards": {
-            "analysis": {
-                "label": "",
-                "name": "Free Analysis",
-                "description": "Evaluate feasibility before committing to registration.",
-                "price": "$0"
+        "hero": {
+            "title": "Transparent, Execution-Based Pricing",
+            "subtitle": "We price execution and coordination — not software access or trading spreads."
+        },
+        "features": {
+            "registryFees": {
+                "title": "Registry, verifier, and regulator fees",
+                "subtitle": "Always charged at cost"
             },
-            "developers": {
-                "label": "DEVELOPERS",
-                "name": "Voluntary Carbon Projects",
-                "description": "Registration, MRV, and issuance support.",
-                "price": "From $12k"
+            "noSubscriptions": {
+                "title": "No subscriptions",
+                "subtitle": "Pay for execution only"
             },
-            "generators": {
-                "label": "GENERATORS",
-                "name": "Renewable Energy Certificates",
-                "description": "REC registration and issuance.",
-                "price": "From $6k"
+            "noHiddenFees": {
+                "title": "No hidden fees",
+                "subtitle": "All costs disclosed upfront"
             },
-            "compliance": {
-                "label": "REGULATED ENTITIES",
-                "name": "Compliance & ETS",
-                "description": "ETS setup and ongoing compliance.",
-                "price": "From $15k"
-            },
-            "buyers": {
-                "label": "CORPORATES & TRADERS",
-                "name": "Buyers",
-                "description": "Sourcing, due diligence, and transaction execution.",
-                "price": "From 1.0%"
+            "noGuarantees": {
+                "title": "No issuance guarantees",
+                "subtitle": "Execution support only"
             }
         },
-        "faqTitle": "Pricing FAQs",
-        "contactTitle": "Want to Know More?",
-        "contactSubtitle": "Get in touch with our team for detailed pricing information and custom solutions.",
-        "contactButton": "Contact us at info@credocarbon.com",
+        "badges": {
+            "oneTime": "ONE-TIME",
+            "recurringAnnual": "RECURRING (ANNUAL)"
+        },
+        "common": {
+            "included": "Included",
+            "notIncluded": "Not Included",
+            "includedServices": "Included Services",
+            "excludedServices": "Excluded (Charged at Cost or Out of Scope)",
+            "exclusion": "Exclusion",
+            "disclaimer": "Disclaimer"
+        },
+        "freeAnalysis": {
+            "title": "Free Analysis (Pre-Engagement)",
+            "price": "$0",
+            "subtitle": "Evaluation only — no execution",
+            "included": [
+                "Initial project eligibility assessment",
+                "Carbon methodology screening",
+                "Preliminary timeline and scope estimate",
+                "Registration pathway recommendation"
+            ],
+            "excluded": [
+                "Legal or tax advice",
+                "Project design or financial modeling",
+                "Formal documentation preparation",
+                "Commitments to execute or register"
+            ]
+        },
+        "developers": {
+            "title": "Developers — Voluntary Carbon Projects",
+            "subtitle": "For carbon project developers registering and issuing credits under VCS, Gold Standard, CAR, or ACR",
+            "registration": {
+                "title": "A. Project Registration & Structuring",
+                "table": {
+                    "headers": [
+                        "Project Type",
+                        "Fee Range",
+                        "Typical Scope"
+                    ],
+                    "rows": [
+                        [
+                            "Standard",
+                            "$12,000 – $25,000",
+                            "Single-site, proven methodology, low additionality complexity"
+                        ],
+                        [
+                            "Premium / Complex",
+                            "$20,000 – $45,000",
+                            "Multi-site, custom baseline scenarios, modular methodologies"
+                        ],
+                        [
+                            "Nature-based / REDD+",
+                            "$45,000 – $75,000",
+                            "LUC modeling, spatial analysis, community safeguards"
+                        ]
+                    ]
+                },
+                "exclusion": "Registry and validation body fees are charged at cost and invoiced separately",
+                "included": [
+                    "Project Design Document (PDD) preparation",
+                    "Methodology selection and application",
+                    "Additionality and baseline analysis",
+                    "Registry platform submission and coordination",
+                    "Initial stakeholder and validation body liaison"
+                ],
+                "excluded": [
+                    "Third-party validation body (VVB) fees",
+                    "Registry listing and account fees",
+                    "Carbon modeling software licenses",
+                    "Legal entity formation or permitting",
+                    "Community engagement or land use agreements"
+                ]
+            },
+            "mrv": {
+                "title": "B. MRV, Verification & Issuance",
+                "infoBar": {
+                    "label": "Annual, Required for Issuance:",
+                    "text": "This service recurs annually for the life of the project's crediting period."
+                },
+                "table": {
+                    "headers": [
+                        "Fee Structure",
+                        "Range",
+                        "Notes"
+                    ],
+                    "rows": [
+                        [
+                            "Per-tCO₂e Fee",
+                            "$0.10 – $0.40 per credit issued",
+                            "Volume-tiered; decreases with scale"
+                        ],
+                        [
+                            "Annual Minimum",
+                            "$8,000 – $15,000",
+                            "Ensures baseline support regardless of issuance"
+                        ]
+                    ]
+                },
+                "exclusion": "Registry issuance fees and verifier (VVB) fees are charged at cost",
+                "included": [
+                    "Annual monitoring report preparation",
+                    "Data collection protocol and QA/QC support",
+                    "Verification body coordination and submissions",
+                    "Issuance request processing",
+                    "Ongoing methodology compliance updates"
+                ],
+                "excluded": [
+                    "Registry per-credit issuance fees",
+                    "Third-party verifier (VVB) fees and travel",
+                    "Field monitoring hardware or sensors",
+                    "Satellite imagery or modeling subscriptions"
+                ]
+            }
+        },
+        "generators": {
+            "title": "Generators — Renewable Energy Certificates (RECs)",
+            "subtitle": "For renewable energy generators issuing RECs, I-RECs, or GOs",
+            "setupInfo": {
+                "label": "One-time setup + ongoing annual issuance support",
+                "price": "Starts from $3,500",
+                "includes": "Includes: Generator registration, QRE setup, initial attestation support"
+            },
+            "table": {
+                "headers": [
+                    "Fee Type",
+                    "Range",
+                    "Description"
+                ],
+                "rows": [
+                    [
+                        "Per-MWh Issuance Fee",
+                        "$0.05 – $0.15 per REC",
+                        "Ongoing attestation, registry submission, issuance coordination"
+                    ],
+                    [
+                        "Annual Minimum",
+                        "$2,500",
+                        "Baseline support regardless of generation volume"
+                    ]
+                ]
+            },
+            "exclusion": "Registry fees are charged at cost and invoiced separately",
+            "included": [
+                "Qualified Reporting Entity (QRE) registration",
+                "Generator profile and facility documentation",
+                "Monthly or quarterly attestation preparation",
+                "REC issuance and registry coordination",
+                "Ongoing compliance with registry standards"
+            ],
+            "excluded": [
+                "Registry account and platform fees",
+                "Metering hardware or SCADA integration",
+                "Utility interconnection documentation",
+                "Renewable energy procurement agreements"
+            ]
+        },
+        "regulated": {
+            "title": "Regulated Entities — Compliance & ETS",
+            "subtitle": "For entities subject to cap-and-trade or emissions trading schemes (e.g., EU ETS, California, RGGI)",
+            "setup": {
+                "title": "ETS Setup",
+                "table": {
+                    "headers": [
+                        "Scheme Complexity",
+                        "Fee Range",
+                        "Scope"
+                    ],
+                    "rows": [
+                        [
+                            "Standard Scheme (e.g., RGGI, WCI)",
+                            "$15,000 – $30,000",
+                            "Single jurisdiction, established reporting protocols"
+                        ],
+                        [
+                            "Complex Multi-Jurisdiction",
+                            "$30,000 – $60,000",
+                            "Multi-state or cross-border obligations, custom data systems"
+                        ],
+                        [
+                            "Emerging or Hybrid Schemes",
+                            "$40,000 – $80,000",
+                            "New regulations, linking mechanisms, policy interpretation"
+                        ]
+                    ]
+                },
+                "included": [
+                    "Regulatory obligation assessment",
+                    "Monitoring plan development",
+                    "Registry account and reporting system setup",
+                    "Initial data collection protocol design",
+                    "Regulator submission and approval coordination"
+                ],
+                "excluded": [
+                    "CEMS hardware or calibration services",
+                    "Engineering studies or emissions modeling",
+                    "Legal entity restructuring or permitting",
+                    "Allowance procurement or trading"
+                ]
+            },
+            "annual": {
+                "title": "Annual Compliance Support",
+                "table": {
+                    "headers": [
+                        "Emission Tier",
+                        "Annual Fee Range",
+                        "Scope"
+                    ],
+                    "rows": [
+                        [
+                            "Tier 1: < 25,000 tCO₂e/year",
+                            "$12,000 – $20,000",
+                            "Small emitters, simplified monitoring"
+                        ],
+                        [
+                            "Tier 2: 25,000 – 100,000 tCO₂e/year",
+                            "$20,000 – $45,000",
+                            "Mid-sized facilities, moderate complexity"
+                        ],
+                        [
+                            "Tier 3: > 100,000 tCO₂e/year",
+                            "$45,000 – $90,000",
+                            "Large facilities, complex CEMS, multi-unit reporting"
+                        ]
+                    ]
+                },
+                "disclaimer": "We do not trade allowances on a principal basis. Regulator and verifier fees are excluded and charged at cost.",
+                "included": [
+                    "Annual emissions data compilation",
+                    "Verification coordination and submissions",
+                    "Compliance calendar management",
+                    "Regulatory reporting and documentation",
+                    "Periodic audit support"
+                ],
+                "excluded": [
+                    "Third-party verifier fees",
+                    "Allowance purchases or trades",
+                    "Penalty or offset payments",
+                    "Legal representation"
+                ]
+            }
+        },
+        "buyers": {
+            "title": "Buyers — Carbon Credit Sourcing & Transactions",
+            "subtitle": "For corporates, traders, and intermediaries acquiring carbon credits",
+            "sourcing": {
+                "title": "A. Sourcing, Advisory & Due Diligence",
+                "table": {
+                    "headers": [
+                        "Service",
+                        "Fee Structure",
+                        "Notes"
+                    ],
+                    "rows": [
+                        [
+                            "Portfolio Strategy",
+                            "From $5,000",
+                            "Offset requirements, registry guidance, pricing strategy"
+                        ],
+                        [
+                            "Due Diligence Package",
+                            "$2,500 – $8,000 per project",
+                            "Documentation review, additionality analysis, risk assessment"
+                        ],
+                        [
+                            "Ongoing Advisory",
+                            "$8,000 – $20,000/year",
+                            "Rolling sourcing, market intelligence, claim compliance"
+                        ]
+                    ]
+                },
+                "note": "Advisory fees apply to search and structuring, not to credit purchase costs"
+            },
+            "transaction": {
+                "title": "B. Transaction Execution",
+                "table": {
+                    "headers": [
+                        "Transaction Category",
+                        "Execution Fee",
+                        "Applies To"
+                    ],
+                    "rows": [
+                        [
+                            "Standard Volume (<50,000 tCO₂e)",
+                            "1.5% – 2.5%",
+                            "Single project, standard retirement"
+                        ],
+                        [
+                            "Large Volume (50k – 500k tCO₂e)",
+                            "1.0% – 1.5%",
+                            "Multi-project, phased delivery"
+                        ],
+                        [
+                            "Enterprise Scale (>500k tCO₂e)",
+                            "Custom",
+                            "Custom structuring, forward contracts"
+                        ]
+                    ]
+                },
+                "disclaimer": "CredoCarbon does not act as a principal and does not take credit ownership. All credits are transferred directly through registries.",
+                "included": [
+                    "Seller identification and vetting",
+                    "Contract structuring and negotiation",
+                    "Registry transfer coordination",
+                    "Settlement confirmation and documentation"
+                ],
+                "excluded": [
+                    "Credit purchase cost (paid to seller)",
+                    "Registry transfer and retirement fees",
+                    "Legal contract drafting",
+                    "Insurance or hedging arrangements"
+                ]
+            }
+        },
+        "optionalAddOns": {
+            "title": "Optional Add-Ons",
+            "subtitle": "Additional services scoped and priced separately",
+            "table": {
+                "headers": [
+                    "Service",
+                    "Price Range",
+                    "Description"
+                ],
+                "rows": [
+                    [
+                        "Policy & Regulatory Analysis",
+                        "$5,000 – $15,000",
+                        "Jurisdiction-specific compliance guidance or policy interpretation"
+                    ],
+                    [
+                        "Carbon Accounting & Inventory",
+                        "$8,000 – $25,000",
+                        "GHG Protocol-aligned footprinting, Scope 1-3 calculation"
+                    ],
+                    [
+                        "Custom Methodology Development",
+                        "$40,000 – $120,000",
+                        "New or modified carbon crediting methodology design and approval"
+                    ],
+                    [
+                        "Data Integration & Automation",
+                        "$10,000 – $40,000",
+                        "API integration, CEMS linkage, automated reporting pipelines"
+                    ],
+                    [
+                        "Training & Capacity Building",
+                        "$3,000 – $12,000 per session",
+                        "Onsite or virtual training for internal teams"
+                    ]
+                ]
+            },
+            "note": "Note:",
+            "noteText": "All add-on services are scoped separately via change order and require explicit written approval."
+        },
+        "commercialPrinciples": {
+            "title": "Commercial Principles",
+            "principles": [
+                "One-time vs. recurring fees are clearly defined in every service description",
+                "Third-party fees (registries, verifiers, regulators) are always charged at cost with no markup",
+                "No hidden scope: services not explicitly listed are out of scope and require separate agreement",
+                "Pricing ranges reflect project complexity, jurisdiction, and expected resource requirements",
+                "Annual minimums ensure continuity of support regardless of credit issuance or market conditions",
+                "All fees are exclusive of travel, legal counsel, and specialized third-party software unless stated"
+            ]
+        },
+        "faq": {
+            "title": "Pricing FAQs",
+            "categories": [
+                {
+                    "category": "General",
+                    "questions": [
+                        {
+                            "q": "Is CredoCarbon a software platform or a consultancy?",
+                            "a": "CredoCarbon provides professional execution supported by structured digital workflows. We price execution time, not software access."
+                        },
+                        {
+                            "q": "How do payments and milestones work?",
+                            "a": "Fees are milestone-based and aligned with delivery stages. Third-party fees are passed through transparently."
+                        },
+                        {
+                            "q": "Do you guarantee issuance or regulatory approval?",
+                            "a": "No. Issuance and approval decisions are made by registries and regulators."
+                        }
+                    ]
+                },
+                {
+                    "category": "Developers",
+                    "questions": [
+                        {
+                            "q": "Is feasibility and revenue analysis really free?",
+                            "a": "Yes. Feasibility, registry fit assessment, and indicative revenue modelling are provided at no cost."
+                        },
+                        {
+                            "q": "Are registry and verifier (VVB) fees included?",
+                            "a": "No. Registry and validation or verification body fees are charged at cost and billed separately."
+                        },
+                        {
+                            "q": "Why does pricing vary by registry or methodology?",
+                            "a": "Different registries and methodologies have different documentation, review cycles, and audit requirements."
+                        }
+                    ]
+                },
+                {
+                    "category": "Buyers",
+                    "questions": [
+                        {
+                            "q": "Does CredoCarbon sell credits directly?",
+                            "a": "No. CredoCarbon does not act as a principal. Credits are transferred directly between buyers and sellers through the relevant registry."
+                        },
+                        {
+                            "q": "How does CredoCarbon charge buyers?",
+                            "a": "CredoCarbon charges a transparent, success-based execution fee on completed transactions. There are no hidden spreads."
+                        },
+                        {
+                            "q": "Are CredoCarbon fees included in the credit price?",
+                            "a": "No. CredoCarbon fees are disclosed separately. Registry transfer and retirement fees are charged at cost."
+                        }
+                    ]
+                }
+            ]
+        },
+        "contact": {
+            "title": "Want to Know More?",
+            "subtitle": "Get in touch with our team for detailed pricing information and custom solutions.",
+            "button": "Contact us at info@credocarbon.com"
+        },
         "bottomNote": "CredoCarbon does not mark up registry, verifier, or regulator fees. We price execution and coordination — not access, subscriptions, or trading spreads."
     },
     "faq": {
@@ -238,6 +645,471 @@
             "title": "Need Additional Support?",
             "subtitle": "Our team is here to help you succeed with the CredoCarbon platform.",
             "contactSupport": "Contact Support"
+        }
+    },
+    "guides": {
+        "common": {
+            "footer": {
+                "title": "CredoCarbon",
+                "subtitle": "Carbon Credit Management Platform",
+                "copyright": "© 2024 Credo Carbon. All Rights Reserved."
+            }
+        },
+        "buyer": {
+            "title": "Buyer Guide",
+            "subtitle": "Complete guide to purchasing and retiring carbon credits",
+            "gettingStarted": {
+                "title": "Getting Started",
+                "steps": [
+                    {
+                        "title": "Create Your Account",
+                        "description": "Navigate to /buyer/signup and complete registration. Choose Individual or Corporate account type based on your needs."
+                    },
+                    {
+                        "title": "Verify Your Identity",
+                        "description": "Complete KYC verification by submitting required documents. Corporate accounts need business registration documents."
+                    },
+                    {
+                        "title": "Fund Your Wallet",
+                        "description": "Add funds to your wallet using available payment methods. Your balance will be used for credit purchases."
+                    },
+                    {
+                        "title": "Start Browsing",
+                        "description": "Access the marketplace at /dashboard/buyer/marketplace to explore available carbon credits."
+                    }
+                ]
+            },
+            "dashboard": {
+                "title": "Dashboard Overview",
+                "features": [
+                    {
+                        "icon": "📦",
+                        "title": "Portfolio",
+                        "description": "View your total holdings, credit distribution by project type, and portfolio value over time."
+                    },
+                    {
+                        "icon": "💳",
+                        "title": "Wallet",
+                        "description": "Manage your balance, view transaction history, add funds, and track all credit movements."
+                    },
+                    {
+                        "icon": "📜",
+                        "title": "Orders",
+                        "description": "Track active purchase orders, pending offers, and completed transactions."
+                    },
+                    {
+                        "icon": "🌱",
+                        "title": "Impact",
+                        "description": "See your carbon offset statistics, total tonnes retired, and environmental impact metrics."
+                    }
+                ]
+            },
+            "marketplace": {
+                "title": "Browsing the Marketplace",
+                "filters": [
+                    {
+                        "filter": "Project Type",
+                        "options": "Solar, Wind, Hydro, Forestry, Waste Management, Industrial"
+                    },
+                    {
+                        "filter": "Registry",
+                        "options": "VCS, Gold Standard, CDM, GCC, ACR"
+                    },
+                    {
+                        "filter": "Vintage Year",
+                        "options": "Filter by year credits were issued (2020-2024+)"
+                    },
+                    {
+                        "filter": "Price Range",
+                        "options": "Set minimum and maximum price per credit"
+                    },
+                    {
+                        "filter": "Location",
+                        "options": "Filter by project country or region"
+                    }
+                ]
+            },
+            "purchasing": {
+                "title": "Purchasing Credits",
+                "steps": [
+                    {
+                        "title": "Select Credits",
+                        "description": "Browse listings and click on credits you want to purchase. Review project details, documentation, and pricing."
+                    },
+                    {
+                        "title": "Review & Confirm",
+                        "description": "Verify quantity, total price, and seller information. Check that you have sufficient wallet balance."
+                    },
+                    {
+                        "title": "Complete Purchase",
+                        "description": "Confirm the transaction. Credits are transferred to your portfolio immediately upon successful payment."
+                    },
+                    {
+                        "title": "Receive Confirmation",
+                        "description": "Get email confirmation with transaction details and receipt. Credits appear in your Portfolio."
+                    }
+                ]
+            },
+            "retiring": {
+                "title": "Retiring Credits",
+                "infoTitle": "What is Credit Retirement?",
+                "infoText": "Retiring credits permanently removes them from circulation, representing a genuine carbon offset. Once retired, credits cannot be transferred or sold again.",
+                "steps": [
+                    {
+                        "title": "Go to Portfolio",
+                        "description": "Navigate to your Portfolio and select the credits you wish to retire."
+                    },
+                    {
+                        "title": "Enter Retirement Details",
+                        "description": "Specify beneficiary name (company or individual), retirement purpose, and date."
+                    },
+                    {
+                        "title": "Confirm Retirement",
+                        "description": "Review details and confirm. This action is permanent and cannot be undone."
+                    },
+                    {
+                        "title": "Download Certificate",
+                        "description": "Receive a retirement certificate that can be used for sustainability reporting and public claims."
+                    }
+                ]
+            }
+        },
+        "developer": {
+            "title": "Developer Guide",
+            "subtitle": "Complete guide to creating and managing carbon offset projects",
+            "gettingStarted": {
+                "title": "Getting Started",
+                "steps": [
+                    {
+                        "title": "Register Your Account",
+                        "description": "Navigate to /developer/signup and complete the registration form with your email, password, organization name, and country."
+                    },
+                    {
+                        "title": "Verify Your Email",
+                        "description": "Check your inbox for a verification email and click the confirmation link to activate your account."
+                    },
+                    {
+                        "title": "Complete KYC Verification",
+                        "description": "Submit your identity documents and organization details for verification. This is required before creating projects."
+                    },
+                    {
+                        "title": "Access Your Dashboard",
+                        "description": "Log in at /developer/login to access your developer dashboard and start creating projects."
+                    }
+                ]
+            },
+            "dashboard": {
+                "title": "Dashboard Features",
+                "features": [
+                    {
+                        "icon": "📁",
+                        "title": "My Projects",
+                        "description": "View all your projects organized by status - Draft, Submitted, Validation, Verification, and Issued."
+                    },
+                    {
+                        "icon": "📋",
+                        "title": "Tasks",
+                        "description": "See pending actions requiring your attention, such as document uploads or query responses."
+                    },
+                    {
+                        "icon": "💰",
+                        "title": "Revenue",
+                        "description": "Track your credit sales, marketplace listings, and total revenue from carbon credit transactions."
+                    },
+                    {
+                        "icon": "🔔",
+                        "title": "Notifications",
+                        "description": "Stay updated with real-time alerts for project status changes, offers, and system messages."
+                    }
+                ]
+            },
+            "creatingProject": {
+                "title": "Creating a Project",
+                "tableHeaders": [
+                    "Step",
+                    "Description"
+                ],
+                "steps": [
+                    {
+                        "step": "1. Project Type",
+                        "description": "Select category: Renewable Energy, Energy Efficiency, Forestry/AFOLU, Waste Management, or Industrial Processes"
+                    },
+                    {
+                        "step": "2. Basic Information",
+                        "description": "Enter project name, description, location, start date, and crediting period"
+                    },
+                    {
+                        "step": "3. Generation Data",
+                        "description": "Upload emission reduction data, specify monitoring methodology, add baseline calculations"
+                    },
+                    {
+                        "step": "4. Stakeholder Consultation",
+                        "description": "Upload consultation records, meeting minutes, and community engagement documentation"
+                    },
+                    {
+                        "step": "5. Compliance",
+                        "description": "Complete social and environmental safeguards checklists"
+                    },
+                    {
+                        "step": "6. Registry Submission",
+                        "description": "Select target registry (GCC, VCS, Gold Standard) and submit for validation"
+                    }
+                ]
+            },
+            "lifecycle": {
+                "title": "Project Lifecycle",
+                "stages": [
+                    "Draft",
+                    "Submitted to VVB",
+                    "Validation",
+                    "Verification",
+                    "Registry Review",
+                    "Credits Issued"
+                ]
+            },
+            "managingCredits": {
+                "title": "Managing Credits",
+                "features": [
+                    {
+                        "icon": "📦",
+                        "title": "Portfolio",
+                        "description": "View all issued credits from your projects, track available balance, and see credits by vintage year."
+                    },
+                    {
+                        "icon": "🏪",
+                        "title": "Marketplace",
+                        "description": "List credits for sale, set pricing, manage active listings, and track buyer interest."
+                    },
+                    {
+                        "icon": "💸",
+                        "title": "Transactions",
+                        "description": "View complete transaction history including sales, transfers, and revenue details."
+                    },
+                    {
+                        "icon": "📊",
+                        "title": "Analytics",
+                        "description": "Monitor sales trends, portfolio value, and market performance over time."
+                    }
+                ]
+            }
+        },
+        "vvb": {
+            "title": "VVB Guide",
+            "subtitle": "Validation & Verification Body Operations Manual",
+            "role": {
+                "title": "Your Role",
+                "description": "As a VVB (Validation & Verification Body), you are responsible for independently assessing carbon projects to ensure they meet the required standards and accurately report emission reductions.",
+                "types": [
+                    {
+                        "icon": "✅",
+                        "title": "Validation",
+                        "description": "Review project design documents, methodology application, and baseline calculations before project implementation."
+                    },
+                    {
+                        "icon": "📊",
+                        "title": "Verification",
+                        "description": "Verify actual emission reductions achieved during monitoring periods against claimed reductions."
+                    }
+                ]
+            },
+            "dashboard": {
+                "title": "Dashboard Overview",
+                "features": [
+                    {
+                        "icon": "⏳",
+                        "title": "Pending Tasks",
+                        "description": "View all assigned validations and verifications awaiting your review."
+                    },
+                    {
+                        "icon": "📁",
+                        "title": "My Projects",
+                        "description": "Browse all projects assigned to you, organized by task type and status."
+                    },
+                    {
+                        "icon": "❓",
+                        "title": "Queries",
+                        "description": "Manage clarification requests sent to developers and review their responses."
+                    },
+                    {
+                        "icon": "🔔",
+                        "title": "Notifications",
+                        "description": "Receive alerts for new assignments, query responses, and deadline reminders."
+                    }
+                ]
+            },
+            "validationWorkflow": {
+                "title": "Validation Workflow",
+                "stages": [
+                    "Assignment",
+                    "Document Review",
+                    "Checklist",
+                    "Queries",
+                    "Decision"
+                ],
+                "steps": [
+                    {
+                        "title": "Receive Assignment",
+                        "description": "Projects are assigned by the platform administrator. You'll receive a notification with project details."
+                    },
+                    {
+                        "title": "Review Documents",
+                        "description": "Access and review all project documentation including PDD, methodology, baseline, and monitoring plan."
+                    },
+                    {
+                        "title": "Complete Checklist",
+                        "description": "Work through the validation checklist, marking items as compliant or raising queries as needed."
+                    },
+                    {
+                        "title": "Submit Decision",
+                        "description": "Approve the project for the next phase or reject with detailed justification."
+                    }
+                ]
+            },
+            "checklist": {
+                "title": "Validation Checklist",
+                "items": [
+                    "Methodology appropriate and correctly applied",
+                    "Project boundaries correctly defined",
+                    "Additionality adequately demonstrated",
+                    "Baseline scenario conservative",
+                    "Emission calculations accurate",
+                    "Monitoring plan adequate",
+                    "Social safeguards addressed",
+                    "Environmental safeguards verified",
+                    "Stakeholder consultation complete",
+                    "Documentation complete and accurate"
+                ]
+            },
+            "verification": {
+                "title": "Verification Process",
+                "steps": [
+                    {
+                        "title": "Review Monitoring Data",
+                        "description": "Examine data collected during the monitoring period, including generation records and emission calculations."
+                    },
+                    {
+                        "title": "Verify Calculations",
+                        "description": "Cross-check claimed emission reductions against monitoring data. Apply any necessary adjustments."
+                    },
+                    {
+                        "title": "Account for Deductions",
+                        "description": "Calculate leakage deductions and buffer pool contributions as per methodology requirements."
+                    },
+                    {
+                        "title": "Issue Verification Report",
+                        "description": "Document verified emission reductions and submit for registry review."
+                    }
+                ]
+            }
+        },
+        "registry": {
+            "title": "Registry Guide",
+            "subtitle": "Carbon Credit Registry Operations Manual",
+            "role": {
+                "title": "Your Role",
+                "description": "As a Registry Officer, you are responsible for the final review and approval of carbon projects, issuance of carbon credits, and maintaining the integrity of the carbon credit registry.",
+                "types": [
+                    {
+                        "icon": "📝",
+                        "title": "Project Review",
+                        "description": "Review validated and verified projects to ensure compliance with registry standards before credit issuance."
+                    },
+                    {
+                        "icon": "🎫",
+                        "title": "Credit Issuance",
+                        "description": "Issue carbon credits to projects that pass review, assign serial numbers, and record in the registry."
+                    }
+                ]
+            },
+            "dashboard": {
+                "title": "Dashboard Overview",
+                "features": [
+                    {
+                        "icon": "⏳",
+                        "title": "Pending Reviews",
+                        "description": "View all projects that have completed VVB validation/verification and are awaiting registry review."
+                    },
+                    {
+                        "icon": "📦",
+                        "title": "Issuances",
+                        "description": "Manage credit issuance queue and track all pending and completed issuances."
+                    },
+                    {
+                        "icon": "💎",
+                        "title": "Credits",
+                        "description": "View all credit batches issued through the registry, track status and transactions."
+                    },
+                    {
+                        "icon": "❓",
+                        "title": "Queries",
+                        "description": "Manage clarification requests and communicate with project developers."
+                    }
+                ]
+            },
+            "reviewWorkflow": {
+                "title": "Review Workflow",
+                "stages": [
+                    "Receive Project",
+                    "Review Documents",
+                    "Complete Checklist",
+                    "Decision",
+                    "Issuance"
+                ],
+                "steps": [
+                    {
+                        "title": "Receive Verified Project",
+                        "description": "Projects arrive after VVB validation and verification are complete. Review the VVB reports."
+                    },
+                    {
+                        "title": "Review All Documentation",
+                        "description": "Examine project documents, validation report, verification report, and emission reduction calculations."
+                    },
+                    {
+                        "title": "Complete Review Checklist",
+                        "description": "Work through the registry review checklist ensuring all requirements are met."
+                    },
+                    {
+                        "title": "Issue Decision",
+                        "description": "Approve for issuance, approve with conditions, or reject with detailed explanation."
+                    }
+                ]
+            },
+            "checklist": {
+                "title": "Review Checklist",
+                "items": [
+                    "Methodology approved for registry use",
+                    "Validation report complete and acceptable",
+                    "Verification report complete and acceptable",
+                    "Credit calculation verified correctly",
+                    "Additionality confirmed by VVB",
+                    "Safeguards verified by VVB",
+                    "All documentation complete",
+                    "Registration fees paid",
+                    "Registry-specific requirements met",
+                    "Project ready for credit issuance"
+                ]
+            },
+            "creditIssuance": {
+                "title": "Credit Issuance",
+                "steps": [
+                    {
+                        "title": "Confirm Issuance Details",
+                        "description": "Verify the quantity of credits to be issued based on verified emission reductions."
+                    },
+                    {
+                        "title": "Assign Serial Numbers",
+                        "description": "Generate unique serial numbers for each credit following registry conventions."
+                    },
+                    {
+                        "title": "Issue Credits",
+                        "description": "Create the credit batch and assign to the project developer's account."
+                    },
+                    {
+                        "title": "Generate Certificate",
+                        "description": "Create and upload the official registry certificate for the credit issuance."
+                    }
+                ]
+            }
         }
     }
 }

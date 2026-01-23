@@ -41,7 +41,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer dir={isArabic ? 'rtl' : 'ltr'} className="relative border-t border-emerald-500/10 bg-slate-950/90">
+    <footer dir="ltr" className="relative border-t border-emerald-500/10 bg-slate-950/90">
       <div className="mx-auto max-w-7xl px-4 py-8 md:py-12 text-slate-400">
         {/* TOP GRID - Brand + Navigation */}
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-6 md:gap-8 mb-8 md:mb-12">

@@ -94,12 +94,14 @@ function SectorCard({
     sector,
     isCarbon,
     isExpanded,
-    onToggle
+    onToggle,
+    t
 }: {
     sector: AggregatedSector;
     isCarbon: boolean;
     isExpanded: boolean;
     onToggle: () => void;
+    t: (key: string) => string;
 }) {
     const handleClick = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -132,19 +134,19 @@ function SectorCard({
                         </div>
                         <div>
                             <h3 className="text-lg font-semibold text-slate-100">{sector.name}</h3>
-                            <p className="text-xs text-slate-400">{sector.registryBreakdown.length} registr{sector.registryBreakdown.length !== 1 ? 'ies' : 'y'}</p>
+                            <p className="text-xs text-slate-400">{sector.registryBreakdown.length} {sector.registryBreakdown.length !== 1 ? t('insights.sectorCard.registries') : t('insights.sectorCard.registry')}</p>
                         </div>
                     </div>
 
                     <div className="flex items-center gap-6">
                         <div className="text-right hidden sm:block">
-                            <p className="text-xs text-slate-400 uppercase tracking-wider">Total Issued</p>
+                            <p className="text-xs text-slate-400 uppercase tracking-wider">{t('insights.sectorCard.totalIssued')}</p>
                             <p className={`text-xl font-bold ${isCarbon ? 'text-emerald-400' : 'text-cyan-400'}`}>
                                 {formatNumber(sector.totalIssued)}
                             </p>
                         </div>
                         <div className="text-right hidden sm:block">
-                            <p className="text-xs text-slate-400 uppercase tracking-wider">Total Retired</p>
+                            <p className="text-xs text-slate-400 uppercase tracking-wider">{t('insights.sectorCard.totalRetired')}</p>
                             <p className="text-xl font-semibold text-slate-300">
                                 {formatNumber(sector.totalRetired)}
                             </p>
@@ -158,13 +160,13 @@ function SectorCard({
                 {/* Mobile stats */}
                 <div className="flex gap-4 mt-4 sm:hidden">
                     <div className="flex-1 bg-slate-800/50 rounded-lg p-3">
-                        <p className="text-xs text-slate-400">Issued</p>
+                        <p className="text-xs text-slate-400">{t('insights.sectorCard.issued')}</p>
                         <p className={`text-lg font-bold ${isCarbon ? 'text-emerald-400' : 'text-cyan-400'}`}>
                             {formatNumber(sector.totalIssued)}
                         </p>
                     </div>
                     <div className="flex-1 bg-slate-800/50 rounded-lg p-3">
-                        <p className="text-xs text-slate-400">Retired</p>
+                        <p className="text-xs text-slate-400">{t('insights.sectorCard.retired')}</p>
                         <p className="text-lg font-semibold text-slate-300">
                             {formatNumber(sector.totalRetired)}
                         </p>
@@ -176,7 +178,7 @@ function SectorCard({
             {isExpanded && (
                 <div className="border-t border-slate-700/50 p-5 animate-fadeIn">
                     <h4 className="text-sm font-medium text-slate-400 mb-4 uppercase tracking-wider">
-                        Registry Breakdown for <span className={`${isCarbon ? 'text-emerald-400' : 'text-cyan-400'} font-bold`}>{sector.name}</span>
+                        {t('insights.sectorCard.registryBreakdown')} <span className={`${isCarbon ? 'text-emerald-400' : 'text-cyan-400'} font-bold`}>{sector.name}</span>
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {sector.registryBreakdown.map((reg, idx) => (
@@ -195,13 +197,13 @@ function SectorCard({
 
                                 <div className="space-y-3">
                                     <div className="flex justify-between items-center">
-                                        <span className="text-xs text-slate-400">Issued</span>
+                                        <span className="text-xs text-slate-400">{t('insights.sectorCard.issued')}</span>
                                         <span className={`text-sm font-semibold ${isCarbon ? 'text-emerald-300' : 'text-cyan-300'}`}>
                                             {formatNumber(reg.issued)}
                                         </span>
                                     </div>
                                     <div className="flex justify-between items-center">
-                                        <span className="text-xs text-slate-400">Retired</span>
+                                        <span className="text-xs text-slate-400">{t('insights.sectorCard.retired')}</span>
                                         <span className="text-sm font-semibold text-slate-300">
                                             {formatNumber(reg.retired)}
                                         </span>
@@ -209,7 +211,7 @@ function SectorCard({
                                     {reg.retired !== null && reg.issued > 0 && (
                                         <div className="pt-2 border-t border-slate-700/50">
                                             <div className="flex justify-between items-center mb-1">
-                                                <span className="text-xs text-slate-500">Retirement Rate</span>
+                                                <span className="text-xs text-slate-500">{t('insights.sectorCard.retirementRate')}</span>
                                                 <span className="text-xs font-medium text-amber-400">
                                                     {((reg.retired / reg.issued) * 100).toFixed(1)}%
                                                 </span>
@@ -233,31 +235,31 @@ function SectorCard({
 }
 
 // Summary Stats Component
-function SummaryStats({ carbonData, recData }: { carbonData: CategoryData; recData: CategoryData }) {
+function SummaryStats({ carbonData, recData, t }: { carbonData: CategoryData; recData: CategoryData; t: (key: string) => string }) {
     const stats = [
         {
-            label: 'Carbon Credits Issued',
+            label: t('insights.stats.carbonIssued'),
             value: carbonData.summary.totalIssued,
             unit: carbonData.summary.unit,
             icon: <Leaf className="w-5 h-5" />,
             isCarbon: true
         },
         {
-            label: 'Carbon Credits Retired',
+            label: t('insights.stats.carbonRetired'),
             value: carbonData.summary.totalRetired,
             unit: carbonData.summary.unit,
             icon: <TrendingDown className="w-5 h-5" />,
             isCarbon: true
         },
         {
-            label: 'RECs Issued',
+            label: t('insights.stats.recsIssued'),
             value: recData.summary.totalIssued,
             unit: recData.summary.unit,
             icon: <Zap className="w-5 h-5" />,
             isCarbon: false
         },
         {
-            label: 'RECs Retired',
+            label: t('insights.stats.recsRetired'),
             value: recData.summary.totalRetired,
             unit: recData.summary.unit,
             icon: <TrendingDown className="w-5 h-5" />,
@@ -472,6 +474,7 @@ export default function Insights() {
                     <SummaryStats
                         carbonData={data.carbonCredits}
                         recData={data.renewableEnergyCertificates}
+                        t={t}
                     />
 
                     {/* Sector Tabs */}
@@ -480,14 +483,14 @@ export default function Insights() {
                             active={activeTab === 'carbon'}
                             onClick={() => handleTabChange('carbon')}
                             icon={<Leaf className="w-4 h-4" />}
-                            label="Carbon Credits"
+                            label={t('insights.tabs.carbon')}
                             isCarbon={true}
                         />
                         <TabButton
                             active={activeTab === 'rec'}
                             onClick={() => handleTabChange('rec')}
                             icon={<Zap className="w-4 h-4" />}
-                            label="RECs"
+                            label={t('insights.tabs.rec')}
                             isCarbon={false}
                         />
                     </div>
@@ -503,6 +506,7 @@ export default function Insights() {
                                     isCarbon={activeTab === 'carbon'}
                                     isExpanded={expandedCards.has(cardKey)}
                                     onToggle={() => toggleCard(cardKey)}
+                                    t={t}
                                 />
                             );
                         })}
@@ -512,11 +516,9 @@ export default function Insights() {
                     <div className="bg-slate-900/40 border border-slate-700/30 rounded-xl p-4 flex items-start gap-3">
                         <Info className="w-5 h-5 text-slate-500 flex-shrink-0 mt-0.5" />
                         <div className="text-sm text-slate-400">
-                            <p className="font-medium text-slate-300 mb-1">About this data</p>
+                            <p className="font-medium text-slate-300 mb-1">{t('insights.dataNotice.title')}</p>
                             <p>
-                                Data is aggregated from official registry sources and updated periodically.
-                                Sector breakdowns represent estimated distributions based on available project data.
-                                For the most current figures, please refer to individual registry portals.
+                                {t('insights.dataNotice.content')}
                             </p>
                         </div>
                     </div>

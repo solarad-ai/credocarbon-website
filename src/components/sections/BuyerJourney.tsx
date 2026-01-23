@@ -73,7 +73,7 @@ export default function BuyerJourney() {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-36 h-36 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-slate-600/50 flex items-center justify-center z-10 shadow-2xl shadow-purple-500/20">
             <div className="text-center">
               <div className="w-10 h-10 bg-gradient-to-r from-purple-400 to-orange-400 rounded-full mx-auto mb-2 shadow-lg shadow-purple-500/50" />
-              <span className="text-sm font-semibold text-slate-200">Buyer Hub</span>
+              <span className="text-sm font-semibold text-slate-200">{t('buyerJourney.hub')}</span>
             </div>
           </div>
 
@@ -133,10 +133,10 @@ export default function BuyerJourney() {
         {/* Stats section with enhanced design */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { label: "Projects Available", value: "2,500+", icon: "🌍" },
-            { label: "Avg. Due Diligence", value: "3 days", icon: "⚡" },
-            { label: "Deal Rooms Active", value: "250+", icon: "🤝" },
-            { label: "Retirement Certificates", value: "Instant", icon: "✓" }
+            { label: t('buyerJourney.stats.projects.label'), value: t('buyerJourney.stats.projects.value'), icon: "🌍" },
+            { label: t('buyerJourney.stats.dueDiligence.label'), value: t('buyerJourney.stats.dueDiligence.value'), icon: "⚡" },
+            { label: t('buyerJourney.stats.dealRooms.label'), value: t('buyerJourney.stats.dealRooms.value'), icon: "🤝" },
+            { label: t('buyerJourney.stats.retirement.label'), value: t('buyerJourney.stats.retirement.value'), icon: "✓" }
           ].map((stat) => (
             <div
               key={stat.label}

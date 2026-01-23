@@ -44,6 +44,48 @@
         "leadership": "Leadership",
         "advisoryBoard": "Advisory Board"
     },
+    "people": {
+        "founder": {
+            "desg": "Founder & CEO, CredoCarbon",
+            "credential": "PhD, IIT Delhi | Climate & AI Systems Architect",
+            "bio": "Haider brings deep expertise in building climate data infrastructure from his work at Solarad AI, where he designed AI-driven forecasting systems for solar power prediction. That experience in making climate data reliable and actionable now informs CredoCarbon's approach to carbon market infrastructure.",
+            "vision": "His long-term vision is to make climate data as trusted, auditable, and foundational to global markets as financial data is today."
+        },
+        "strategyHeads": {
+            "ali": {
+                "desg": "Marketing & Business Head",
+                "quote": "Driving CredoCarbon's market presence through strategic partnerships and ecosystem development",
+                "bio": "Ali spearheads CredoCarbon's strategic growth and business development initiatives, bringing a wealth of experience in scaling climate technology ventures and building high-impact partnerships across the carbon market value chain."
+            },
+            "waqar": {
+                "desg": "Strategy & Finance Head",
+                "quote": "Building sustainable financial frameworks for climate infrastructure growth",
+                "bio": "Waqar brings extensive expertise in asset finance, portfolio management, and strategic advisory to drive CredoCarbon's financial operations and advertising strategy."
+            }
+        },
+        "advisors": {
+            "asad": {
+                "desg": "Advisor - MRV Engineering",
+                "expertise": "MRV systems and petrochemical engineering"
+            },
+            "vikram": {
+                "desg": "Advisor – Energy Systems & Climate Policy",
+                "expertise": "Energy systems, climate policy, and renewable energy markets"
+            },
+            "fahreen": {
+                "desg": "Advisor – Technology & Analytics",
+                "expertise": "Technology innovation and data analytics"
+            }
+        },
+        "teamMembers": {
+            "ritesh": {
+                "desg": "Technology Head"
+            },
+            "sidhant": {
+                "desg": "Software Development Engineer"
+            }
+        }
+    },
     "footer": {
         "tagline": "Independent climate infrastructure venture"
     }

@@ -248,13 +248,13 @@ export default function VVBJourney() {
         <div className="mt-24">
           <div className="text-center mb-12">
             <h3 className="text-2xl md:text-3xl font-bold text-slate-200 mb-3">
-              Trusted by Leading{" "}
+              {t('vvbJourney.partners.title')}{" "}
               <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-                VVBs
+                {t('vvbJourney.partners.highlight')}
               </span>
             </h3>
             <p className="text-slate-400">
-              Partnering with world-class verification bodies
+              {t('vvbJourney.partners.subtitle')}
             </p>
           </div>
 
@@ -310,7 +310,7 @@ export default function VVBJourney() {
 
         {/* Bottom CTA */}
         <div className="mt-8 text-center">
-          <span className="text-sm text-slate-500">Streamlined verification from intake to certification</span>
+          <span className="text-sm text-slate-500">{t('vvbJourney.tagline')}</span>
         </div>
       </div>
     </section>

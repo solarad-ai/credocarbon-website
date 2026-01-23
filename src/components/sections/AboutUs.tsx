@@ -34,34 +34,33 @@ export default function AboutUs() {
   const founder = {
     name: "Dr. Haider Abbas",
     picture: "/images/haider.jpeg",
-    desg: "Founder & CEO, CredoCarbon",
+    desg: t('people.founder.desg'),
     linkedIn: "https://www.linkedin.com/in/-haiderabbas/",
     mail: "mailto:haider@solarad.ai",
     portfolio: "https://drhaiderabbas.com",
-    credential: "PhD, IIT Delhi | Climate & AI Systems Architect",
-    bio: "Haider brings deep expertise in building climate data infrastructure from his work at Solarad AI, where he designed AI-driven forecasting systems for solar power prediction. That experience in making climate data reliable and actionable now informs CredoCarbon's approach to carbon market infrastructure.",
-    vision:
-      "His long-term vision is to make climate data as trusted, auditable, and foundational to global markets as financial data is today.",
+    credential: t('people.founder.credential'),
+    bio: t('people.founder.bio'),
+    vision: t('people.founder.vision'),
   };
 
   const strategyHeads = [
     {
       name: "Ali Abbas",
       picture: "/images/Ali.png",
-      desg: "Marketing & Business Head",
+      desg: t('people.strategyHeads.ali.desg'),
       linkedIn: "https://www.linkedin.com/in/s-ali-abbas-9a5579151/",
       imagePosition: "center 25%",
-      quote: "Driving CredoCarbon's market presence through strategic partnerships and ecosystem development",
-      bio: "Ali spearheads CredoCarbon's strategic growth and business development initiatives, bringing a wealth of experience in scaling climate technology ventures and building high-impact partnerships across the carbon market value chain.",
+      quote: t('people.strategyHeads.ali.quote'),
+      bio: t('people.strategyHeads.ali.bio'),
     },
     {
       name: "Waqar Naqvi",
       picture: "/images/Waqar.jpeg",
-      desg: "Strategy & Finance Head",
+      desg: t('people.strategyHeads.waqar.desg'),
       linkedIn: "https://www.linkedin.com/in/waqar-naqvi-79084415/",
       imagePosition: "top",
-      quote: "Building sustainable financial frameworks for climate infrastructure growth",
-      bio: "Waqar brings extensive expertise in asset finance, portfolio management, and strategic advisory to drive CredoCarbon's financial operations and advertising strategy.",
+      quote: t('people.strategyHeads.waqar.quote'),
+      bio: t('people.strategyHeads.waqar.bio'),
     },
   ];
 
@@ -69,16 +68,16 @@ export default function AboutUs() {
     {
       name: "Dr. Asad Abbas",
       picture: "/images/Asad.png",
-      desg: "Advisor - MRV Engineering",
-      expertise: "MRV systems and petrochemical engineering",
+      desg: t('people.advisors.asad.desg'),
+      expertise: t('people.advisors.asad.expertise'),
       linkedIn: "https://www.linkedin.com/in/asad-petrochem/",
       imagePosition: undefined as string | undefined,
     },
     {
       name: "Prof. Vikram Singh",
       picture: "/images/vikram.jpeg",
-      desg: "Advisor – Energy Systems & Climate Policy",
-      expertise: "Energy systems, climate policy, and renewable energy markets",
+      desg: t('people.advisors.vikram.desg'),
+      expertise: t('people.advisors.vikram.expertise'),
       linkedIn:
         "https://www.linkedin.com/in/vikram-singh-53548521/?originalSubdomain=in",
       imagePosition: undefined as string | undefined,
@@ -86,8 +85,8 @@ export default function AboutUs() {
     {
       name: "Fahreen Zehra Zaidi",
       picture: "/images/fahreen.png",
-      desg: "Advisor – Technology & Analytics",
-      expertise: "Technology innovation and data analytics",
+      desg: t('people.advisors.fahreen.desg'),
+      expertise: t('people.advisors.fahreen.expertise'),
       linkedIn: "https://www.linkedin.com/in/farheen-zehra-zaidi-3ba955ba/",
       imagePosition: "center 30%",
       hasWhiteBg: true,
@@ -97,14 +96,14 @@ export default function AboutUs() {
   const teamMembers = [
     {
       name: "Ritesh Kumar",
-      picture: "/images/ritesh.jpeg", // Placeholder
-      desg: "Technology Head",
+      picture: "/images/ritesh.jpeg",
+      desg: t('people.teamMembers.ritesh.desg'),
       linkedIn: "https://www.linkedin.com/in/ritz-riteshkumar/",
     },
     {
       name: "Sidhant Rajpoot",
       picture: "/images/Sidhant.jpeg",
-      desg: "Software Development Engineer",
+      desg: t('people.teamMembers.sidhant.desg'),
       linkedIn: "https://www.linkedin.com/in/sidhantraj007/",
     },
   ];
